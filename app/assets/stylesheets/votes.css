@@ -1,0 +1,10 @@
+.vote-unvote { display: none; }
+
+.rating {
+  color: green;
+  font-size: 15px;
+}
+
+.votes {
+  background-color:#FFFAF0;
+}

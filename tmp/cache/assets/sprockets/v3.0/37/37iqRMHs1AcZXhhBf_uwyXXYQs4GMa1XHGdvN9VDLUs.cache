@@ -1,0 +1,21 @@
+I"÷(function() {
+  $(function() {
+    var questionList;
+    questionList = $('.questions-list');
+    $('.edit-question-link').click(function(e) {
+      e.preventDefault();
+      $('.question').hide();
+      return $('.edit_question').show();
+    });
+    return App.cable.subscriptions.create('QuestionsChannel', {
+      connected: function() {
+        return this.perform('follow');
+      },
+      received: function(data) {
+        return questionsList.append(data);
+      }
+    });
+  });
+
+}).call(this);
+:ET

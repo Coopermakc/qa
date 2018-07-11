@@ -1,0 +1,11 @@
+I"Õ(function() {
+  $(function() {
+    return $('.edit-question-link').click(function(e) {
+      e.preventDefault();
+      $('.question').hide();
+      return $('.edit_question').show();
+    });
+  });
+
+}).call(this);
+:ET
