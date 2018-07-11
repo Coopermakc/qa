@@ -40,9 +40,6 @@ class AnswersController < ApplicationController
   def destroy
     if @answer.user_id == current_user.id
       @answer.destroy
-    else
-      flash[:notice] = 'You don`t have right for delete'
-      redirect_to questions_path
     end
   end
 
