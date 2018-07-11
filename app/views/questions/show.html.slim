@@ -13,8 +13,8 @@
   - if user_signed_in? && current_user.author_of?(@question)
     p = link_to 'Remove', question_path, method: :delete
     p = link_to 'Edit question', '', class: 'edit-question-link'
-    p 
-.edit_question 
+    p
+.edit_question
       = form_for @question, remote: true do |f|
         = f.label :title
         = f.text_field :title
@@ -22,7 +22,7 @@
         = f.text_area :body
         = f.submit 'Save'
 .answers
-  = render 'answers'
+  = render 'answers/answers'
 
 = form_for [@question, @answer], remote: true do |f|
   p

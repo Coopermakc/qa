@@ -4,4 +4,5 @@
     <% end %>
 <% else %>
   $('#answer_<%= @answer.id %>').remove();
-<% end %> 
+  $('.answers').html('<%= j render 'answers/answers' %>');
+<% end %>

@@ -30421,3 +30421,759 @@ QuestionsChannel#follow
 QuestionsChannel is streaming from questions
 Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:27:51 +0300
 QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 12:44:09 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:44:09 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-11 12:55:41 +0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/new.html.slim within layouts/application
+  Rendered attachments/_attachments_fields.html.slim (5.8ms)
+  Rendered attachments/_attachments_fields.html.slim (6.7ms)
+  Rendered questions/new.html.slim within layouts/application (83.0ms)
+Completed 200 OK in 578ms (Views: 439.6ms | ActiveRecord: 12.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:55:42 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 12:55:42 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:55:42 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+Subscription class not found: "AnswersChannel"
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started POST "/questions" for 127.0.0.1 at 2018-07-11 12:55:59 +0300
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y/7Fh4WQgSsmuGLxBG4pGzcAwm+E+ugZn/sLwpE7smXULAc6ETxmrd2U6nkZevOG0RylvJ4NnEWTF0dqpvyeTQ==", "question"=>{"title"=>"delete_answers", "body"=>"why not\r\n"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "questions" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "delete_answers"], ["body", "why not\r\n"], ["created_at", "2018-07-11 09:55:59.752154"], ["updated_at", "2018-07-11 09:55:59.752154"], ["user_id", 1]]
+  [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/questions/65
+  [1m[36mAttachment Load (0.6ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 65], ["attachable_type", "Question"]]
+  Rendered questions/_form.html.slim (6.6ms)
+[ActionCable] Broadcasting to questions: "<form class=\"edit_question\" id=\"edit_question_65\" action=\"/questions/65\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input type=\"hidden\" name=\"_method\" value=\"patch\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"xSkRLslyilraNN7CZuo1excMHZMcBrCZP/nnW9qvSs/rdmlw39vg3vUZAZJMjopQ+sTEZlsTEhHsJOVfyaKSmA==\" /><label for=\"question_title\">Title</label><input type=\"text\" value=\"delete_answers\" name=\"question[title]\" id=\"question_title\" /><label for=\"question_body\">Text</label><textarea name=\"question[body]\" id=\"question_body\">\nwhy not\r\n</textarea><input type=\"submit\" name=\"commit\" value=\"Create\" data-disable-with=\"Create\" /></form>"
+Completed 302 Found in 66ms (ActiveRecord: 10.3ms)
+
+
+QuestionsChannel transmitting "<form class=\"edit_question\" id=\"edit_question_65\" action=\"/questions/65\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input type=\"hidden\" name=\"_method\" value=\"patch\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"x... (via streamed from questions)
+Started GET "/questions/65" for 127.0.0.1 at 2018-07-11 12:55:59 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"65"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 65], ["votable_type", "Question"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (16.5ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 65], ["attachable_type", "Question"]]
+  [1m[36mAnswer Load (0.7ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 65]]
+  Rendered questions/_answers.html.slim (6.5ms)
+  Rendered attachments/_attachments_fields.html.slim (2.9ms)
+  Rendered attachments/_attachments_fields.html.slim (2.8ms)
+  Rendered questions/show.html.slim within layouts/application (48.9ms)
+Completed 200 OK in 103ms (Views: 76.8ms | ActiveRecord: 6.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:55:59 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 12:55:59 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:55:59 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started POST "/questions/65/answers" for 127.0.0.1 at 2018-07-11 12:56:12 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"because nothing work"}, "commit"=>"Create", "question_id"=>"65"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "because nothing work"], ["question_id", 65], ["created_at", "2018-07-11 09:56:12.541032"], ["updated_at", "2018-07-11 09:56:12.541032"], ["user_id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."question_id" = $1 AND "answers"."best" = $2 ORDER BY "answers"."id" ASC LIMIT $3[0m  [["question_id", 65], ["best", "t"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "answers" SET "updated_at" = $1, "best" = $2 WHERE "answers"."id" = $3[0m  [["updated_at", "2018-07-11 09:56:12.547380"], ["best", "t"], ["id", 24]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 20ms (Views: 3.8ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/questions/65" for 127.0.0.1 at 2018-07-11 12:56:15 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"65"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 65], ["votable_type", "Question"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (7.5ms)
+  [1m[36mAttachment Load (0.6ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 65], ["attachable_type", "Question"]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 65]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 24], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (3.8ms)
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 24], ["attachable_type", "Answer"]]
+  Rendered questions/_answers.html.slim (15.9ms)
+  Rendered attachments/_attachments_fields.html.slim (2.7ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered questions/show.html.slim within layouts/application (47.6ms)
+Completed 200 OK in 85ms (Views: 75.5ms | ActiveRecord: 3.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:56:15 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 12:56:15 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:56:15 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started POST "/questions/65/answers" for 127.0.0.1 at 2018-07-11 12:56:28 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"second chance"}, "commit"=>"Create", "question_id"=>"65"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "second chance"], ["question_id", 65], ["created_at", "2018-07-11 09:56:28.685571"], ["updated_at", "2018-07-11 09:56:28.685571"], ["user_id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."question_id" = $1 AND "answers"."best" = $2 ORDER BY "answers"."id" ASC LIMIT $3[0m  [["question_id", 65], ["best", "t"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "answers" SET "best" = $1, "updated_at" = $2 WHERE "answers"."id" = $3[0m  [["best", "f"], ["updated_at", "2018-07-11 09:56:28.693296"], ["id", 24]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "answers" SET "updated_at" = $1, "best" = $2 WHERE "answers"."id" = $3[0m  [["updated_at", "2018-07-11 09:56:28.695546"], ["best", "t"], ["id", 25]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 21ms (Views: 6.6ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/questions/65" for 127.0.0.1 at 2018-07-11 12:56:32 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"65"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 65], ["votable_type", "Question"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (7.7ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 65], ["attachable_type", "Question"]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 65]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 25], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.2ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 25], ["attachable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 24], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.1ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 24], ["attachable_type", "Answer"]]
+  Rendered questions/_answers.html.slim (19.1ms)
+  Rendered attachments/_attachments_fields.html.slim (2.9ms)
+  Rendered attachments/_attachments_fields.html.slim (2.8ms)
+  Rendered questions/show.html.slim within layouts/application (50.4ms)
+Completed 200 OK in 103ms (Views: 95.3ms | ActiveRecord: 3.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:56:33 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 12:56:33 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:56:33 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started DELETE "/answers/24" for 127.0.0.1 at 2018-07-11 12:56:41 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 24]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/questions/65
+Completed 302 Found in 10ms (ActiveRecord: 2.7ms)
+
+
+Started DELETE "/questions/65" for 127.0.0.1 at 2018-07-11 12:56:41 +0300
+Processing by QuestionsController#destroy as JS
+  Parameters: {"id"=>"65"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 65]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 25]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 65]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/questions
+Completed 302 Found in 10ms (ActiveRecord: 3.1ms)
+
+
+Started DELETE "/questions" for 127.0.0.1 at 2018-07-11 12:56:41 +0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/questions"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/questions/65" for 127.0.0.1 at 2018-07-11 12:56:47 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"65"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Question with 'id'=65):
+  
+app/controllers/questions_controller.rb:56:in `load_question'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:56:47 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/questions" for 127.0.0.1 at 2018-07-11 12:56:53 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/index.html.slim within layouts/application (5.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 44.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 12:56:54 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:56:54 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+Subscription class not found: "AnswersChannel"
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started GET "/questions" for 127.0.0.1 at 2018-07-11 12:56:54 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/index.html.slim within layouts/application (5.8ms)
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 63.7ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 12:56:54 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:56:54 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+Subscription class not found: "AnswersChannel"
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 12:56:54 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/questions" for 127.0.0.1 at 2018-07-11 13:30:30 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/index.html.slim within layouts/application (20.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 124ms (Views: 99.1ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 13:30:30 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:30:30 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-11 13:30:34 +0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/new.html.slim within layouts/application
+  Rendered attachments/_attachments_fields.html.slim (6.5ms)
+  Rendered attachments/_attachments_fields.html.slim (4.2ms)
+  Rendered questions/new.html.slim within layouts/application (28.1ms)
+Completed 200 OK in 104ms (Views: 79.0ms | ActiveRecord: 3.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:30:34 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 13:30:34 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:30:34 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started POST "/questions" for 127.0.0.1 at 2018-07-11 13:30:51 +0300
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NDhneFe2c9v5STCFPp4WFf8KaJWYtWjTsXq67oDHYSOD6qXFwxqUXQJluA0jisyIGRYPRoJCHI+9lvZGtwBNCw==", "question"=>{"title"=>"json", "body"=>""}, "commit"=>"Create"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (13.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 24ms (ActiveRecord: 14.4ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Body can't be blank):
+  
+app/controllers/questions_controller.rb:26:in `create'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:30:52 +0300
+QuestionsChannel stopped streaming from questions
+Started POST "/questions" for 127.0.0.1 at 2018-07-11 13:31:05 +0300
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NDhneFe2c9v5STCFPp4WFf8KaJWYtWjTsXq67oDHYSOD6qXFwxqUXQJluA0jisyIGRYPRoJCHI+9lvZGtwBNCw==", "question"=>{"title"=>"json", "body"=>"js"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "json"], ["body", "js"], ["created_at", "2018-07-11 10:31:05.466838"], ["updated_at", "2018-07-11 10:31:05.466838"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/questions/66
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 66], ["attachable_type", "Question"]]
+  Rendered questions/_form.html.slim (7.1ms)
+[ActionCable] Broadcasting to questions: "<form class=\"edit_question\" id=\"edit_question_66\" action=\"/questions/66\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input type=\"hidden\" name=\"_method\" value=\"patch\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"gNkb/y/pLlhGpAJRFttRpFe3JkvJkJK7hl32C/I0G25DG7xPTXjSwBTcbvwgO2Ub+sRpHw3+4CDvTmU/zRIWUg==\" /><label for=\"question_title\">Title</label><input type=\"text\" value=\"json\" name=\"question[title]\" id=\"question_title\" /><label for=\"question_body\">Text</label><textarea name=\"question[body]\" id=\"question_body\">\njs</textarea><input type=\"submit\" name=\"commit\" value=\"Create\" data-disable-with=\"Create\" /></form>"
+Completed 302 Found in 50ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/questions/66" for 127.0.0.1 at 2018-07-11 13:31:05 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"66"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 66], ["votable_type", "Question"]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (15.2ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 66], ["attachable_type", "Question"]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 66]]
+  Rendered questions/_answers.html.slim (9.6ms)
+  Rendered attachments/_attachments_fields.html.slim (3.2ms)
+  Rendered attachments/_attachments_fields.html.slim (3.1ms)
+  Rendered questions/show.html.slim within layouts/application (58.0ms)
+Completed 200 OK in 126ms (Views: 94.4ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 13:31:05 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:31:05 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started POST "/questions/66/answers" for 127.0.0.1 at 2018-07-11 13:31:23 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"correct js"}, "commit"=>"Create", "question_id"=>"66"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "correct js"], ["question_id", 66], ["created_at", "2018-07-11 10:31:23.547958"], ["updated_at", "2018-07-11 10:31:23.547958"], ["user_id", 1]]
+  [1m[35m (17.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 66]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 26], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (7.3ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 26], ["attachable_type", "Answer"]]
+  Rendered questions/_answers.html.slim (21.3ms)
+  Rendered answers/create.js.erb (26.0ms)
+Completed 200 OK in 85ms (Views: 47.8ms | ActiveRecord: 20.3ms)
+
+
+Started PATCH "/answers/26/best" for 127.0.0.1 at 2018-07-11 13:32:02 +0300
+Processing by AnswersController#best as JS
+  Parameters: {"id"=>"26"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."question_id" = $1 AND "answers"."best" = $2 ORDER BY "answers"."id" ASC LIMIT $3[0m  [["question_id", 66], ["best", "t"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "answers" SET "best" = $1, "updated_at" = $2 WHERE "answers"."id" = $3[0m  [["best", "t"], ["updated_at", "2018-07-11 10:32:02.037816"], ["id", 26]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/best.js.erb
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 66]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 26], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (8.6ms)
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 26], ["attachable_type", "Answer"]]
+  Rendered questions/_answers.html.slim (58.1ms)
+  Rendered answers/best.js.erb (91.5ms)
+Completed 200 OK in 191ms (Views: 133.8ms | ActiveRecord: 11.0ms)
+
+
+Started DELETE "/answers/26" for 127.0.0.1 at 2018-07-11 13:32:07 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"26"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 26]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/questions/66
+Completed 302 Found in 10ms (ActiveRecord: 2.9ms)
+
+
+Started DELETE "/questions/66" for 127.0.0.1 at 2018-07-11 13:32:07 +0300
+Processing by QuestionsController#destroy as JS
+  Parameters: {"id"=>"66"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 66]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "questions" WHERE "questions"."id" = $1[0m  [["id", 66]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/questions
+Completed 302 Found in 11ms (ActiveRecord: 2.4ms)
+
+
+Started DELETE "/questions" for 127.0.0.1 at 2018-07-11 13:32:07 +0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/questions"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/questions/66" for 127.0.0.1 at 2018-07-11 13:32:13 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"66"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Question with 'id'=66):
+  
+app/controllers/questions_controller.rb:56:in `load_question'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:32:14 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 13:32:21 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:32:21 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started POST "/questions" for 127.0.0.1 at 2018-07-11 13:55:48 +0300
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NDhneFe2c9v5STCFPp4WFf8KaJWYtWjTsXq67oDHYSOD6qXFwxqUXQJluA0jisyIGRYPRoJCHI+9lvZGtwBNCw==", "question"=>{"title"=>"json", "body"=>"js"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "questions" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "json"], ["body", "js"], ["created_at", "2018-07-11 10:55:48.758895"], ["updated_at", "2018-07-11 10:55:48.758895"], ["user_id", 1]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/questions/67
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 67], ["attachable_type", "Question"]]
+  Rendered questions/_form.html.slim (17.3ms)
+[ActionCable] Broadcasting to questions: "<form class=\"edit_question\" id=\"edit_question_67\" action=\"/questions/67\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input type=\"hidden\" name=\"_method\" value=\"patch\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"DxVrAFHKMd5OLdW2t/RwuSH0txeaMmEqN9SLZxn5TpvYYPjt4Fk7E6EGBgcZmyJjAKGfxew98vo2rEe5y1zmaA==\" /><label for=\"question_title\">Title</label><input type=\"text\" value=\"json\" name=\"question[title]\" id=\"question_title\" /><label for=\"question_body\">Text</label><textarea name=\"question[body]\" id=\"question_body\">\njs</textarea><input type=\"submit\" name=\"commit\" value=\"Create\" data-disable-with=\"Create\" /></form>"
+Completed 302 Found in 110ms (ActiveRecord: 18.5ms)
+
+
+Started GET "/questions/67" for 127.0.0.1 at 2018-07-11 13:55:48 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"67"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 67], ["votable_type", "Question"]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (27.3ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 67], ["attachable_type", "Question"]]
+  Rendered questions/show.html.slim within layouts/application (52.0ms)
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 7.2ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/_answers, application/_answers with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :slim, :coffee, :jbuilder]}. Searched in:
+  * "/Users/macbook/qa/app/views"
+  * "/Users/macbook/.rvm/gems/ruby-2.4.1/gems/devise-4.4.3/app/views"
+):
+    22:         = f.text_area :body
+    23:         = f.submit 'Save'
+    24: .answers
+    25:   = render 'answers'
+    26: 
+    27: = form_for [@question, @answer], remote: true do |f|
+    28:   p
+  
+app/views/questions/show.html.slim:25:in `_app_views_questions_show_html_slim__651527258906614831_70164820229220'
+Started GET "/questions/67" for 127.0.0.1 at 2018-07-11 13:58:28 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"67"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 67], ["votable_type", "Question"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (8.0ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 67], ["attachable_type", "Question"]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 67]]
+  Rendered answers/_answers.html.slim (6.9ms)
+  Rendered attachments/_attachments_fields.html.slim (3.1ms)
+  Rendered attachments/_attachments_fields.html.slim (3.4ms)
+  Rendered questions/show.html.slim within layouts/application (42.9ms)
+Completed 200 OK in 93ms (Views: 85.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 13:58:28 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:58:28 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started GET "/questions" for 127.0.0.1 at 2018-07-11 13:58:37 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/index.html.slim within layouts/application (5.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 40.4ms | ActiveRecord: 1.1ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:58:37 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 13:58:37 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:58:37 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started GET "/questions/67" for 127.0.0.1 at 2018-07-11 13:58:39 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"67"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 67], ["votable_type", "Question"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (7.6ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 67], ["attachable_type", "Question"]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 67]]
+  Rendered answers/_answers.html.slim (7.3ms)
+  Rendered attachments/_attachments_fields.html.slim (3.7ms)
+  Rendered attachments/_attachments_fields.html.slim (3.6ms)
+  Rendered questions/show.html.slim within layouts/application (42.7ms)
+Completed 200 OK in 79ms (Views: 72.2ms | ActiveRecord: 1.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:58:39 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 13:58:39 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:58:39 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started POST "/questions/67/answers" for 127.0.0.1 at 2018-07-11 13:58:46 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"my_ answer"}, "commit"=>"Create", "question_id"=>"67"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "my_ answer"], ["question_id", 67], ["created_at", "2018-07-11 10:58:46.552421"], ["updated_at", "2018-07-11 10:58:46.552421"], ["user_id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  Rendered answers/create.js.erb (8.4ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/_answers with {:locale=>[:en], :formats=>[:js, :html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :slim, :coffee, :jbuilder]}. Searched in:
+  * "/Users/macbook/qa/app/views"
+  * "/Users/macbook/.rvm/gems/ruby-2.4.1/gems/devise-4.4.3/app/views"
+):
+    3:         $('.answer-errors').html('<%= j message %>');
+    4:     <% end %>
+    5: <% else %>
+    6:     $('.answers').html('<%= j render 'questions/answers' %>');
+    7:     $('#answer_body').val('');
+    8: <% end %>
+  
+app/views/answers/create.js.erb:6:in `_app_views_answers_create_js_erb___1755067880221034941_70164848468140'
+Started GET "/questions/67" for 127.0.0.1 at 2018-07-11 13:58:51 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"67"}
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 67], ["votable_type", "Question"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (7.6ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 67], ["attachable_type", "Question"]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 67]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 27], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (3.3ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 27], ["attachable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (16.1ms)
+  Rendered attachments/_attachments_fields.html.slim (2.9ms)
+  Rendered attachments/_attachments_fields.html.slim (2.9ms)
+  Rendered questions/show.html.slim within layouts/application (49.2ms)
+Completed 200 OK in 96ms (Views: 87.6ms | ActiveRecord: 2.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:58:51 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 13:58:51 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:58:51 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+Subscription class not found: "AnswersChannel"
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started DELETE "/answers/27" for 127.0.0.1 at 2018-07-11 13:58:57 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 27]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/destroy.js.erb
+  Rendered answers/destroy.js.erb (0.6ms)
+Completed 200 OK in 63ms (Views: 30.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/questions/67" for 127.0.0.1 at 2018-07-11 13:59:00 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"67"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 67], ["votable_type", "Question"]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (8.1ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 67], ["attachable_type", "Question"]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 67]]
+  Rendered answers/_answers.html.slim (7.2ms)
+  Rendered attachments/_attachments_fields.html.slim (3.3ms)
+  Rendered attachments/_attachments_fields.html.slim (2.8ms)
+  Rendered questions/show.html.slim within layouts/application (39.6ms)
+Completed 200 OK in 76ms (Views: 69.1ms | ActiveRecord: 2.1ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:59:00 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 13:59:00 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 13:59:00 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started POST "/questions/67/answers" for 127.0.0.1 at 2018-07-11 14:03:24 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"my_answer"}, "commit"=>"Create", "question_id"=>"67"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "my_answer"], ["question_id", 67], ["created_at", "2018-07-11 11:03:24.879903"], ["updated_at", "2018-07-11 11:03:24.879903"], ["user_id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  Rendered answers/create.js.erb (8.3ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 4.6ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/_answers with {:locale=>[:en], :formats=>[:js, :html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :slim, :coffee, :jbuilder]}. Searched in:
+  * "/Users/macbook/qa/app/views"
+  * "/Users/macbook/.rvm/gems/ruby-2.4.1/gems/devise-4.4.3/app/views"
+):
+    3:         $('.answer-errors').html('<%= j message %>');
+    4:     <% end %>
+    5: <% else %>
+    6:     $('.answers').html('<%= j render 'questions/answers' %>');
+    7:     $('#answer_body').val('');
+    8: <% end %>
+  
+app/views/answers/create.js.erb:6:in `_app_views_answers_create_js_erb___1755067880221034941_70164796888420'
+Started GET "/questions/67" for 127.0.0.1 at 2018-07-11 14:03:30 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"67"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 67], ["votable_type", "Question"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (9.3ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 67], ["attachable_type", "Question"]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 67]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 28], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.3ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 28], ["attachable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (15.0ms)
+  Rendered attachments/_attachments_fields.html.slim (12.2ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered questions/show.html.slim within layouts/application (57.7ms)
+Completed 200 OK in 95ms (Views: 86.9ms | ActiveRecord: 2.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 14:03:30 +0300
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-11 14:03:30 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-11 14:03:30 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "AnswersChannel"
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started DELETE "/answers/28" for 127.0.0.1 at 2018-07-11 14:03:33 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"28"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 28]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/destroy.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 67]]
+  Rendered answers/_answers.html.slim (7.4ms)
+  Rendered answers/destroy.js.erb (29.5ms)
+Completed 200 OK in 84ms (Views: 57.8ms | ActiveRecord: 3.2ms)
+
+

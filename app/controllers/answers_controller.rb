@@ -21,9 +21,9 @@ class AnswersController < ApplicationController
     # end
     respond_to do |format|
       if @answer.save
-        format.json { render json: @answer }
+        format.js
       else
-        format.json { render json: @answer.errors.full_messages, status: :unprocessable_entity }
+        format.js { render json: @answer.errors.full_messages, status: :unprocessable_entity }
       end
       gon.watch.answers = @answer.question.answers
     end
@@ -40,7 +40,6 @@ class AnswersController < ApplicationController
   def destroy
     if @answer.user_id == current_user.id
       @answer.destroy
-      redirect_to @answer.question
     else
       flash[:notice] = 'You don`t have right for delete'
       redirect_to questions_path
