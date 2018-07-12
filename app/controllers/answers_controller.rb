@@ -13,12 +13,6 @@ class AnswersController < ApplicationController
   def create
     @answer = @question.answers.new(answer_params)
     @answer.user_id = current_user.id
-    # if @answer.save
-    #   flash[:notice] = 'Your answer successfully create.'
-    #   redirect_to @question
-    # else
-    #   render :new
-    # end
     respond_to do |format|
       if @answer.save
         format.js
@@ -55,7 +49,7 @@ class AnswersController < ApplicationController
 
   def publish_answer
     return if @answer.errors.any?
-    #ActionCabel.server.broadcast 'answers', ApplicationController.render(partial: 'questions/answers', assigns: { question: @answer.question })
+    ActionCabel.server.broadcast 'answers', ApplicationController.render(partial: 'questions/answers', assigns: { question: @answer.question })
   end
   def load_question
     @question = Question.find(params[:question_id])

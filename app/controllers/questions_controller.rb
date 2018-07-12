@@ -58,8 +58,7 @@ class QuestionsController < ApplicationController
 
   def publish_question
     return if @question.errors.any?
-    ActionCable.server.broadcast 'questions', ApplicationController.render(partial: 'questions/form', assigns: { question: @question })
-
+    ActionCabel.server.broadcast 'questions', ApplicationController.render(partial: 'questions/form', assigns: { question: @question })
   end
 
   def question_params
