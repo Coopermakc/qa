@@ -1,0 +1,9 @@
+<% if @comment.errors.present? %>
+    <% @comment.errors.full_messages.each do |message| %>
+      $('#<%= @comment.commentable_type.downcase %>-<%=@comment.commentable_id %> .comment-errors').html('<%= j message %>');
+    <% end %>
+<% else %>
+  $('#<%= @comment.commentable_type.downcase %>-<%= @comment.commentable_id %> #comment_comment_body').val('');
+  $('#<%= @comment.commentable_type.downcase %>-<%= @comment.commentable_id %> .new-comment').hide();
+  $('#<%= @comment.commentable_type.downcase %>-<%= @comment.commentable_id %> .new-comment-link').show();
+<% end %> 

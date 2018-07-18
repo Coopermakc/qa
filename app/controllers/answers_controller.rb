@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :load_question, only: [:create]
   before_action :set_answer, only: [:destroy, :update, :best]
-  after_action :publish_answer, only: [:create]
+  #after_action :publish_answer, only: [:create]
   def index
   end
   def new
@@ -49,7 +49,7 @@ class AnswersController < ApplicationController
 
   def publish_answer
     return if @answer.errors.any?
-    ActionCabel.server.broadcast 'answers', ApplicationController.render(partial: 'questions/answers', assigns: { question: @answer.question })
+    ActionCable.server.broadcast 'answers', ApplicationController.render(partial: 'answers/answers', locals: { question: @answer.question })
   end
   def load_question
     @question = Question.find(params[:question_id])

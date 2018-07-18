@@ -6,7 +6,7 @@ $ ->
   $('.edit-question-link').click (e) ->
     e.preventDefault();
     $('.question').hide();
-    $('.edit_question').show();
+    $('.edit_question').show()
 
   App.cable.subscriptions.create('QuestionsChannel', {
     connected: ->

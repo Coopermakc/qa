@@ -1,0 +1,13 @@
+I"0(function() {
+  $(function() {
+    return $('.new-comment-link').click(function(e) {
+      var commentable_id;
+      e.preventDefault();
+      $(this).hide();
+      commentable_id = $(this).data('commentableId');
+      return $('form#new-comment-' + commentable_id).show();
+    });
+  });
+
+}).call(this);
+:ET
