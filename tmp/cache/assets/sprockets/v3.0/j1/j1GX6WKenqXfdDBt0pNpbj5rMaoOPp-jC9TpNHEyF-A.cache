@@ -1,0 +1,24 @@
+I"s(function() {
+  $(function() {
+    var commentsList;
+    commentsList = $('.comments');
+    $('.new-comment-link').click(function(e) {
+      var commentable_id;
+      e.preventDefault();
+      $(this).hide();
+      commentable_id = $(this).data('commentableId');
+      return $('form#new-comment-' + commentable_id).show();
+    });
+    return App.cable.subscriptions.create('QuestionsChannel', {
+      connected: function() {
+        return this.perform('follow');
+      },
+      received: function(data) {
+        console.log(gon.answers);
+        return answersList.append(gon.answers);
+      }
+    });
+  });
+
+}).call(this);
+:ET
