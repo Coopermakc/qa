@@ -24,6 +24,7 @@ gem 'slim-rails'
 gem 'rails-controller-testing'
 gem 'jquery-rails'
 gem 'database_cleaner'
+gem 'responders'
 
 gem 'carrierwave'
 gem 'remotipart'
@@ -34,6 +35,7 @@ gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'twitter-bootstrap-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -61,9 +63,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :assets do
-  gem 'twitter-bootstrap-rails'
-end
 
 group :test do
   gem 'shoulda-matchers'

@@ -23,9 +23,10 @@ feature 'Votes for answer', %q{
     end
 
     scenario 'Authenticated user can vote down' do
-      click_on 'vote down'
+
 
       within('.answers') do
+        click_on 'vote down'
         expect(page).to have_content '-1'
       end
     end

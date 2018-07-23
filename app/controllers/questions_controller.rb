@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   before_action :load_question, only: [:show, :update, :edit, :destroy]
 
   after_action :publish_question, only: [:create]
-  respond_to :json, :js
+  respond_to :js, :json
 
   def index
     @questions = Question.all
@@ -21,14 +21,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
-    @question.user_id = current_user.id
-    if @question.save!
-      flash[:notice] = 'Question successfully created.'
-      redirect_to @question
-    else
-      render :new
-    end
+    respond_with(@question = current_user.questions.create(question_params))
   end
 
   def update

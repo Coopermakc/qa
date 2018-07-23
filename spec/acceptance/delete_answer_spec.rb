@@ -1,4 +1,4 @@
-require 'rails_helper'
+require_relative 'acceptance_spec'
 
 feature 'User can destroy only his answer', %q{
   In order to able delete answer
@@ -14,7 +14,7 @@ feature 'User can destroy only his answer', %q{
     expect(page).to_not have_link 'Remove'
   end
 
-  scenario 'Authenticated user the author of the question' do
+  scenario 'Authenticated user the author of the question', js: true do
     sign_in(user)
     visit question_path(question)
     expect(page).to have_content my_answer.body

@@ -9,7 +9,7 @@ $ ->
     answer_id = $(this).data('answerId')
     $('form#edit-answer-' + answer_id).show()
     
-  $('form.new_answer').bind 'ajax:success', (e, data, status, xhr) ->
+  $('form#new_answer').bind 'ajax:success', (e, data, status, xhr) ->
     answer = $.parseJSON(xhr.responseText)
     $('.answers').append('<p>' + answer.body + '</p>')
   .bind 'ajax:error', (e, xhr, status, error) ->

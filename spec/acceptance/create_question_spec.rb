@@ -1,4 +1,4 @@
-require 'rails_helper'
+require_relative 'acceptance_spec'
 
 
 feature 'User can ask a question', %q{

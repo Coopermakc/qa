@@ -4,24 +4,26 @@ class AnswersController < ApplicationController
   before_action :load_question, only: [:create]
   before_action :set_answer, only: [:destroy, :update, :best]
   #after_action :publish_answer, only: [:create]
+  respond_to :js, :json
   def index
   end
   def new
     @answer = Answer.new
+    respond_with @answer
   end
 
   def create
-    @answer = @question.answers.new(answer_params)
-    @answer.user_id = current_user.id
-    respond_to do |format|
-      if @answer.save
-        format.js
-      else
-        format.js { render json: @answer.errors.full_messages, status: :unprocessable_entity }
-      end
-      gon.watch.answers = @answer.question.answers
-    end
-
+    # @answer = @question.answers.new(answer_params)
+    # @answer.user_id = current_user.id
+    # respond_to do |format|
+    #   if @answer.save!
+    #     format.js
+    #   else
+    #     format.js { render json: @answer.errors.full_messages, status: :unprocessable_entity }
+    #   end
+    #   gon.watch.answers = @answer.question.answers
+    # end
+    respond_with (@answer = @question.answers.create(answer_params.merge({ user: current_user })))
   end
 
   def update
