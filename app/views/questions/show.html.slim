@@ -1,7 +1,7 @@
 .question
   h1= @question.title
   p= @question.body
-  = render 'votes/vote', type: 'questions', votable: @question
+  = render partial: 'votes/vote', locals: { type: 'question', votable: @question }
   ul
   -@question.attachments.each do |a|
       li id="attachment-id-#{a.id}"

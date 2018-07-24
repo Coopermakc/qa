@@ -15,15 +15,15 @@ feature 'Votes for answer', %q{
       sign_in user
       visit question_path(question)
     end
-    scenario 'Authenticated user can vote' do
-      click_on 'vote up'
+    scenario 'Authenticated user can vote', js: true do
+
       within('.answers') do
+          click_on 'vote up'
           expect(page).to have_content '1'
       end
     end
 
-    scenario 'Authenticated user can vote down' do
-
+    scenario 'Authenticated user can vote down', js: true do
 
       within('.answers') do
         click_on 'vote down'

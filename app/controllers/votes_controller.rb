@@ -3,7 +3,7 @@ class VotesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :load_votable
-  before_action :author_votable, only: [:up, :down]
+  before_action :author_votable, only: [:up_rating, :down_rating]
 
   respond_to :json
 
@@ -21,8 +21,7 @@ class VotesController < ApplicationController
       render json: { count_votes: @vote.votable.count_votes, votable_type: @vote.votable_type, votable_id: @vote.votable_id }
     else
       head :forbidden
-end
-
+    end
   end
 
   private
