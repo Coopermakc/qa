@@ -16,9 +16,9 @@ RSpec.describe AnswersController, type: :controller do
       expect(response).to render_template :new
     end
 
-    it 'build new attachment for answer' do
-      expect(assigns(:answer).attachments.first).to be_a_new(Attachment)
-    end
+    # it 'build new attachment for answer' do
+    #   expect(assigns(:answer).attachments.first).to be_a_new(Attachment)
+    # end
   end
 
   describe 'POST #create' do
@@ -28,8 +28,8 @@ RSpec.describe AnswersController, type: :controller do
         expect { post(:create, params: { answer: attributes_for(:answer), question_id: question.id, user: @user }) }.to change(question.answers, :count)
       end
       it 'redirect to @question' do
-        post(:create, params: { answer: attributes_for(:answer), question_id: question.id })
-        expect(response).to redirect_to question_path(question)
+        post(:create, params: { answer: attributes_for(:answer), question_id: question.id }, format: :js)
+        expect(response).to render_template :create
       end
     end
 
@@ -49,25 +49,27 @@ RSpec.describe AnswersController, type: :controller do
 
       let!(:answer) { create(:answer, question: question, user: @user) }
       it 'del own answer' do
-        expect{ delete(:destroy, params: { id: answer, user: @user }) }.to change(@user.answers, :count).by(-1)
+        expect{ delete(:destroy, params: { id: answer, user: @user }, format: :js) }.to change(@user.answers, :count).by(-1)
       end
       it 'don`t del alian question' do
-        expect{ delete(:destroy, params: { id: answer, question_id: question.id }) }.to change(Answer, :count)
+        expect{ delete(:destroy, params: { id: answer, question_id: question.id }, format: :js) }.to change(Answer, :count)
       end
-      it 'redirect to question page' do
-        delete(:destroy, params: { id: answer, question_id: question.id})
-        expect(response).to redirect_to question_path(question)
+      it 'render to questions page' do
+        delete(:destroy, params: { id: answer, question_id: question.id}, format: :js)
+        expect(response).to render_template :destroy
       end
     end
     context 'Non-authenticated user' do
       it 'can`t delete answer' do
-        expect{ delete(:destroy, params: { id: answer, question_id: question.id }) }.to_not change(Answer, :count)
+        expect{ delete(:destroy, params: { id: answer, question_id: question.id }, format: :js) }.to_not change(Answer, :count)
       end
     end
   end
 
   describe 'PATCH #update' do
+
     context 'Authenticated user' do
+      sign_in_user
       it 'assigns requested question to @question' do
         patch(:update, params: {id: answer, question_id: question.id, answer: attributes_for(:answer) }, format: :js)
         expect(assigns(:question)).to eq question
@@ -77,9 +79,9 @@ RSpec.describe AnswersController, type: :controller do
         expect(assigns(:answer)).to eq answer
       end
       it 'assigns update answers body' do
-        patch(:update, params: {id: answer, question_id: question.id, answer: { body: 'new body' } }, format: :js)
+        patch(:update, params: {id: answer.id, question_id: question.id, answer: { body: 'new body' } }, format: :js)
         answer.reload
-        expect(assigns(answer.body)).to eq 'new body'
+        expect(answer.body).to eq 'new body'
       end
       it 'render update template' do
         patch(:update, params: {id: answer, question_id: question.id, answer: attributes_for(:answer), format: :js })

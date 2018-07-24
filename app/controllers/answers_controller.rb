@@ -23,7 +23,7 @@ class AnswersController < ApplicationController
     #   end
     #   gon.watch.answers = @answer.question.answers
     # end
-    respond_with (@answer = @question.answers.create(answer_params.merge({ user: current_user })))
+    respond_with(@answer = @question.answers.create(answer_params.merge({ user: current_user })))
   end
 
   def update
@@ -41,10 +41,11 @@ class AnswersController < ApplicationController
 
   def best
     if current_user.author_of?(@answer.question)
-      @answer.best
-      flash[:notice] = 'Choose the best answer'
-      @question = @answer.question
+      # @answer.best
+      # flash[:notice] = 'Choose the best answer'
+      # @question = @answer.question
     end
+     respond_with(@answer.destroy)
   end
 
   private
