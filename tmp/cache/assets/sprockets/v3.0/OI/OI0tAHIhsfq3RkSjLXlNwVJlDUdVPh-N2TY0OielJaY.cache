@@ -1,0 +1,23 @@
+I"^(function() {
+  $(function() {
+    $('.vote-up, .vote-down').bind('ajax:success', function(e, data, status, xhr) {
+      var div_vote;
+      console.log("connect");
+      div_vote = '#' + 'vote-' + data.votable_type.toLowerCase() + '-' + data.votable_id;
+      $(div_vote + " .rating").html(data.count_votes);
+      $(div_vote + " .vote-up").hide();
+      $(div_vote + " .vote-down").hide();
+      return $(div_vote + " .vote-unvote").show();
+    });
+    return $('.vote-unvote').bind('ajax:success', function(e, data, status, xhr) {
+      var div_vote;
+      div_vote = '#' + 'vote-' + data.votable_type.toLowerCase() + '-' + data.votable_id;
+      $(div_vote + " .rating").html(data.count_votes);
+      $(div_vote + " .vote-up").show();
+      $(div_vote + " .vote-down").show();
+      return $(div_vote + " .vote-unvote").hide();
+    });
+  });
+
+}).call(this);
+:ET

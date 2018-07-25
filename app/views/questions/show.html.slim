@@ -25,7 +25,7 @@
   -@question.comments.each do |c|
     = render partial:'comments/comment', locals: { comment: c }
   = link_to 'Add comment','', class: 'new-comment-link', data: { commentable_id: @question.id }
-  
+
   =form_for [@question, @question.comments.build], remote: true, html: { id: "new-comment-#{@question.id}"} do |f|
       = f.label :comment_body, "Comment"
       = f.text_area :comment_body
@@ -40,7 +40,7 @@
     .answer-errors
     = f.text_area :body
   p
-    =f.fields_for :attachments do |a|
+    =f.fields_for :attachments, @answer.attachments.build do |a|
       = render 'attachments/attachments_fields', f: a
       = link_to_add_association 'Add', f, :attachments, partial: 'attachments/attachments_fields'
   p= f.submit 'Create'
