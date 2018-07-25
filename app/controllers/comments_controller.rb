@@ -21,6 +21,6 @@ class CommentsController < ApplicationController
 
   def publish_comments
     return if @question.errors.any?
-    ActionCable.server.broadcast 'questions', ApplicationController.render(partial: 'comments/question', locals: { comment: @comment })
+    ActionCable.server.broadcast 'comments', ApplicationController.render(partial: 'comments/comment', locals: { comment: @comment })
   end
 end

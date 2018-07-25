@@ -35,7 +35,7 @@ class AnswersController < ApplicationController
 
   def destroy
     if @answer.user_id == current_user.id
-      @answer.destroy
+      respond_with @answer.destroy
     end
   end
 
