@@ -35,11 +35,12 @@ class QuestionsController < ApplicationController
 
   def destroy
     if current_user.id == @question.user_id
-      @question.destroy
-      redirect_to questions_path
-    else
-      flash[:notice] = 'Don`t have right for delete'
-      redirect_to questions_path
+
+      respond_with(@question.destroy)
+    #   redirect_to questions_path
+    # else
+    #   flash[:notice] = 'Don`t have right for delete'
+    #   redirect_to questions_path
     end
   end
 
