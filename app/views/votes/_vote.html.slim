@@ -5,6 +5,6 @@
   - if user_signed_in? && current_user.non_author_of?(@answer)
     => link_to 'vote up', polymorphic_path([:up_rating, votable, :votes]), class: 'vote-up', method: :post, remote: true, format: :json
 
-    => link_to 'cancel', polymorphic_path([:unvote, votable, :votes]), class: 'vote-unvote', method: :post, remote: true, format: :json
+    => link_to 're-vote', polymorphic_path([:unvote, votable, :votes]), class: 'vote-unvote', method: :post, remote: true, format: :json
 
     => link_to 'vote down', polymorphic_path([:down_rating, votable, :votes]), class: 'vote-down', method: :post, remote: true, format: :json
