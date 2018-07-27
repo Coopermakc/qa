@@ -18,7 +18,7 @@ feature 'User can ask a question', %q{
     fill_in 'Text', with: 'Body of the question'
     click_on 'Create'
 
-    expect(page).to have_content 'Question successfully created.'
+    expect(page).to have_content 'Question was successfully created.'
   end
 
   scenario 'Non-authentificated user ties create question' do

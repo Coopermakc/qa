@@ -45,7 +45,7 @@ class AnswersController < ApplicationController
       # flash[:notice] = 'Choose the best answer'
       # @question = @answer.question
     end
-     respond_with(@answer.destroy)
+     respond_with(@answer.best)
   end
 
   private
