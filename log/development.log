@@ -48106,3 +48106,495 @@ Processing by QuestionsController#show as JS
 Completed 200 OK in 391ms (Views: 364.5ms | ActiveRecord: 14.0ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8064561033501595560)[0m
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAuthorizations (20180729182243)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (54.4ms)[0m  [1m[35mCREATE TABLE "authorizations" ("id" bigserial primary key, "user_id" bigint, "provider" character varying, "uid" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_4ecef5b8c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_authorizations_on_user_id" ON "authorizations"  ("user_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180729182243"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8064561033501595560)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-07-29 21:43:24 +0300
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (22.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (4.6ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.3ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.3ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/index.html.slim within layouts/application (94.5ms)
+Started GET "/" for 127.0.0.1 at 2018-07-29 21:43:26 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (2.8ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.3ms)
+  Rendered questions/index.html.slim within layouts/application (1531.5ms)
+Completed 200 OK in 13124ms (Views: 13056.9ms | ActiveRecord: 32.2ms)
+
+
+Completed 200 OK in 10858ms (Views: 10416.0ms | ActiveRecord: 439.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-29 21:43:38 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (1.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (7.5ms)
+  Rendered questions/_question.html.slim (0.3ms)
+  Rendered questions/_question.html.slim (0.3ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.7ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.3ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.3ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/index.html.slim within layouts/application (77.6ms)
+Completed 200 OK in 255ms (Views: 229.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-29 21:43:38 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-29 21:43:38 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-29 21:43:43 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (8.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (83.5ms)
+Completed 200 OK in 275ms (Views: 227.4ms | ActiveRecord: 7.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-29 21:43:44 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/cable" for 127.0.0.1 at 2018-07-29 21:43:44 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-29 21:43:44 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2018-07-29 21:43:47 +0300
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-29 21:43:47 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/facebook/callback?error=access_denied&error_code=200&error_description=Permissions%20error&error_reason=user_denied&state=4dfa78109524a1de91cc818adaf94fd8c182dd7e91f80b86" for 127.0.0.1 at 2018-07-29 22:29:52 +0300
+  
+NameError (uninitialized constant OmniauthCallbacksController):
+  
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `constantize'
+devise (4.4.3) lib/devise/omniauth.rb:21:in `block in <top (required)>'
+omniauth (1.8.1) lib/omniauth/strategy.rb:486:in `fail!'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:70:in `rescue in callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:66:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+remotipart (1.4.2) lib/remotipart/middleware.rb:32:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-07-29 22:30:08 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (3.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/index.html.slim within layouts/application (40.0ms)
+Completed 200 OK in 165ms (Views: 146.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-29 22:30:09 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-29 22:30:09 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-29 22:30:14 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 91ms (Views: 78.4ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-29 22:30:14 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-29 22:30:14 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-29 22:30:14 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2018-07-29 22:30:17 +0300
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-29 22:30:18 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/facebook/callback?code=AQBYPY-gafLeqn409Sdnh_toIgJA3uhlg7Hu2wuXG1ACIuALF-FhcKG3a-ahdCY4_dHHvCEwMXr88n-Td-AdFzAHhkGwU1OlWkjyOyMiD9tdVrSIa3IoFXeCGPrEcWQRzRjnLeH0tBWsZ2NP-Ba_yfOXFNEJvIre3bLi7LIe5LvsMulThTCYBLMo0zQZAQCtdtXJsHGbMur6PODL3dTiRqa50uIaOclznEA-EAJq4mnriR-2YfZVnUktQrRJiP2PK-5hRvqc7RpekdPXp6NtMHinl6Yp9r_bkx8N-T7X0ntGOeMwgkgvXH1UQR_SeyS2GzJun5bLJdxEZCB6hnBbeFLC&state=71e93c367479434c47c19d3a85a4703ca4285de508d78bd2" for 127.0.0.1 at 2018-07-29 22:30:23 +0300
+  
+ActionController::RoutingError (uninitialized constant OmniauthCallbacksController):
+  
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.6) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:415:in `call_app!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:369:in `callback_phase'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:67:in `block in callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:131:in `with_authorization_code!'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:66:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+remotipart (1.4.2) lib/remotipart/middleware.rb:32:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/facebook/callback?code=AQDjEtvHdv93KqkGHAUwY4OP7ZZ-Ee4Zx_PkpB0z2NEWrpzDi2if-YY3QSvl5QA-qZ6BL5YGw1MWGzlxq6WZKXUWe0E8IFtWMht1PschMbSEVON241Od3eqp0OfJ3BAcSKQB75MfzUPZX_ZcXmEyFB3eSevuk9_QhKyfA-OVHFjwBL4dzO65_u9yP30RsfkolzXyP7hw45iSqiApgJdYkwkHVhI2g2Nib9R3T97_aHx1T9sjQEwby1pXY7akUQkm76CKf8j8E1k8g_lqh_wwLv0IU6UtTAW9ddIDjwHYTEfM1JRkoeC6lYOkvLeCWwyJsvDijQWzUOKcdaKf1bACGpAU&state=71e93c367479434c47c19d3a85a4703ca4285de508d78bd2" for 127.0.0.1 at 2018-07-29 22:32:02 +0300
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant OmniauthCallbacksController):
+  
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.6) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:415:in `call_app!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:369:in `callback_phase'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:67:in `block in callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:131:in `with_authorization_code!'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:66:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+remotipart (1.4.2) lib/remotipart/middleware.rb:32:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/facebook/callback?code=AQDjEtvHdv93KqkGHAUwY4OP7ZZ-Ee4Zx_PkpB0z2NEWrpzDi2if-YY3QSvl5QA-qZ6BL5YGw1MWGzlxq6WZKXUWe0E8IFtWMht1PschMbSEVON241Od3eqp0OfJ3BAcSKQB75MfzUPZX_ZcXmEyFB3eSevuk9_QhKyfA-OVHFjwBL4dzO65_u9yP30RsfkolzXyP7hw45iSqiApgJdYkwkHVhI2g2Nib9R3T97_aHx1T9sjQEwby1pXY7akUQkm76CKf8j8E1k8g_lqh_wwLv0IU6UtTAW9ddIDjwHYTEfM1JRkoeC6lYOkvLeCWwyJsvDijQWzUOKcdaKf1bACGpAU&state=71e93c367479434c47c19d3a85a4703ca4285de508d78bd2" for 127.0.0.1 at 2018-07-29 22:33:38 +0300
+  
+NameError (uninitialized constant OmniauthCallbacksController):
+  
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `constantize'
+devise (4.4.3) lib/devise/omniauth.rb:21:in `block in <top (required)>'
+omniauth (1.8.1) lib/omniauth/strategy.rb:486:in `fail!'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:78:in `rescue in callback_phase'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:67:in `callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:67:in `block in callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:131:in `with_authorization_code!'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:66:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+remotipart (1.4.2) lib/remotipart/middleware.rb:32:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/auth/facebook/callback?code=AQDjEtvHdv93KqkGHAUwY4OP7ZZ-Ee4Zx_PkpB0z2NEWrpzDi2if-YY3QSvl5QA-qZ6BL5YGw1MWGzlxq6WZKXUWe0E8IFtWMht1PschMbSEVON241Od3eqp0OfJ3BAcSKQB75MfzUPZX_ZcXmEyFB3eSevuk9_QhKyfA-OVHFjwBL4dzO65_u9yP30RsfkolzXyP7hw45iSqiApgJdYkwkHVhI2g2Nib9R3T97_aHx1T9sjQEwby1pXY7akUQkm76CKf8j8E1k8g_lqh_wwLv0IU6UtTAW9ddIDjwHYTEfM1JRkoeC6lYOkvLeCWwyJsvDijQWzUOKcdaKf1bACGpAU&state=71e93c367479434c47c19d3a85a4703ca4285de508d78bd2" for 127.0.0.1 at 2018-07-29 22:38:34 +0300
+  
+SyntaxError (/Users/macbook/qa/app/controllers/omniauth_callbacks_controller.rb:12: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/omniauth_callbacks_controller.rb:12: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/users/auth/facebook/callback?code=AQDjEtvHdv93KqkGHAUwY4OP7ZZ-Ee4Zx_PkpB0z2NEWrpzDi2if-YY3QSvl5QA-qZ6BL5YGw1MWGzlxq6WZKXUWe0E8IFtWMht1PschMbSEVON241Od3eqp0OfJ3BAcSKQB75MfzUPZX_ZcXmEyFB3eSevuk9_QhKyfA-OVHFjwBL4dzO65_u9yP30RsfkolzXyP7hw45iSqiApgJdYkwkHVhI2g2Nib9R3T97_aHx1T9sjQEwby1pXY7akUQkm76CKf8j8E1k8g_lqh_wwLv0IU6UtTAW9ddIDjwHYTEfM1JRkoeC6lYOkvLeCWwyJsvDijQWzUOKcdaKf1bACGpAU&state=71e93c367479434c47c19d3a85a4703ca4285de508d78bd2" for 127.0.0.1 at 2018-07-29 22:39:23 +0300
+  
+NameError (uninitialized constant Users):
+  
+app/controllers/omniauth_callbacks_controller.rb:1:in `<top (required)>'
+Started GET "/users/auth/facebook/callback?code=AQDjEtvHdv93KqkGHAUwY4OP7ZZ-Ee4Zx_PkpB0z2NEWrpzDi2if-YY3QSvl5QA-qZ6BL5YGw1MWGzlxq6WZKXUWe0E8IFtWMht1PschMbSEVON241Od3eqp0OfJ3BAcSKQB75MfzUPZX_ZcXmEyFB3eSevuk9_QhKyfA-OVHFjwBL4dzO65_u9yP30RsfkolzXyP7hw45iSqiApgJdYkwkHVhI2g2Nib9R3T97_aHx1T9sjQEwby1pXY7akUQkm76CKf8j8E1k8g_lqh_wwLv0IU6UtTAW9ddIDjwHYTEfM1JRkoeC6lYOkvLeCWwyJsvDijQWzUOKcdaKf1bACGpAU&state=71e93c367479434c47c19d3a85a4703ca4285de508d78bd2" for 127.0.0.1 at 2018-07-29 22:39:39 +0300
+Processing by OmniauthCallbacksController#failure as HTML
+  Parameters: {"code"=>"AQDjEtvHdv93KqkGHAUwY4OP7ZZ-Ee4Zx_PkpB0z2NEWrpzDi2if-YY3QSvl5QA-qZ6BL5YGw1MWGzlxq6WZKXUWe0E8IFtWMht1PschMbSEVON241Od3eqp0OfJ3BAcSKQB75MfzUPZX_ZcXmEyFB3eSevuk9_QhKyfA-OVHFjwBL4dzO65_u9yP30RsfkolzXyP7hw45iSqiApgJdYkwkHVhI2g2Nib9R3T97_aHx1T9sjQEwby1pXY7akUQkm76CKf8j8E1k8g_lqh_wwLv0IU6UtTAW9ddIDjwHYTEfM1JRkoeC6lYOkvLeCWwyJsvDijQWzUOKcdaKf1bACGpAU", "state"=>"71e93c367479434c47c19d3a85a4703ca4285de508d78bd2"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-29 22:39:39 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 514ms (Views: 488.2ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-29 22:39:40 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-29 22:39:40 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2018-07-29 22:40:39 +0300
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-29 22:40:40 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/facebook/callback?code=AQAQRKiDmn-MC_9A0vSfhoK4lz3N0gIH9lSePvcw8ClYAek3ZobPzB3V58IjCvbxK4Pq5ssIxAb9W6Ed3JAI5ClcoxCV2WXmIUABD8wCRb2cd0H_x6kYge0zXhwSLLJEfS-KAxiz3hcdQ-QRTgXsZywZsrik3fxoINVsTjzH4WksawLlcBGh1veb5BUpU-zcOnIS1aXo2wqQCgugTAR3ZCxLSx5Y55xDVPBLm5mJ8F4kSZrm8NA50L14bTrjCw5FRUWjpv6JAEfKO91aceWRUA9p3HOhbTfo7DeRkPb-Qo6f92o1lIfTzpnJxpfpFy4mzfoS7dJ2i1u5GaSYDLHqdeD7&state=0c0ebe0809e3a43d3aa3ab090e17fd36f7e48ea012503c9f" for 127.0.0.1 at 2018-07-29 22:40:41 +0300
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQAQRKiDmn-MC_9A0vSfhoK4lz3N0gIH9lSePvcw8ClYAek3ZobPzB3V58IjCvbxK4Pq5ssIxAb9W6Ed3JAI5ClcoxCV2WXmIUABD8wCRb2cd0H_x6kYge0zXhwSLLJEfS-KAxiz3hcdQ-QRTgXsZywZsrik3fxoINVsTjzH4WksawLlcBGh1veb5BUpU-zcOnIS1aXo2wqQCgugTAR3ZCxLSx5Y55xDVPBLm5mJ8F4kSZrm8NA50L14bTrjCw5FRUWjpv6JAEfKO91aceWRUA9p3HOhbTfo7DeRkPb-Qo6f92o1lIfTzpnJxpfpFy4mzfoS7dJ2i1u5GaSYDLHqdeD7", "state"=>"0c0ebe0809e3a43d3aa3ab090e17fd36f7e48ea012503c9f"}
+  [1m[36mAuthorization Load (0.9ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "facebook"], ["uid", "1167723756700401"], ["LIMIT", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["provider", "facebook"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 7.0ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column users.provider does not exist
+LINE 1: SELECT  "users".* FROM "users" WHERE "users"."provider" = $1...
+                                             ^
+: SELECT  "users".* FROM "users" WHERE "users"."provider" = $1 ORDER BY "users"."id" ASC LIMIT $2):
+  
+app/models/user.rb:23:in `from_omniauth'
+app/controllers/omniauth_callbacks_controller.rb:4:in `facebook'
