@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
+  devise_scope :user do
+    post '/github' => 'omniauth_callbacks#github'
+  end
+
   resources :attachments, only: [:destroy]
 
   concern :votable do

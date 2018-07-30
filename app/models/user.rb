@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:github]
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:github]
   has_many :answers
   has_many :questions
   has_many :comments, dependent: :destroy
@@ -17,16 +17,21 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
+    binding.pry
     authorization = Authorization.where(provider: auth.provider, uid: auth.uid.to_s).first
     return authorization.user if authorization
-    email = auth.info[:email]
-    user = User.where( email: email).first
-    if user
-      user.create_authorization(auth)
+    if auth.info[:email]
+      email = auth.info[:email]
+      user = User.where( email: email).first
+      if user
+        user.create_authorization(auth)
+      else
+        password = Devise.friendly_token[0,10]
+        user = User.create!(email: email, password: password, password_confirmation: password)
+        user.create_authorization(auth)
+      end
     else
-      password = Devise.friendly_token[0,10]
-      user = User.create!(email: 'github4@test.com', password: password, password_confirmation: password)
-      user.create_authorization(auth)
+      user = User.new
     end
     user
   end
