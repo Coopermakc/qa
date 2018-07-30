@@ -1,0 +1,620 @@
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8064561033501595560)[0m
+  [1m[35m (5.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAddConfirmableToDevises (20180730130505)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (27.8ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_token" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed_at" timestamp[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_sent_at" timestamp[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35m (4.2ms)[0m  [1m[33mUPDATE users SET confirmed_at = NOW()[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180730130505"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8064561033501595560)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-07-30 22:27:48 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (16.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (3.5ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/index.html.slim within layouts/application (76.0ms)
+Completed 200 OK in 6911ms (Views: 6857.2ms | ActiveRecord: 25.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:27:55 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:27:55 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:27:58 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (61.6ms)
+Completed 200 OK in 183ms (Views: 154.1ms | ActiveRecord: 3.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:27:58 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:27:58 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:27:58 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-07-30 22:28:00 +0300
+Started GET "/users/auth/github/callback?code=e5d483eedcfa03eec2ce&state=d4963b49d6bce221a8de318e03eeb1f3efadcb6e5fb71cc3" for 127.0.0.1 at 2018-07-30 22:28:01 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"e5d483eedcfa03eec2ce", "state"=>"d4963b49d6bce221a8de318e03eeb1f3efadcb6e5fb71cc3"}
+{"provider":"github","uid":"30418793","info":{"nickname":"Coopermakc","email":null,"name":"Coopermakc","image":"https://avatars2.githubusercontent.com/u/30418793?v=4","urls":{"GitHub":"https://github.com/Coopermakc","Blog":""}},"credentials":{"token":"77b49b90ef71d6e4ac33890a937720bb2897ca42","expires":false},"extra":{"raw_info":{"login":"Coopermakc","id":30418793,"node_id":"MDQ6VXNlcjMwNDE4Nzkz","avatar_url":"https://avatars2.githubusercontent.com/u/30418793?v=4","gravatar_id":"","url":"https://api.github.com/users/Coopermakc","html_url":"https://github.com/Coopermakc","followers_url":"https://api.github.com/users/Coopermakc/followers","following_url":"https://api.github.com/users/Coopermakc/following{/other_user}","gists_url":"https://api.github.com/users/Coopermakc/gists{/gist_id}","starred_url":"https://api.github.com/users/Coopermakc/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Coopermakc/subscriptions","organizations_url":"https://api.github.com/users/Coopermakc/orgs","repos_url":"https://api.github.com/users/Coopermakc/repos","events_url":"https://api.github.com/users/Coopermakc/events{/privacy}","received_events_url":"https://api.github.com/users/Coopermakc/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"public_repos":4,"public_gists":3,"followers":2,"following":0,"created_at":"2017-07-24T19:52:04Z","updated_at":"2018-07-16T06:49:09Z"},"all_emails":[]}}
+  [1m[36mAuthorization Load (4.2ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (8.7ms)
+Completed 200 OK in 28175ms (Views: 136.5ms | ActiveRecord: 7.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:28:30 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:28:30 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:28:30 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started POST "/github" for 127.0.0.1 at 2018-07-30 22:28:55 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DGPB7C3eoRdzzL34ok5eJpiS64UNckGH/dkegtduPg6/bKkejgTCoJ2fN4pEfjh2fXCGTGByJ030o4o8p7en1Q==", "auth"=>{"info"=>{"email"=>"github@test.com"}}, "commit"=>"Send"}
+null
+  [1m[36mAuthorization Load (0.4ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" IS NULL AND "authorizations"."uid" = $1 ORDER BY "authorizations"."id" ASC LIMIT $2[0m  [["uid", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "github@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "github@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (25.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "github@test.com"], ["encrypted_password", "$2a$11$2m9AXtr0zGQdxHhHZ.ae4OLVrzqO9.TSpamFscCWd.vwki6SAuzNK"], ["created_at", "2018-07-30 19:28:55.877912"], ["updated_at", "2018-07-30 19:28:55.877912"], ["confirmation_token", "6rgL2LanqrevyF4x45Gs"], ["confirmation_sent_at", "2018-07-30 19:28:55.878230"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.9ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 321.0ms
+Sent mail to github@test.com (25.0ms)
+Date: Mon, 30 Jul 2018 22:28:56 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: github@test.com
+Message-ID: <5b5f66f8a94fd_da13fd4f91155a46869@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome github@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=6rgL2LanqrevyF4x45Gs">Confirm my account</a></p>
+
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (65.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 401 Unauthorized in 1192ms (ActiveRecord: 102.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:28:56 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 121ms (Views: 118.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:28:57 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:28:57 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started GET "/users/confirmation?confirmation_token=6rgL2LanqrevyF4x45Gs" for 127.0.0.1 at 2018-07-30 22:28:59 +0300
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"6rgL2LanqrevyF4x45Gs"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "6rgL2LanqrevyF4x45Gs"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2018-07-30 19:28:59.291299"], ["updated_at", "2018-07-30 19:28:59.292083"], ["id", 3]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 16ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:28:59 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 92ms (Views: 90.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:28:59 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:28:59 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:29:05 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 88ms (Views: 87.4ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:29:05 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:29:05 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:29:05 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-07-30 22:29:07 +0300
+Started GET "/users/auth/github/callback?code=2603eba287b0b9a6de51&state=13651dfffe1ab9bd903a7c71f436fb7f83d249f4a40d6864" for 127.0.0.1 at 2018-07-30 22:29:07 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"2603eba287b0b9a6de51", "state"=>"13651dfffe1ab9bd903a7c71f436fb7f83d249f4a40d6864"}
+{"provider":"github","uid":"30418793","info":{"nickname":"Coopermakc","email":null,"name":"Coopermakc","image":"https://avatars2.githubusercontent.com/u/30418793?v=4","urls":{"GitHub":"https://github.com/Coopermakc","Blog":""}},"credentials":{"token":"907ccc3af550f249ca4f73e8c1f3b802f4f5331a","expires":false},"extra":{"raw_info":{"login":"Coopermakc","id":30418793,"node_id":"MDQ6VXNlcjMwNDE4Nzkz","avatar_url":"https://avatars2.githubusercontent.com/u/30418793?v=4","gravatar_id":"","url":"https://api.github.com/users/Coopermakc","html_url":"https://github.com/Coopermakc","followers_url":"https://api.github.com/users/Coopermakc/followers","following_url":"https://api.github.com/users/Coopermakc/following{/other_user}","gists_url":"https://api.github.com/users/Coopermakc/gists{/gist_id}","starred_url":"https://api.github.com/users/Coopermakc/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Coopermakc/subscriptions","organizations_url":"https://api.github.com/users/Coopermakc/orgs","repos_url":"https://api.github.com/users/Coopermakc/repos","events_url":"https://api.github.com/users/Coopermakc/events{/privacy}","received_events_url":"https://api.github.com/users/Coopermakc/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"public_repos":4,"public_gists":3,"followers":2,"following":0,"created_at":"2017-07-24T19:52:04Z","updated_at":"2018-07-16T06:49:09Z"},"all_emails":[]}}
+  [1m[36mAuthorization Load (0.7ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (4.9ms)
+Completed 200 OK in 83ms (Views: 78.0ms | ActiveRecord: 0.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:29:09 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:29:09 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:29:09 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:29:12 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-07-30 22:29:22 +0300
+Started GET "/users/auth/github/callback?code=aaa09101ce07bf7c2bbf&state=12e8b71ba1632b17729406ce0c159718e02e6709ade7aa55" for 127.0.0.1 at 2018-07-30 22:29:22 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"aaa09101ce07bf7c2bbf", "state"=>"12e8b71ba1632b17729406ce0c159718e02e6709ade7aa55"}
+{"provider":"github","uid":"30418793","info":{"nickname":"Coopermakc","email":null,"name":"Coopermakc","image":"https://avatars2.githubusercontent.com/u/30418793?v=4","urls":{"GitHub":"https://github.com/Coopermakc","Blog":""}},"credentials":{"token":"9e8684e86b474510fdbc641a4e57082179e8c02f","expires":false},"extra":{"raw_info":{"login":"Coopermakc","id":30418793,"node_id":"MDQ6VXNlcjMwNDE4Nzkz","avatar_url":"https://avatars2.githubusercontent.com/u/30418793?v=4","gravatar_id":"","url":"https://api.github.com/users/Coopermakc","html_url":"https://github.com/Coopermakc","followers_url":"https://api.github.com/users/Coopermakc/followers","following_url":"https://api.github.com/users/Coopermakc/following{/other_user}","gists_url":"https://api.github.com/users/Coopermakc/gists{/gist_id}","starred_url":"https://api.github.com/users/Coopermakc/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Coopermakc/subscriptions","organizations_url":"https://api.github.com/users/Coopermakc/orgs","repos_url":"https://api.github.com/users/Coopermakc/repos","events_url":"https://api.github.com/users/Coopermakc/events{/privacy}","received_events_url":"https://api.github.com/users/Coopermakc/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"public_repos":4,"public_gists":3,"followers":2,"following":0,"created_at":"2017-07-24T19:52:04Z","updated_at":"2018-07-16T06:49:09Z"},"all_emails":[]}}
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:29:31 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:30:00 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:30:00 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:30:00 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:30:01 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:30:01 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:30:01 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:30:01 +0300
+WebSocket error occurred: Broken pipe
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:30:01 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+WebSocket error occurred: Broken pipe
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:30:01 +0300
+  [1m[36mAuthorization Load (1.7ms)[0m  [1m[34mSELECT "authorizations".* FROM "authorizations"[0m
+WebSocket error occurred: Broken pipe
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:30:01 +0300
+AnswersChannel is transmitting the subscription confirmation
+  [1m[36mCACHE Authorization Load (0.0ms)[0m  [1m[34mSELECT "authorizations".* FROM "authorizations"[0m
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+  [1m[36mAuthorization Load (0.5ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (4.7ms)
+Completed 200 OK in 662060ms (Views: 77.1ms | ActiveRecord: 17.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:40:26 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:40:26 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:40:26 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:41:31 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 126ms (Views: 94.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:41:32 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:41:32 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-07-30 22:41:33 +0300
+Started GET "/users/auth/github/callback?code=17c969539eacfae439bd&state=587ce7bd4c17fd674240dd3677fe9f8aeb5284e732a16fe6" for 127.0.0.1 at 2018-07-30 22:41:35 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"17c969539eacfae439bd", "state"=>"587ce7bd4c17fd674240dd3677fe9f8aeb5284e732a16fe6"}
+{"provider":"github","uid":"30418793","info":{"nickname":"Coopermakc","email":null,"name":"Coopermakc","image":"https://avatars2.githubusercontent.com/u/30418793?v=4","urls":{"GitHub":"https://github.com/Coopermakc","Blog":""}},"credentials":{"token":"5d2655808b50274484110e216f2ffbc9a22cf172","expires":false},"extra":{"raw_info":{"login":"Coopermakc","id":30418793,"node_id":"MDQ6VXNlcjMwNDE4Nzkz","avatar_url":"https://avatars2.githubusercontent.com/u/30418793?v=4","gravatar_id":"","url":"https://api.github.com/users/Coopermakc","html_url":"https://github.com/Coopermakc","followers_url":"https://api.github.com/users/Coopermakc/followers","following_url":"https://api.github.com/users/Coopermakc/following{/other_user}","gists_url":"https://api.github.com/users/Coopermakc/gists{/gist_id}","starred_url":"https://api.github.com/users/Coopermakc/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Coopermakc/subscriptions","organizations_url":"https://api.github.com/users/Coopermakc/orgs","repos_url":"https://api.github.com/users/Coopermakc/repos","events_url":"https://api.github.com/users/Coopermakc/events{/privacy}","received_events_url":"https://api.github.com/users/Coopermakc/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"public_repos":4,"public_gists":3,"followers":2,"following":0,"created_at":"2017-07-24T19:52:04Z","updated_at":"2018-07-16T06:49:09Z"},"all_emails":[]}}
+  [1m[36mAuthorization Load (0.4ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "Coopermakc"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "coopermakc"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 156ms (ActiveRecord: 4.4ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email is invalid):
+  
+app/models/user.rb:30:in `from_omniauth'
+app/controllers/omniauth_callbacks_controller.rb:11:in `oauth_provider'
+app/controllers/omniauth_callbacks_controller.rb:5:in `github'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:41:37 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github/callback?code=17c969539eacfae439bd&state=587ce7bd4c17fd674240dd3677fe9f8aeb5284e732a16fe6" for 127.0.0.1 at 2018-07-30 22:46:13 +0300
+Processing by OmniauthCallbacksController#failure as HTML
+  Parameters: {"code"=>"17c969539eacfae439bd", "state"=>"587ce7bd4c17fd674240dd3677fe9f8aeb5284e732a16fe6"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:46:13 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 119ms (Views: 99.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:46:14 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:46:14 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:46:41 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 87ms (Views: 86.0ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:46:41 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:46:41 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:46:41 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-07-30 22:46:42 +0300
+Started GET "/users/auth/github/callback?code=067b076093c0b46a935f&state=c45015682e4d8f2d262fb357654999fe9c8da8a4f2495a64" for 127.0.0.1 at 2018-07-30 22:46:43 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"067b076093c0b46a935f", "state"=>"c45015682e4d8f2d262fb357654999fe9c8da8a4f2495a64"}
+{"provider":"github","uid":"30418793","info":{"nickname":"Coopermakc","email":null,"name":"Coopermakc","image":"https://avatars2.githubusercontent.com/u/30418793?v=4","urls":{"GitHub":"https://github.com/Coopermakc","Blog":""}},"credentials":{"token":"66011ae2cfe543055b81a64062e9bd4a0f232fee","expires":false},"extra":{"raw_info":{"login":"Coopermakc","id":30418793,"node_id":"MDQ6VXNlcjMwNDE4Nzkz","avatar_url":"https://avatars2.githubusercontent.com/u/30418793?v=4","gravatar_id":"","url":"https://api.github.com/users/Coopermakc","html_url":"https://github.com/Coopermakc","followers_url":"https://api.github.com/users/Coopermakc/followers","following_url":"https://api.github.com/users/Coopermakc/following{/other_user}","gists_url":"https://api.github.com/users/Coopermakc/gists{/gist_id}","starred_url":"https://api.github.com/users/Coopermakc/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Coopermakc/subscriptions","organizations_url":"https://api.github.com/users/Coopermakc/orgs","repos_url":"https://api.github.com/users/Coopermakc/repos","events_url":"https://api.github.com/users/Coopermakc/events{/privacy}","received_events_url":"https://api.github.com/users/Coopermakc/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"public_repos":4,"public_gists":3,"followers":2,"following":0,"created_at":"2017-07-24T19:52:04Z","updated_at":"2018-07-16T06:49:09Z"},"all_emails":[]}}
+  [1m[36mAuthorization Load (0.6ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "Coopermakc.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "coopermakc"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 170ms (ActiveRecord: 7.1ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email is invalid):
+  
+app/models/user.rb:30:in `from_omniauth'
+app/controllers/omniauth_callbacks_controller.rb:11:in `oauth_provider'
+app/controllers/omniauth_callbacks_controller.rb:5:in `github'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:46:45 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github/callback?code=067b076093c0b46a935f&state=c45015682e4d8f2d262fb357654999fe9c8da8a4f2495a64" for 127.0.0.1 at 2018-07-30 22:47:25 +0300
+Processing by OmniauthCallbacksController#failure as HTML
+  Parameters: {"code"=>"067b076093c0b46a935f", "state"=>"c45015682e4d8f2d262fb357654999fe9c8da8a4f2495a64"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:47:26 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 89ms (Views: 70.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:47:26 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:47:26 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:47:28 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 80ms (Views: 78.7ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:47:28 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:47:28 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:47:28 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-07-30 22:47:30 +0300
+Started GET "/users/auth/github/callback?code=dabd821bcbd06d88cacd&state=95a5359134350c9dafb748ba2aeeb688fe854700139e9645" for 127.0.0.1 at 2018-07-30 22:47:30 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"dabd821bcbd06d88cacd", "state"=>"95a5359134350c9dafb748ba2aeeb688fe854700139e9645"}
+{"provider":"github","uid":"30418793","info":{"nickname":"Coopermakc","email":null,"name":"Coopermakc","image":"https://avatars2.githubusercontent.com/u/30418793?v=4","urls":{"GitHub":"https://github.com/Coopermakc","Blog":""}},"credentials":{"token":"625ed7e76fb3014a0542052eff6b33a994e1b6e1","expires":false},"extra":{"raw_info":{"login":"Coopermakc","id":30418793,"node_id":"MDQ6VXNlcjMwNDE4Nzkz","avatar_url":"https://avatars2.githubusercontent.com/u/30418793?v=4","gravatar_id":"","url":"https://api.github.com/users/Coopermakc","html_url":"https://github.com/Coopermakc","followers_url":"https://api.github.com/users/Coopermakc/followers","following_url":"https://api.github.com/users/Coopermakc/following{/other_user}","gists_url":"https://api.github.com/users/Coopermakc/gists{/gist_id}","starred_url":"https://api.github.com/users/Coopermakc/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Coopermakc/subscriptions","organizations_url":"https://api.github.com/users/Coopermakc/orgs","repos_url":"https://api.github.com/users/Coopermakc/repos","events_url":"https://api.github.com/users/Coopermakc/events{/privacy}","received_events_url":"https://api.github.com/users/Coopermakc/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"public_repos":4,"public_gists":3,"followers":2,"following":0,"created_at":"2017-07-24T19:52:04Z","updated_at":"2018-07-16T06:49:09Z"},"all_emails":[]}}
+  [1m[36mAuthorization Load (0.6ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "Coopermakc.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "coopermakc.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 166ms (ActiveRecord: 6.9ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email is invalid):
+  
+app/models/user.rb:30:in `from_omniauth'
+app/controllers/omniauth_callbacks_controller.rb:11:in `oauth_provider'
+app/controllers/omniauth_callbacks_controller.rb:5:in `github'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:47:32 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github/callback?code=dabd821bcbd06d88cacd&state=95a5359134350c9dafb748ba2aeeb688fe854700139e9645" for 127.0.0.1 at 2018-07-30 22:48:07 +0300
+Processing by OmniauthCallbacksController#failure as HTML
+  Parameters: {"code"=>"dabd821bcbd06d88cacd", "state"=>"95a5359134350c9dafb748ba2aeeb688fe854700139e9645"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:48:07 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 93ms (Views: 75.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:48:08 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:48:08 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:48:09 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 69ms (Views: 68.5ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:48:09 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:48:09 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:48:09 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-07-30 22:48:11 +0300
+Started GET "/users/auth/github/callback?code=ef9b1e1b43af0b5e6629&state=e8fda6cab0e0ff8f8224dde02cd05952e33341ed27790bb4" for 127.0.0.1 at 2018-07-30 22:48:11 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"ef9b1e1b43af0b5e6629", "state"=>"e8fda6cab0e0ff8f8224dde02cd05952e33341ed27790bb4"}
+{"provider":"github","uid":"30418793","info":{"nickname":"Coopermakc","email":null,"name":"Coopermakc","image":"https://avatars2.githubusercontent.com/u/30418793?v=4","urls":{"GitHub":"https://github.com/Coopermakc","Blog":""}},"credentials":{"token":"6ed169b68bac8d5a51c15906c8e3a4eea4a81547","expires":false},"extra":{"raw_info":{"login":"Coopermakc","id":30418793,"node_id":"MDQ6VXNlcjMwNDE4Nzkz","avatar_url":"https://avatars2.githubusercontent.com/u/30418793?v=4","gravatar_id":"","url":"https://api.github.com/users/Coopermakc","html_url":"https://github.com/Coopermakc","followers_url":"https://api.github.com/users/Coopermakc/followers","following_url":"https://api.github.com/users/Coopermakc/following{/other_user}","gists_url":"https://api.github.com/users/Coopermakc/gists{/gist_id}","starred_url":"https://api.github.com/users/Coopermakc/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Coopermakc/subscriptions","organizations_url":"https://api.github.com/users/Coopermakc/orgs","repos_url":"https://api.github.com/users/Coopermakc/repos","events_url":"https://api.github.com/users/Coopermakc/events{/privacy}","received_events_url":"https://api.github.com/users/Coopermakc/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"public_repos":4,"public_gists":3,"followers":2,"following":0,"created_at":"2017-07-24T19:52:04Z","updated_at":"2018-07-16T06:49:09Z"},"all_emails":[]}}
+  [1m[36mAuthorization Load (0.4ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "Coopermakc.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "coopermakc.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 140289ms (ActiveRecord: 5.4ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email is invalid):
+  
+app/models/user.rb:30:in `from_omniauth'
+app/controllers/omniauth_callbacks_controller.rb:11:in `oauth_provider'
+app/controllers/omniauth_callbacks_controller.rb:5:in `github'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:50:34 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github/callback?code=ef9b1e1b43af0b5e6629&state=e8fda6cab0e0ff8f8224dde02cd05952e33341ed27790bb4" for 127.0.0.1 at 2018-07-30 22:52:10 +0300
+Processing by OmniauthCallbacksController#failure as HTML
+  Parameters: {"code"=>"ef9b1e1b43af0b5e6629", "state"=>"e8fda6cab0e0ff8f8224dde02cd05952e33341ed27790bb4"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:52:11 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 81ms (Views: 62.8ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:52:11 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:52:11 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-30 22:52:13 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 65ms (Views: 64.3ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:52:13 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-07-30 22:52:13 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:52:13 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-07-30 22:52:16 +0300
+Started GET "/users/auth/github/callback?code=c16604dd81af09fa258f&state=ac314dc02016ce5c88f262002656576718f3319f4b4f4829" for 127.0.0.1 at 2018-07-30 22:52:16 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"c16604dd81af09fa258f", "state"=>"ac314dc02016ce5c88f262002656576718f3319f4b4f4829"}
+{"provider":"github","uid":"30418793","info":{"nickname":"Coopermakc","email":null,"name":"Coopermakc","image":"https://avatars2.githubusercontent.com/u/30418793?v=4","urls":{"GitHub":"https://github.com/Coopermakc","Blog":""}},"credentials":{"token":"090b706956f6353fa31bfb9389eb2e9d76c74bd8","expires":false},"extra":{"raw_info":{"login":"Coopermakc","id":30418793,"node_id":"MDQ6VXNlcjMwNDE4Nzkz","avatar_url":"https://avatars2.githubusercontent.com/u/30418793?v=4","gravatar_id":"","url":"https://api.github.com/users/Coopermakc","html_url":"https://github.com/Coopermakc","followers_url":"https://api.github.com/users/Coopermakc/followers","following_url":"https://api.github.com/users/Coopermakc/following{/other_user}","gists_url":"https://api.github.com/users/Coopermakc/gists{/gist_id}","starred_url":"https://api.github.com/users/Coopermakc/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Coopermakc/subscriptions","organizations_url":"https://api.github.com/users/Coopermakc/orgs","repos_url":"https://api.github.com/users/Coopermakc/repos","events_url":"https://api.github.com/users/Coopermakc/events{/privacy}","received_events_url":"https://api.github.com/users/Coopermakc/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"public_repos":4,"public_gists":3,"followers":2,"following":0,"created_at":"2017-07-24T19:52:04Z","updated_at":"2018-07-16T06:49:09Z"},"all_emails":[]}}
+  [1m[36mAuthorization Load (0.4ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "Coopermakc + .com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "coopermakc.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 6465ms (ActiveRecord: 4.8ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email is invalid):
+  
+app/models/user.rb:30:in `from_omniauth'
+app/controllers/omniauth_callbacks_controller.rb:11:in `oauth_provider'
+app/controllers/omniauth_callbacks_controller.rb:5:in `github'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-07-30 22:52:25 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions

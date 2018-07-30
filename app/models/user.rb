@@ -20,9 +20,9 @@ class User < ApplicationRecord
     binding.pry
     authorization = Authorization.where(provider: auth.provider, uid: auth.uid.to_s).first
     return authorization.user if authorization
-    if auth.info[:email]
-      email = auth.info[:email]
-      user = User.where( email: email).first
+    if auth.info[:nickname]
+      email = auth.info[:nickname]
+      user = User.where(email: email).first
       if user
         user.create_authorization(auth)
       else
