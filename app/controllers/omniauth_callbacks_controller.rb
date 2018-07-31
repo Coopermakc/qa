@@ -1,13 +1,10 @@
+require 'pry'
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def github
-    #logger.info(request.env["omniauth.auth"].to_json)
     oauth_provider(:github)
   end
 
-  def vkontakte
-    oauth_provider(:vkontakte)
-  end
 
   private
 

@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     post '/github' => 'omniauth_callbacks#github'
-    post '/vkontakte' => 'omniauth_callbacks#vkontakte'
   end
 
   resources :attachments, only: [:destroy]
