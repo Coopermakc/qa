@@ -1,13 +1,18 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def github
-    logger.info(request.env["omniauth.auth"].to_json)
+    #logger.info(request.env["omniauth.auth"].to_json)
     oauth_provider(:github)
+  end
+
+  def vkontakte
+    oauth_provider(:vkontakte)
   end
 
   private
 
   def oauth_provider(provider)
+
     @user = User.from_omniauth(auth)
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication

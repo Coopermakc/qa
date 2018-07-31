@@ -259,6 +259,7 @@ Devise.setup do |config|
   # config.omniauth :github, Rails.application.secrets.facebook_app_id, 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :github, Rails.application.secrets.github_app_id, Rails.application.secrets.github_app_secret, scope: [:email]
   config.reconfirmable = false
+  config.omniauth :vkontakte, Rails.application.secrets.vkontakte_app_id, Rails.application.secrets.vkontakte_app_secret, scope: [:email]
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

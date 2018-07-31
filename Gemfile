@@ -32,6 +32,7 @@ gem 'cocoon'
 gem 'gon'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-vkontakte'
 gem 'letter_opener'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
