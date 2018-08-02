@@ -15,8 +15,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: provider.to_s.humanize) if is_navigational_format?
     else
+
       flash[:notice] = 'Insert your email, please.'
-      session["device.autn"] = { provider: request.env['omniauth.auth'].provider,
+      session["devise.auth"] = { provider: request.env['omniauth.auth'].provider,
                                   uid: request.env['omniauth.auth'].uid }
       render 'users/confirm_user_email'
     end

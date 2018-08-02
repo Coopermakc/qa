@@ -4469,3 +4469,1466 @@ QuestionsChannel#follow
 AnswersChannel is streaming from answers
 QuestionsChannel is streaming from questions
 QuestionsChannel is streaming from questions
+  [1m[36mUser Load (91.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAuthorization Load (22.1ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (44.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[35mSQL (28.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  [1m[35m (48.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/questions" for 127.0.0.1 at 2018-08-02 11:36:34 +0300
+  [1m[35m (52.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (38.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (21.8ms)
+  Rendered questions/_question.html.slim (0.6ms)
+  Rendered questions/_question.html.slim (0.6ms)
+  Rendered questions/_question.html.slim (0.8ms)
+  Rendered questions/index.html.slim within layouts/application (280.8ms)
+Completed 200 OK in 5210ms (Views: 4932.2ms | ActiveRecord: 59.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:36:41 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:36:42 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:36:44 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 11:36:44 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (14.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (621.9ms)
+Completed 200 OK in 1356ms (Views: 1146.3ms | ActiveRecord: 22.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:36:47 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:36:47 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:36:52 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 11:36:52 +0300
+Started GET "/users/auth/github/callback?code=efa421f51329d85fa492&state=46823dfb95af89e5c8f5b4160b2549889b197c18e2604a36" for 127.0.0.1 at 2018-08-02 11:36:53 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"efa421f51329d85fa492", "state"=>"46823dfb95af89e5c8f5b4160b2549889b197c18e2604a36"}
+  [1m[36mAuthorization Load (4.2ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (40.7ms)
+Completed 200 OK in 615ms (Views: 551.2ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:36:58 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:36:58 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:37:09 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started POST "/github" for 127.0.0.1 at 2018-08-02 11:37:09 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fdcZtqO6qv/6Kyl6iXESPddW75riFGEWBVR5cs1/zzCDHQfNJ4JT89k3/EWWYWF/YW+uuVksWRuIFI8lRiyBaQ==", "auth"=>{"info"=>{"email"=>"git@git.com"}}, "commit"=>"Send"}
+  [1m[36mAuthorization Load (2.6ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" IS NULL AND "authorizations"."uid" = $1 ORDER BY "authorizations"."id" ASC LIMIT $2[0m  [["uid", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (9.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+  [1m[35mSQL (30.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "git@git.com"], ["encrypted_password", "$2a$11$NDPXP9Fja1g.ehArg6T.PeMRv9cgQmRHf0W.kjtZbYHkcLC/fKz1K"], ["created_at", "2018-08-02 08:37:10.363003"], ["updated_at", "2018-08-02 08:37:10.363003"], ["confirmation_token", "GamyGRD4W9txXq3Vz8PV"], ["confirmation_sent_at", "2018-08-02 08:37:10.364501"]]
+  [1m[35m (19.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (7.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1696.8ms
+Sent mail to git@git.com (188.5ms)
+Date: Thu, 02 Aug 2018 11:37:13 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: git@git.com
+Message-ID: <5b62c2b9efc22_e595ad8d2e534fc@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome git@git.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=GamyGRD4W9txXq3Vz8PV">Confirm my account</a></p>
+
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 401 Unauthorized in 4924ms (ActiveRecord: 76.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 11:37:14 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (10.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 478ms (Views: 471.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:37:16 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:37:16 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/confirmation?confirmation_token=GamyGRD4W9txXq3Vz8PV" for 127.0.0.1 at 2018-08-02 11:37:23 +0300
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"GamyGRD4W9txXq3Vz8PV"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "GamyGRD4W9txXq3Vz8PV"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2018-08-02 08:37:23.573116"], ["updated_at", "2018-08-02 08:37:23.578287"], ["id", 13]]
+  [1m[35m (17.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 77ms (ActiveRecord: 23.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 11:37:23 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (9.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 519ms (Views: 511.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:37:25 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:37:25 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:37:32 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 11:37:32 +0300
+Started GET "/users/auth/github/callback?code=8a1030e8c5d950ae2a2f&state=852647b4bbf81bafe38b9ae1f419c7a1f2b71b078a0ade2a" for 127.0.0.1 at 2018-08-02 11:37:33 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"8a1030e8c5d950ae2a2f", "state"=>"852647b4bbf81bafe38b9ae1f419c7a1f2b71b078a0ade2a"}
+  [1m[36mAuthorization Load (1.9ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (36.1ms)
+Completed 200 OK in 513ms (Views: 502.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:37:37 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:37:37 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+  [1m[36mAuthorization Load (1.5ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (1.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[35mSQL (2.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 13]]
+  [1m[35m (22.2ms)[0m  [1m[35mCOMMIT[0m
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:41:30 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 11:41:30 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (9.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 727ms (Views: 508.3ms | ActiveRecord: 26.3ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:41:33 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:41:33 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:41:34 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 11:41:34 +0300
+Started GET "/users/auth/github/callback?code=27132c6219899da0a282&state=de90e92583dbd7510d9ffb53dc826378d7126653ee21f52f" for 127.0.0.1 at 2018-08-02 11:41:36 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:41:37 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:41:37 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"27132c6219899da0a282", "state"=>"de90e92583dbd7510d9ffb53dc826378d7126653ee21f52f"}
+  [1m[36mAuthorization Load (2.1ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (40.8ms)
+Completed 200 OK in 548ms (Views: 498.5ms | ActiveRecord: 17.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:41:41 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:41:41 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:41:49 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started POST "/github" for 127.0.0.1 at 2018-08-02 11:41:49 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5Fno2BxfkXZcrkd1JCWn9A9SHG6zjIjqGmNwSpDcsJMak/ajmGdoen+ykko7NdS2uWtdTQi0sOeXI4YdG4/+yg==", "auth"=>{"info"=>{"email"=>"git@git.com"}}, "commit"=>"Send"}
+  [1m[36mAuthorization Load (2.1ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" IS NULL AND "authorizations"."uid" = $1 ORDER BY "authorizations"."id" ASC LIMIT $2[0m  [["uid", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:41:56 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:41:56 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "git@git.com"], ["encrypted_password", "$2a$11$3xB3LtLsUYJlO.aRBhVrouEfaEqwxFNLsVNXeqs6zRow/tcsIGSUO"], ["created_at", "2018-08-02 08:42:46.671085"], ["updated_at", "2018-08-02 08:42:46.671085"], ["confirmation_token", "oqDbwDz2H92Lh2gR3cGJ"], ["confirmation_sent_at", "2018-08-02 08:42:46.672141"]]
+  [1m[35m (21.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (4.4ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 51.3ms
+Sent mail to git@git.com (94.7ms)
+Date: Thu, 02 Aug 2018 11:42:46 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: git@git.com
+Message-ID: <5b62c406c0e55_e595ad8e0a5355a@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome git@git.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=oqDbwDz2H92Lh2gR3cGJ">Confirm my account</a></p>
+
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 401 Unauthorized in 57769ms (ActiveRecord: 35.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 11:42:47 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (9.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (31.6ms)
+Completed 200 OK in 610ms (Views: 603.0ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:42:48 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:42:49 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:42:49 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+Started GET "/users/confirmation?confirmation_token=oqDbwDz2H92Lh2gR3cGJ" for 127.0.0.1 at 2018-08-02 11:42:58 +0300
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"oqDbwDz2H92Lh2gR3cGJ"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "oqDbwDz2H92Lh2gR3cGJ"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (9.6ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2018-08-02 08:42:58.742118"], ["updated_at", "2018-08-02 08:42:58.746580"], ["id", 14]]
+  [1m[35m (21.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 70ms (ActiveRecord: 33.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 11:42:58 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (9.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 529ms (Views: 523.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:43:00 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:43:00 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:43:03 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:43:54 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 11:43:54 +0300
+Started GET "/users/auth/github/callback?code=125ccc45b9f8dac64cb4&state=78065c72c5585e6308bc81d6d9958fef83e6f0d71a4fda79" for 127.0.0.1 at 2018-08-02 11:43:56 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"125ccc45b9f8dac64cb4", "state"=>"78065c72c5585e6308bc81d6d9958fef83e6f0d71a4fda79"}
+  [1m[36mAuthorization Load (1.9ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (29.1ms)
+Completed 200 OK in 737ms (Views: 486.7ms | ActiveRecord: 38.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:44:02 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:44:02 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:44:02 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:44:02 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:44:11 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started POST "/github" for 127.0.0.1 at 2018-08-02 11:44:11 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IEMAfpXonXM4U2puRc7MFu0dXqkEYgonbv8+fTXO4q/eiR4FEdBkfxtPv1Fa3r9UWyQfir9aMirjv8gqvp2s9g==", "auth"=>{"info"=>{"email"=>"git@git.com"}}, "commit"=>"Send"}
+  [1m[36mAuthorization Load (2.0ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" IS NULL AND "authorizations"."uid" = $1 ORDER BY "authorizations"."id" ASC LIMIT $2[0m  [["uid", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:44:20 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:44:20 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-08-02 08:45:14.585815"], ["last_sign_in_at", "2018-08-02 08:45:14.585815"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2018-08-02 08:45:14.590995"], ["id", 14]]
+  [1m[35m (18.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 63299ms (ActiveRecord: 28.7ms)
+
+
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[35mSQL (2.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 14]]
+  [1m[35m (23.1ms)[0m  [1m[35mCOMMIT[0m
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:46:02 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 11:46:02 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (11.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (43.8ms)
+Completed 200 OK in 758ms (Views: 522.3ms | ActiveRecord: 23.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:46:05 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:46:05 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:46:05 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:46:05 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:46:07 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:46:10 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 11:46:10 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:46:14 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:46:14 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:46:16 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 11:46:16 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (16.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 561ms (Views: 554.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:46:18 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:46:18 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:46:21 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 11:46:21 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:47:23 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:47:23 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:47:26 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 11:47:26 +0300
+Started GET "/users/auth/github/callback?code=d45adf7597768dfed1b4&state=a8700a3638c2767bb6cc982c986e18d5d4413e8772373afb" for 127.0.0.1 at 2018-08-02 11:47:27 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"d45adf7597768dfed1b4", "state"=>"a8700a3638c2767bb6cc982c986e18d5d4413e8772373afb"}
+  [1m[36mAuthorization Load (2.2ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:47:35 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:47:35 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (48.8ms)
+Completed 200 OK in 95882ms (Views: 489.2ms | ActiveRecord: 16.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:49:06 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:49:06 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:49:06 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:49:11 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:49:12 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:49:12 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:50:17 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 11:50:17 +0300
+Started GET "/users/auth/github/callback?code=011603c94157d71265d0&state=487b6acd573cb3dc3ec03f4d529fe3ed4be8e1927aae1f56" for 127.0.0.1 at 2018-08-02 11:50:19 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"011603c94157d71265d0", "state"=>"487b6acd573cb3dc3ec03f4d529fe3ed4be8e1927aae1f56"}
+  [1m[36mAuthorization Load (1.4ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (33.8ms)
+Completed 200 OK in 672ms (Views: 446.6ms | ActiveRecord: 44.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:50:23 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:50:23 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:50:52 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started POST "/github" for 127.0.0.1 at 2018-08-02 11:50:52 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZfWEwgcqKZUzClmOkkO88mI3UxF86sG4HS0VgZ7CPdObP5q5gxLQmRAWjLGNU8+w1A4SMsfS+bWQbePWFZFzig==", "auth"=>{"info"=>{"email"=>"git@git.com"}}, "commit"=>"Send"}
+  [1m[36mAuthorization Load (1.8ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" IS NULL AND "authorizations"."uid" = $1 ORDER BY "authorizations"."id" ASC LIMIT $2[0m  [["uid", ""], ["LIMIT", 1]]
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:50:59 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:50:59 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (3.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+  [1m[35mSQL (7.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "git@git.com"], ["encrypted_password", "$2a$11$2r0AOhluw04dUNDH/C2MvOb98bf7F5DmXZINNaRzk544uYojEaohC"], ["created_at", "2018-08-02 08:52:08.237185"], ["updated_at", "2018-08-02 08:52:08.237185"], ["confirmation_token", "ycUWNuNB_SMh46FW9kra"], ["confirmation_sent_at", "2018-08-02 08:52:08.238590"]]
+  [1m[35m (10.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 52.8ms
+Sent mail to git@git.com (99.7ms)
+Date: Thu, 02 Aug 2018 11:52:08 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: git@git.com
+Message-ID: <5b62c63855397_e595ad8d745362b@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome git@git.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=ycUWNuNB_SMh46FW9kra">Confirm my account</a></p>
+
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 401 Unauthorized in 76281ms (ActiveRecord: 29.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 11:52:08 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (10.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 618ms (Views: 609.2ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:52:10 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:52:10 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:52:11 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Started GET "/users/confirmation?confirmation_token=ycUWNuNB_SMh46FW9kra" for 127.0.0.1 at 2018-08-02 11:52:13 +0300
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"ycUWNuNB_SMh46FW9kra"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "ycUWNuNB_SMh46FW9kra"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2018-08-02 08:52:13.621973"], ["updated_at", "2018-08-02 08:52:13.627755"], ["id", 15]]
+  [1m[35m (24.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 73ms (ActiveRecord: 29.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 11:52:13 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (9.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 526ms (Views: 518.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:52:15 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:52:15 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:52:16 +0300
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (1.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[35mSQL (1.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 15]]
+  [1m[35m (31.2ms)[0m  [1m[35mCOMMIT[0m
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:55:38 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 11:55:38 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (11.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (37.0ms)
+Completed 200 OK in 765ms (Views: 524.4ms | ActiveRecord: 25.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:55:40 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:55:40 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:55:43 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 11:55:43 +0300
+Started GET "/users/auth/github/callback?code=2eb5c0c562b8cafbf19c&state=232e351186ed81f920e2af33f2c84023926b4bf85d9c0f85" for 127.0.0.1 at 2018-08-02 11:55:45 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"2eb5c0c562b8cafbf19c", "state"=>"232e351186ed81f920e2af33f2c84023926b4bf85d9c0f85"}
+  [1m[36mAuthorization Load (1.7ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (37.3ms)
+Completed 200 OK in 568ms (Views: 508.7ms | ActiveRecord: 23.3ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:55:48 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:55:48 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:56:03 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started POST "/github" for 127.0.0.1 at 2018-08-02 11:56:03 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eqj2hr3cNEltC1XKDPL2avO4uS0Dr60zRCf/fAtL+WWEYuj9OeTNRU4XgPUT4oUoRYH4DriXlT7JZwkrgBi3PA==", "auth"=>{"info"=>{"email"=>"git@git.com"}}, "commit"=>"Send"}
+  [1m[36mAuthorization Load (2.1ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" IS NULL AND "authorizations"."uid" = $1 ORDER BY "authorizations"."id" ASC LIMIT $2[0m  [["uid", ""], ["LIMIT", 1]]
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 11:56:13 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 11:56:13 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 12:54:33 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 12:54:33 +0300
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "git@git.com"], ["encrypted_password", "$2a$11$jW7rKbRojMQX08Y0ZVDzZeRV3DpxHJD9gDKh8m4XHejWkqjya8zBe"], ["created_at", "2018-08-02 09:54:51.750082"], ["updated_at", "2018-08-02 09:54:51.750082"], ["confirmation_token", "FdhFUoSZWy8euaZGwQx8"], ["confirmation_sent_at", "2018-08-02 09:54:51.751410"]]
+  [1m[35m (22.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 64.8ms
+Sent mail to git@git.com (117.6ms)
+Date: Thu, 02 Aug 2018 12:54:51 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: git@git.com
+Message-ID: <5b62d4ebd83d1_e595ad8ce8537e0@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome git@git.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=FdhFUoSZWy8euaZGwQx8">Confirm my account</a></p>
+
+  [1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 401 Unauthorized in 3528239ms (ActiveRecord: 38.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 12:54:52 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 12:54:52 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (16.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 890ms (Views: 663.8ms | ActiveRecord: 31.2ms)
+
+
+  
+LoadError (Unable to autoload constant ApplicationCable::Connection, expected /home/maksim/qa/app/channels/application_cable/connection.rb to define it):
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 12:54:54 +0300
+  
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+activesupport (5.1.6) lib/active_support/dependencies.rb:512:in `load_missing_constant'
+activesupport (5.1.6) lib/active_support/dependencies.rb:202:in `const_missing'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:271:in `const_get'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:271:in `block in constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:312:in `safe_constantize'
+activesupport (5.1.6) lib/active_support/core_ext/string/inflections.rb:77:in `safe_constantize'
+actioncable (5.1.6) lib/action_cable/engine.rb:35:in `block (3 levels) in <class:Engine>'
+actioncable (5.1.6) lib/action_cable/server/base.rb:28:in `call'
+actionpack (5.1.6) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.1.6) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:190:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:190:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+remotipart (1.4.2) lib/remotipart/middleware.rb:32:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 12:54:55 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 12:54:56 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 12:54:56 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+Started GET "/users/confirmation?confirmation_token=FdhFUoSZWy8euaZGwQx8" for 127.0.0.1 at 2018-08-02 12:54:57 +0300
+QuestionsChannel is transmitting the subscription confirmation
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"FdhFUoSZWy8euaZGwQx8"}
+QuestionsChannel is transmitting the subscription confirmation
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "FdhFUoSZWy8euaZGwQx8"], ["LIMIT", 1]]
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+  [1m[35m (11.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2018-08-02 09:54:58.528345"], ["updated_at", "2018-08-02 09:54:58.547262"], ["id", 16]]
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+  [1m[35m (13.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 372ms (ActiveRecord: 56.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 12:54:58 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (10.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 482ms (Views: 472.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[35mSQL (2.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 16]]
+  [1m[35m (25.8ms)[0m  [1m[35mCOMMIT[0m
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 12:59:29 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 12:59:29 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (16.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (44.3ms)
+Completed 200 OK in 857ms (Views: 614.9ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 12:59:32 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 12:59:32 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 12:59:35 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 12:59:35 +0300
+Started GET "/users/auth/github/callback?code=e479a023430936493384&state=834df5236ebd733690456da7c3ce1f1ee71ac3de95f2981d" for 127.0.0.1 at 2018-08-02 12:59:36 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"e479a023430936493384", "state"=>"834df5236ebd733690456da7c3ce1f1ee71ac3de95f2981d"}
+  [1m[36mAuthorization Load (6.5ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 12:59:44 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 12:59:44 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (32.6ms)
+Completed 200 OK in 175534ms (Views: 581.2ms | ActiveRecord: 21.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:02:34 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 13:02:35 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:02:35 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:03:12 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 13:03:12 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (13.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (42.6ms)
+Completed 200 OK in 903ms (Views: 685.1ms | ActiveRecord: 23.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 13:03:15 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:03:15 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:03:17 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 13:03:17 +0300
+Started GET "/users/auth/github/callback?code=27a948b119a9e3ba228a&state=bc6d4077b2c4c9dd86800647050e13c4b46ca420356dc041" for 127.0.0.1 at 2018-08-02 13:03:20 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"27a948b119a9e3ba228a", "state"=>"bc6d4077b2c4c9dd86800647050e13c4b46ca420356dc041"}
+  [1m[36mAuthorization Load (2.0ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (39.4ms)
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 13:03:24 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:03:24 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Completed 200 OK in 667ms (Views: 613.9ms | ActiveRecord: 18.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:03:24 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 13:03:25 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:03:25 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:03:33 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started POST "/github" for 127.0.0.1 at 2018-08-02 13:03:33 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VCmbPDyjwV7/1TO/AebxvlQl3+VeQB5bHh7kgJj/Dtqq44VHuJs4UtzJ5oAe9oL84hyexuV4JlaTXhLXE6xAgw==", "auth"=>{"info"=>{"email"=>"git@git.com"}}, "commit"=>"Send"}
+  [1m[36mAuthorization Load (1.3ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" IS NULL AND "authorizations"."uid" = $1 ORDER BY "authorizations"."id" ASC LIMIT $2[0m  [["uid", ""], ["LIMIT", 1]]
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 13:03:40 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:03:40 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+  [1m[35m (4.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "git@git.com"], ["encrypted_password", "$2a$11$Wjc4WFc1RaERnxVlOcesF.tbA91pkABe7.UvE14m4oYfIPUuKen/y"], ["created_at", "2018-08-02 10:05:01.073402"], ["updated_at", "2018-08-02 10:05:01.073402"], ["confirmation_token", "xbNUxCe5TY-5X2B5HFYD"], ["confirmation_sent_at", "2018-08-02 10:05:01.075400"]]
+  [1m[35m (24.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 54.5ms
+Sent mail to git@git.com (96.2ms)
+Date: Thu, 02 Aug 2018 13:05:01 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: git@git.com
+Message-ID: <5b62d74d34207_e595ad8d74538c3@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome git@git.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=xbNUxCe5TY-5X2B5HFYD">Confirm my account</a></p>
+
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 401 Unauthorized in 88258ms (ActiveRecord: 41.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 13:05:01 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (13.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (39.8ms)
+Completed 200 OK in 804ms (Views: 791.8ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:05:03 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 13:05:04 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:05:04 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+Started GET "/users/confirmation?confirmation_token=xbNUxCe5TY-5X2B5HFYD" for 127.0.0.1 at 2018-08-02 13:05:09 +0300
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"xbNUxCe5TY-5X2B5HFYD"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "xbNUxCe5TY-5X2B5HFYD"], ["LIMIT", 1]]
+  [1m[35m (8.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2018-08-02 10:05:09.718955"], ["updated_at", "2018-08-02 10:05:09.731097"], ["id", 17]]
+  [1m[35m (19.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 71ms (ActiveRecord: 32.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 13:05:09 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (10.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 586ms (Views: 579.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 13:05:11 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:05:11 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:05:12 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:05:17 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 13:05:17 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (8.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 545ms (Views: 536.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 13:05:19 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:05:19 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:05:22 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 13:05:22 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 13:05:28 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:05:28 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/auth/github/callback?code=b615ea5b7e14bfc0fbf4&state=8724b8c536f395f5504d5b1350bd6ebbfe7ec5a0c2102fc2" for 127.0.0.1 at 2018-08-02 13:05:29 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"b615ea5b7e14bfc0fbf4", "state"=>"8724b8c536f395f5504d5b1350bd6ebbfe7ec5a0c2102fc2"}
+  [1m[36mAuthorization Load (1.7ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (31.9ms)
+Completed 200 OK in 542ms (Views: 529.7ms | ActiveRecord: 1.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:05:34 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 13:05:35 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 13:05:35 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[35mSQL (2.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 17]]
+  [1m[35m (20.5ms)[0m  [1m[35mCOMMIT[0m
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 14:48:40 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 14:48:40 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (10.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (34.9ms)
+Completed 200 OK in 1468ms (Views: 1249.3ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 14:48:44 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 14:48:44 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 14:48:49 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 14:48:49 +0300
+Started GET "/users/auth/github/callback?code=d3969b168032895955b4&state=5f949b4eb850a24f0451b8237cd14f0d0a29fcd50e0165aa" for 127.0.0.1 at 2018-08-02 14:48:50 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"d3969b168032895955b4", "state"=>"5f949b4eb850a24f0451b8237cd14f0d0a29fcd50e0165aa"}
+  [1m[36mAuthorization Load (4.5ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  Rendering users/confirm_user_email.html.slim within layouts/application
+  Rendered users/confirm_user_email.html.slim within layouts/application (30.2ms)
+Completed 200 OK in 528ms (Views: 480.2ms | ActiveRecord: 22.2ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 14:48:54 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 14:48:54 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 14:49:16 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started POST "/github" for 127.0.0.1 at 2018-08-02 14:49:16 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L59FnjGzHBlsWibxDZRZTPlDM7fsmjXSnwHQ84kAqYTRVVvltYvlFU9G884ShCoOT3pylFeiDd8SQSakAlPn3Q==", "auth"=>{"info"=>{"email"=>"git@git.com"}}, "commit"=>"Send"}
+  [1m[36mAuthorization Load (3.3ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "git@git.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "git@git.com"], ["encrypted_password", "$2a$11$t69XBwmroRzo68Px2czQPeBjVGfJMbYL3g5jX5qlpWot9DUDuut16"], ["created_at", "2018-08-02 11:49:17.030600"], ["updated_at", "2018-08-02 11:49:17.030600"], ["confirmation_token", "xBftzBsM_4VLFfDpi41Q"], ["confirmation_sent_at", "2018-08-02 11:49:17.032462"]]
+  [1m[35m (10.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (5.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 71.2ms
+Sent mail to git@git.com (164.1ms)
+Date: Thu, 02 Aug 2018 14:49:17 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: git@git.com
+Message-ID: <5b62efbd2aa15_e595ad8d74539bd@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome git@git.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=xBftzBsM_4VLFfDpi41Q">Confirm my account</a></p>
+
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (52.1ms)[0m  [1m[32mINSERT INTO "authorizations" ("user_id", "provider", "uid", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 18], ["provider", "github"], ["uid", "30418793"], ["created_at", "2018-08-02 11:49:17.479646"], ["updated_at", "2018-08-02 11:49:17.479646"]]
+  [1m[35m (14.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (4.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 401 Unauthorized in 1203ms (ActiveRecord: 94.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 14:49:17 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (11.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (41.1ms)
+Completed 200 OK in 675ms (Views: 666.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 14:49:19 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 14:49:19 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/confirmation?confirmation_token=xBftzBsM_4VLFfDpi41Q" for 127.0.0.1 at 2018-08-02 14:49:22 +0300
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"xBftzBsM_4VLFfDpi41Q"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "xBftzBsM_4VLFfDpi41Q"], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2018-08-02 11:49:22.201491"], ["updated_at", "2018-08-02 11:49:22.206395"], ["id", 18]]
+  [1m[35m (22.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 63ms (ActiveRecord: 27.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-02 14:49:22 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (8.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (32.5ms)
+Completed 200 OK in 546ms (Views: 539.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 14:49:24 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 14:49:24 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 14:50:00 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/users/auth/github" for 127.0.0.1 at 2018-08-02 14:50:00 +0300
+Started GET "/users/auth/github/callback?code=307a0b230f75ba458291&state=128ad7e0d7d0fa54aea67c86e309b69eadf3b0273971ac61" for 127.0.0.1 at 2018-08-02 14:50:01 +0300
+Processing by OmniauthCallbacksController#github as HTML
+  Parameters: {"code"=>"307a0b230f75ba458291", "state"=>"128ad7e0d7d0fa54aea67c86e309b69eadf3b0273971ac61"}
+  [1m[36mAuthorization Load (1.8ms)[0m  [1m[34mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = $1 AND "authorizations"."uid" = $2 ORDER BY "authorizations"."id" ASC LIMIT $3[0m  [["provider", "github"], ["uid", "30418793"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2018-08-02 11:50:04.162475"], ["last_sign_in_at", "2018-08-02 11:50:04.162475"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2018-08-02 11:50:04.166817"], ["id", 18]]
+  [1m[35m (20.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 99ms (ActiveRecord: 30.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-02 14:50:04 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (1.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (18.6ms)
+  Rendered questions/_question.html.slim (0.8ms)
+  Rendered questions/_question.html.slim (0.9ms)
+  Rendered questions/_question.html.slim (1.0ms)
+  Rendered questions/index.html.slim within layouts/application (144.9ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+Completed 200 OK in 767ms (Views: 547.7ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-02 14:50:05 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 14:50:05 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+AnswersChannel is streaming from answers
