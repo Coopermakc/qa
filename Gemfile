@@ -25,7 +25,7 @@ gem 'rails-controller-testing'
 gem 'jquery-rails'
 gem 'database_cleaner'
 gem 'responders'
-
+gem 'cancancan'
 gem 'carrierwave'
 gem 'remotipart'
 gem 'cocoon'

@@ -5932,3 +5932,470 @@ QuestionsChannel is streaming from questions
 QuestionsChannel is streaming from questions
 AnswersChannel#follow
 AnswersChannel is streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 17:23:20 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-02 17:23:20 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/questions" for 127.0.0.1 at 2018-08-03 11:04:30 +0300
+  [1m[35m (205.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (125.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (20.3ms)
+  Rendered questions/_question.html.slim (0.7ms)
+  Rendered questions/_question.html.slim (1.0ms)
+  Rendered questions/_question.html.slim (1.3ms)
+  Rendered questions/index.html.slim within layouts/application (437.2ms)
+Completed 200 OK in 4028ms (Views: 3715.2ms | ActiveRecord: 205.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 11:04:36 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:04:37 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:04:39 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-03 11:04:39 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (10.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (184.3ms)
+Completed 200 OK in 950ms (Views: 639.9ms | ActiveRecord: 137.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 11:04:41 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:04:41 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:04:44 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-08-03 11:04:44 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IKxOHWK/k8ImZrkCuysPQnhucYCVSVweB+ZjJfOKR2Hs1RFK6orejLYjgz55nF904nSI+YYz/HzPT28uQCDTkA==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (282.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (33.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-08-03 08:04:45.428304"], ["last_sign_in_at", "2018-07-27 07:18:17.480777"], ["sign_in_count", 10], ["updated_at", "2018-08-03 08:04:45.433732"], ["id", 1]]
+  [1m[35m (16.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1049ms (ActiveRecord: 333.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-03 11:04:45 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (1.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (19.7ms)
+  Rendered questions/_question.html.slim (0.8ms)
+  Rendered questions/_question.html.slim (1.4ms)
+  Rendered questions/_question.html.slim (0.9ms)
+  Rendered questions/index.html.slim within layouts/application (63.0ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 536ms (Views: 528.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 11:04:46 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:04:46 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:04:49 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/questions/2" for 127.0.0.1 at 2018-08-03 11:04:49 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuestion Load (1.9ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (61.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 2], ["votable_type", "Question"]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (153.5ms)
+  [1m[36mAttachment Load (7.9ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 2], ["attachable_type", "Question"]]
+  [1m[36mComment Load (11.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 2], ["commentable_type", "Question"]]
+  Rendered comments/_comment.html.slim (22.5ms)
+  Rendered comments/_comment.html.slim (0.4ms)
+  Rendered comments/_comment.html.slim (0.4ms)
+  Rendered comments/_comment.html.slim (0.4ms)
+  Rendered comments/_comment.html.slim (0.5ms)
+  Rendered comments/_comment.html.slim (0.3ms)
+  Rendered comments/_comment.html.slim (0.3ms)
+  Rendered comments/_comment.html.slim (0.4ms)
+  Rendered comments/_comment.html.slim (0.5ms)
+  Rendered comments/_comment.html.slim (0.4ms)
+  Rendered comments/_comment.html.slim (0.4ms)
+  Rendered comments/_comment.html.slim (0.4ms)
+  [1m[36mAnswer Load (31.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 2]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 13], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (22.7ms)
+  [1m[36mAttachment Load (1.1ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 13], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 13], ["commentable_type", "Answer"]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 14], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (13.6ms)
+  [1m[36mAttachment Load (1.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 14], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 14], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (218.7ms)
+  Rendered attachments/_attachments_fields.html.slim (22.3ms)
+  Rendered attachments/_attachments_fields.html.slim (22.8ms)
+  Rendered questions/show.html.slim within layouts/application (893.7ms)
+Completed 200 OK in 1742ms (Views: 1318.9ms | ActiveRecord: 194.6ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 11:04:52 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:04:52 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:05:21 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 11:05:22 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:05:22 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:05:26 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/questions/5" for 127.0.0.1 at 2018-08-03 11:05:26 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mQuestion Load (1.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 5], ["votable_type", "Question"]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (69.7ms)
+  [1m[36mAttachment Load (1.9ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 5], ["attachable_type", "Question"]]
+  [1m[36mComment Load (6.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 5], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (1.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 5]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (9.9ms)
+  [1m[36mAttachment Load (1.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 10], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 10], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (108.5ms)
+  Rendered attachments/_attachments_fields.html.slim (24.2ms)
+  Rendered attachments/_attachments_fields.html.slim (32.9ms)
+  Rendered questions/show.html.slim within layouts/application (386.6ms)
+Completed 200 OK in 881ms (Views: 850.4ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 11:05:28 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:05:28 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started PATCH "/answers/10/best" for 127.0.0.1 at 2018-08-03 11:05:38 +0300
+Processing by AnswersController#best as JS
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (1.2ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mQuestion Load (1.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAnswer Load (1.8ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."question_id" = $1 AND "answers"."best" = $2 ORDER BY "answers"."id" ASC LIMIT $3[0m  [["question_id", 5], ["best", "t"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[33mUPDATE "answers" SET "best" = $1, "updated_at" = $2 WHERE "answers"."id" = $3[0m  [["best", "t"], ["updated_at", "2018-08-03 08:05:38.965329"], ["id", 10]]
+  [1m[35m (20.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/best.js.erb
+  [1m[36mAnswer Load (2.9ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 5]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (49.2ms)
+  [1m[36mAttachment Load (6.6ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 10], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 10], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (171.5ms)
+  Rendered answers/best.js.erb (181.0ms)
+Completed 200 OK in 352ms (Views: 229.4ms | ActiveRecord: 43.0ms)
+
+
+Started POST "/questions/5/answers" for 127.0.0.1 at 2018-08-03 11:05:54 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"best?"}, "commit"=>"Create", "question_id"=>"5"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (1.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (24.5ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "best?"], ["question_id", 5], ["created_at", "2018-08-03 08:05:54.479490"], ["updated_at", "2018-08-03 08:05:54.479490"], ["user_id", 1]]
+  [1m[35m (11.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (1.8ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 5]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (38.0ms)
+  [1m[36mAttachment Load (2.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 10], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 10], ["commentable_type", "Answer"]]
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 15], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (12.4ms)
+  [1m[36mAttachment Load (2.1ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 15], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 15], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (185.7ms)
+  Rendered answers/create.js.erb (196.1ms)
+Completed 200 OK in 335ms (Views: 230.7ms | ActiveRecord: 56.0ms)
+
+
+Started PATCH "/answers/15/best" for 127.0.0.1 at 2018-08-03 11:05:57 +0300
+Processing by AnswersController#best as JS
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (1.5ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mQuestion Load (1.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAnswer Load (1.6ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."question_id" = $1 AND "answers"."best" = $2 ORDER BY "answers"."id" ASC LIMIT $3[0m  [["question_id", 5], ["best", "t"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "answers" SET "best" = $1, "updated_at" = $2 WHERE "answers"."id" = $3[0m  [["best", "f"], ["updated_at", "2018-08-03 08:05:57.687798"], ["id", 10]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[33mUPDATE "answers" SET "best" = $1, "updated_at" = $2 WHERE "answers"."id" = $3[0m  [["best", "t"], ["updated_at", "2018-08-03 08:05:57.708223"], ["id", 15]]
+  [1m[35m (21.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/best.js.erb
+  [1m[36mAnswer Load (6.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 5]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 15], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (39.1ms)
+  [1m[36mAttachment Load (1.0ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 15], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 15], ["commentable_type", "Answer"]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 10], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (7.6ms)
+  [1m[36mAttachment Load (0.9ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 10], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 10], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (167.1ms)
+  Rendered answers/best.js.erb (175.0ms)
+Completed 200 OK in 323ms (Views: 192.5ms | ActiveRecord: 48.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:07:32 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/questions" for 127.0.0.1 at 2018-08-03 11:07:32 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (1.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (28.3ms)
+  Rendered questions/_question.html.slim (0.8ms)
+  Rendered questions/_question.html.slim (0.7ms)
+  Rendered questions/_question.html.slim (0.8ms)
+  Rendered questions/index.html.slim within layouts/application (72.9ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 489ms (Views: 481.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 11:07:34 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:07:34 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:07:37 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/questions/6" for 127.0.0.1 at 2018-08-03 11:07:37 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mQuestion Load (1.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Question"]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (50.1ms)
+  [1m[36mAttachment Load (1.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 6], ["attachable_type", "Question"]]
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 6], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (1.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 6]]
+  Rendered answers/_answers.html.slim (77.5ms)
+  Rendered attachments/_attachments_fields.html.slim (20.9ms)
+  Rendered attachments/_attachments_fields.html.slim (22.1ms)
+  Rendered questions/show.html.slim within layouts/application (292.4ms)
+Completed 200 OK in 713ms (Views: 694.1ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 11:07:39 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:07:39 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started POST "/questions/6/answers" for 127.0.0.1 at 2018-08-03 11:07:53 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"best?"}, "commit"=>"Create", "question_id"=>"6"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (1.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "best?"], ["question_id", 6], ["created_at", "2018-08-03 08:07:53.494401"], ["updated_at", "2018-08-03 08:07:53.494401"], ["user_id", 1]]
+  [1m[35m (18.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (1.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 6]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (40.7ms)
+  [1m[36mAttachment Load (0.8ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 16], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (5.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 16], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (141.3ms)
+  Rendered answers/create.js.erb (150.4ms)
+Completed 200 OK in 245ms (Views: 170.6ms | ActiveRecord: 33.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:08:08 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/questions" for 127.0.0.1 at 2018-08-03 11:08:08 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (1.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (23.3ms)
+  Rendered questions/_question.html.slim (0.8ms)
+  Rendered questions/_question.html.slim (0.7ms)
+  Rendered questions/_question.html.slim (0.7ms)
+  Rendered questions/index.html.slim within layouts/application (69.7ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 514ms (Views: 505.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 11:08:09 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:08:09 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:08:12 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/questions/6" for 127.0.0.1 at 2018-08-03 11:08:12 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 6], ["votable_type", "Question"]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered votes/_vote.html.slim (40.2ms)
+  [1m[36mAttachment Load (0.8ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 6], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 6], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (1.7ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 6]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 16], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (10.6ms)
+  [1m[36mAttachment Load (0.7ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 16], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 16], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (101.4ms)
+  Rendered attachments/_attachments_fields.html.slim (23.1ms)
+  Rendered attachments/_attachments_fields.html.slim (27.7ms)
+  Rendered questions/show.html.slim within layouts/application (358.1ms)
+Completed 200 OK in 769ms (Views: 747.5ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 11:08:14 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 11:08:14 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 16:00:01 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 16:00:02 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 16:00:02 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 17:22:45 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-08-03 17:22:46 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-03 17:22:46 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8064561033501595560)[0m
+  [1m[35m (29.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAdminFlagToUser (20180807072235)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (276.1ms)[0m  [1m[35mALTER TABLE "users" DROP "nickname"[0m
+  [1m[35m (43.7ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180807072235"]]
+  [1m[35m (109.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (47.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(8064561033501595560)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
