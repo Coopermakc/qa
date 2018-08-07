@@ -1,0 +1,1036 @@
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (233.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "db/qa_test"[0m
+  [1m[35m (502.1ms)[0m  [1m[35mCREATE DATABASE "db/qa_test" ENCODING = 'utf8'[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "answers" CASCADE[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "answers" ("id" bigserial primary key, "body" text, "question_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer, "best" boolean DEFAULT 'f')[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE  INDEX  "index_answers_on_user_id" ON "answers"  ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "attachments" CASCADE[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "attachments" ("id" bigserial primary key, "file" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "attachable_id" integer, "attachable_type" character varying)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_attachments_on_attachable_id_and_attachable_type" ON "attachments"  ("attachable_id", "attachable_type")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "authorizations" CASCADE[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "authorizations" ("id" bigserial primary key, "user_id" bigint, "provider" character varying, "uid" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_authorizations_on_user_id" ON "authorizations"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "comment_body" text, "user_id" bigint, "commentable_type" character varying, "commentable_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_commentable_type_and_commentable_id" ON "comments"  ("commentable_type", "commentable_id")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_user_id" ON "comments"  ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "questions" CASCADE[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "questions" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_questions_on_user_id" ON "questions"  ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "admin" boolean)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "votes" CASCADE[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "votes" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "rating" integer, "user_id" integer, "votable_id" integer, "votable_type" character varying)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_user_id" ON "votes"  ("user_id")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_votes_on_votable_id_and_votable_type" ON "votes"  ("votable_id", "votable_type")[0m
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "authorizations" ADD CONSTRAINT "fk_rails_4ecef5b8c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180807072235)[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180731110508),
+(20180711153209),
+(20180529081236),
+(20180528140740),
+(20180605105435),
+(20180524083732),
+(20180510064206),
+(20180513151445),
+(20180729182243),
+(20180504100808),
+(20180509152049),
+(20180730130505),
+(20180528181111),
+(20180605105726);
+
+[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-08-07 18:31:18.068708"], ["updated_at", "2018-08-07 18:31:18.068708"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user1@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at", "admin") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "user1@test.com"], ["encrypted_password", "$2a$04$00xvczxJv56WGKJ/8T1FSelJYNMeQtJuX9ZYTTSHkY./EtCcd55YC"], ["created_at", "2018-08-07 18:31:18.247188"], ["updated_at", "2018-08-07 18:31:18.247188"], ["confirmation_token", "BE4wQeyRmGqNFv5vaU9i"], ["confirmation_sent_at", "2018-08-07 18:31:18.247476"], ["admin", "t"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (6.0ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 380.7ms
+Sent mail to user1@test.com (18.2ms)
+Date: Tue, 07 Aug 2018 21:31:18 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user1@test.com
+Message-ID: <5b69e576f1004_cc63fe94503f7dc28326@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user1@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=BE4wQeyRmGqNFv5vaU9i">Confirm my account</a></p>
+
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user2@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user2@test.com"], ["encrypted_password", "$2a$04$Uk.T32Fzh/NylbLrTzCD3udx00Yeb2RDSzGNQzMdMwngdCAXpugmu"], ["created_at", "2018-08-07 18:31:19.032779"], ["updated_at", "2018-08-07 18:31:19.032779"], ["confirmation_token", "qNmR56cvxQt8Wrnb75-y"], ["confirmation_sent_at", "2018-08-07 18:31:19.032882"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user2@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:31:19 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user2@test.com
+Message-ID: <5b69e577903a_cc63fe94503f7dc284dd@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user2@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=qNmR56cvxQt8Wrnb75-y">Confirm my account</a></p>
+
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user3@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user3@test.com"], ["encrypted_password", "$2a$04$DtqAvcZolIEWyWTKqiw3B.6axE5i3K3zSMJH65Vla/Xz4WwXPUjPm"], ["created_at", "2018-08-07 18:31:19.043764"], ["updated_at", "2018-08-07 18:31:19.043764"], ["confirmation_token", "THxJ_FvWp5Qfh5jSC4xs"], ["confirmation_sent_at", "2018-08-07 18:31:19.043862"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user3@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:31:19 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user3@test.com
+Message-ID: <5b69e577bb09_cc63fe94503f7dc285fc@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user3@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=THxJ_FvWp5Qfh5jSC4xs">Confirm my account</a></p>
+
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user4@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user4@test.com"], ["encrypted_password", "$2a$04$A8H.Yqin/UMP8YopK1mKseQmmzCBP9qbJYNdlmRw5/ttjA6rGg2BG"], ["created_at", "2018-08-07 18:31:19.054319"], ["updated_at", "2018-08-07 18:31:19.054319"], ["confirmation_token", "roDR53Wz3JDczmypgXm6"], ["confirmation_sent_at", "2018-08-07 18:31:19.054423"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.2ms
+Sent mail to user4@test.com (2.2ms)
+Date: Tue, 07 Aug 2018 21:31:19 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user4@test.com
+Message-ID: <5b69e577e409_cc63fe94503f7dc286a3@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user4@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=roDR53Wz3JDczmypgXm6">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user5@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user5@test.com"], ["encrypted_password", "$2a$04$7LPJgABlEpvMMCe16Wr9xOBZu4In19s3qWI9XFmj0YH2T9VBqI1Mu"], ["created_at", "2018-08-07 18:31:19.065785"], ["updated_at", "2018-08-07 18:31:19.065785"], ["confirmation_token", "8pZU9PUBnX5nHZH1gANc"], ["confirmation_sent_at", "2018-08-07 18:31:19.065883"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user5@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:31:19 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user5@test.com
+Message-ID: <5b69e577110b4_cc63fe94503f7dc287ca@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user5@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=8pZU9PUBnX5nHZH1gANc">Confirm my account</a></p>
+
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user6@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user6@test.com"], ["encrypted_password", "$2a$04$zZwdCTOmOTwL/rqqO1kiLe6A08Yg7t.QsdeYxX25W51zI5CWl9U42"], ["created_at", "2018-08-07 18:31:19.078292"], ["updated_at", "2018-08-07 18:31:19.078292"], ["confirmation_token", "_Uu9njczHxaxRL8xsxsy"], ["confirmation_sent_at", "2018-08-07 18:31:19.078389"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user6@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:31:19 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user6@test.com
+Message-ID: <5b69e57714151_cc63fe94503f7dc2885@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user6@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=_Uu9njczHxaxRL8xsxsy">Confirm my account</a></p>
+
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user7@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user7@test.com"], ["encrypted_password", "$2a$04$Fqjamj1V6Z26uRviFBWrBOaMLxmknDvbiJMhPpCQccpz7elbui4j2"], ["created_at", "2018-08-07 18:31:19.088842"], ["updated_at", "2018-08-07 18:31:19.088842"], ["confirmation_token", "K2UgSxnvhGKErvNKfnjg"], ["confirmation_sent_at", "2018-08-07 18:31:19.088947"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user7@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:31:19 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user7@test.com
+Message-ID: <5b69e57716ac3_cc63fe94503f7dc289e5@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user7@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=K2UgSxnvhGKErvNKfnjg">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "questions" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "MyString"], ["body", "MyText"], ["created_at", "2018-08-07 18:31:19.115185"], ["updated_at", "2018-08-07 18:31:19.115185"], ["user_id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user8@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user8@test.com"], ["encrypted_password", "$2a$04$jMWwEkwsypuihvAVsiZd.epy.dsSwD7DrIpoFwKFAOtESMB6YMLyC"], ["created_at", "2018-08-07 18:31:19.125343"], ["updated_at", "2018-08-07 18:31:19.125343"], ["confirmation_token", "E5e-s2LYxsgurRb1obNd"], ["confirmation_sent_at", "2018-08-07 18:31:19.125459"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.5ms
+Sent mail to user8@test.com (1.7ms)
+Date: Tue, 07 Aug 2018 21:31:19 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user8@test.com
+Message-ID: <5b69e5771fc1e_cc63fe94503f7dc2905b@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user8@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=E5e-s2LYxsgurRb1obNd">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "MyString"], ["body", "MyText"], ["created_at", "2018-08-07 18:31:19.132269"], ["updated_at", "2018-08-07 18:31:19.132269"], ["user_id", 8]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user9@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user9@test.com"], ["encrypted_password", "$2a$04$eDM8.gaY./wIuP27hZbNHOUqbXo6e8whydtZ1e3KWQQfwmMw9/JdK"], ["created_at", "2018-08-07 18:31:19.136895"], ["updated_at", "2018-08-07 18:31:19.136895"], ["confirmation_token", "ak7QHjexBWzqGcQSb1Db"], ["confirmation_sent_at", "2018-08-07 18:31:19.136991"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.2ms
+Sent mail to user9@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:31:19 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user9@test.com
+Message-ID: <5b69e577226e4_cc63fe94503f7dc29197@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user9@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=ak7QHjexBWzqGcQSb1Db">Confirm my account</a></p>
+
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user10@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user10@test.com"], ["encrypted_password", "$2a$04$KV.WMcVu9vQxrZ6xpwebdOXXkw9p6krrV.ar24BWWoiedsnin7ksu"], ["created_at", "2018-08-07 18:31:19.150775"], ["updated_at", "2018-08-07 18:31:19.150775"], ["confirmation_token", "p_m8fxxBBW89QPt-4wLu"], ["confirmation_sent_at", "2018-08-07 18:31:19.150879"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.5ms
+Sent mail to user10@test.com (1.9ms)
+Date: Tue, 07 Aug 2018 21:31:19 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user10@test.com
+Message-ID: <5b69e57725dff_cc63fe94503f7dc29221@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user10@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=p_m8fxxBBW89QPt-4wLu">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user11@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user11@test.com"], ["encrypted_password", "$2a$04$CCE5l0mcCv6RnhhK46Dpde8ObIe/Y390ubwMpvFHBotgSDPhOqy/y"], ["created_at", "2018-08-07 18:31:19.176133"], ["updated_at", "2018-08-07 18:31:19.176133"], ["confirmation_token", "zdhzfmJf1dcBi5aUD7uG"], ["confirmation_sent_at", "2018-08-07 18:31:19.176241"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.4ms
+Sent mail to user11@test.com (1.5ms)
+Date: Tue, 07 Aug 2018 21:31:19 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user11@test.com
+Message-ID: <5b69e5772c0f7_cc63fe94503f7dc29388@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user11@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=zdhzfmJf1dcBi5aUD7uG">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user1@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at", "admin") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "user1@test.com"], ["encrypted_password", "$2a$04$QGkPs84TUBNPkwxpzvkIY.cgrmGcqCDuMMqtetdS/dvubEhlLiyKW"], ["created_at", "2018-08-07 18:32:25.194172"], ["updated_at", "2018-08-07 18:32:25.194172"], ["confirmation_token", "fBsxkFMDU7r_Ytpvjvcf"], ["confirmation_sent_at", "2018-08-07 18:32:25.194468"], ["admin", "t"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.8ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 308.2ms
+Sent mail to user1@test.com (6.9ms)
+Date: Tue, 07 Aug 2018 21:32:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user1@test.com
+Message-ID: <5b69e5b99fc76_cd73ff9910417c4685cc@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user1@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=fBsxkFMDU7r_Ytpvjvcf">Confirm my account</a></p>
+
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user2@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user2@test.com"], ["encrypted_password", "$2a$04$PMqzc4KSVDPPqqrh8zQdXOk0IBMFSSXv1BTi7dIYULL08WudQUBgm"], ["created_at", "2018-08-07 18:32:25.673266"], ["updated_at", "2018-08-07 18:32:25.673266"], ["confirmation_token", "DHCjwNkyVoB_gxiSz4AS"], ["confirmation_sent_at", "2018-08-07 18:32:25.673366"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user2@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:32:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user2@test.com
+Message-ID: <5b69e5b9a55a2_cd73ff9910417c46864e@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user2@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=DHCjwNkyVoB_gxiSz4AS">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user3@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user3@test.com"], ["encrypted_password", "$2a$04$eQXamXdmTM4Eg.zzfex92O/7KUNoFAOi9MuoIpClckZx4o9wbaQHK"], ["created_at", "2018-08-07 18:32:25.684116"], ["updated_at", "2018-08-07 18:32:25.684116"], ["confirmation_token", "niTsX9dxN58Evos2gKPh"], ["confirmation_sent_at", "2018-08-07 18:32:25.684213"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.4ms
+Sent mail to user3@test.com (1.6ms)
+Date: Tue, 07 Aug 2018 21:32:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user3@test.com
+Message-ID: <5b69e5b9a8098_cd73ff9910417c4687de@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user3@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=niTsX9dxN58Evos2gKPh">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user4@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user4@test.com"], ["encrypted_password", "$2a$04$gefjNHOb.C.fF6/vdZ0VEuj1GAEGSqfWggehDST0AnPeCBMeUDnUi"], ["created_at", "2018-08-07 18:32:25.694950"], ["updated_at", "2018-08-07 18:32:25.694950"], ["confirmation_token", "Z98fpxYXKxD5eU6pxmck"], ["confirmation_sent_at", "2018-08-07 18:32:25.695047"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user4@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:32:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user4@test.com
+Message-ID: <5b69e5b9aa9e3_cd73ff9910417c468843@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user4@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=Z98fpxYXKxD5eU6pxmck">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user5@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user5@test.com"], ["encrypted_password", "$2a$04$z8.Z0sj9mitv0w22oWCoOu7FZLUVFs4MZzP80OOzr61S1iuVWIQuC"], ["created_at", "2018-08-07 18:32:25.705762"], ["updated_at", "2018-08-07 18:32:25.705762"], ["confirmation_token", "2pPxQmQviKDTStCtyure"], ["confirmation_sent_at", "2018-08-07 18:32:25.705868"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user5@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:32:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user5@test.com
+Message-ID: <5b69e5b9ad524_cd73ff9910417c468978@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user5@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=2pPxQmQviKDTStCtyure">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user6@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user6@test.com"], ["encrypted_password", "$2a$04$7SzCeFx82D7g1sZG8PRmz.Lh4ZuR1B1K.8lndIAaE0McC7XqT7NnO"], ["created_at", "2018-08-07 18:32:25.716340"], ["updated_at", "2018-08-07 18:32:25.716340"], ["confirmation_token", "1DwjyAY26ARr7ksEiLCk"], ["confirmation_sent_at", "2018-08-07 18:32:25.716438"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.7ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 2.8ms
+Sent mail to user6@test.com (1.6ms)
+Date: Tue, 07 Aug 2018 21:32:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user6@test.com
+Message-ID: <5b69e5b9b04df_cd73ff9910417c4690eb@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user6@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=1DwjyAY26ARr7ksEiLCk">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user7@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user7@test.com"], ["encrypted_password", "$2a$04$uVTj07AdsC21s2lXv6/DJ.LO5k/oNJHRVxGxs9q3ZIbNcsGpGSSr2"], ["created_at", "2018-08-07 18:32:25.729556"], ["updated_at", "2018-08-07 18:32:25.729556"], ["confirmation_token", "ecVfg4LhH3sNJuXV-78h"], ["confirmation_sent_at", "2018-08-07 18:32:25.729654"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user7@test.com (1.9ms)
+Date: Tue, 07 Aug 2018 21:32:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user7@test.com
+Message-ID: <5b69e5b9b31bb_cd73ff9910417c46917d@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user7@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=ecVfg4LhH3sNJuXV-78h">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "MyString"], ["body", "MyText"], ["created_at", "2018-08-07 18:32:25.749670"], ["updated_at", "2018-08-07 18:32:25.749670"], ["user_id", 18]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user8@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user8@test.com"], ["encrypted_password", "$2a$04$EpXkRMb5e2H5UiGKxJodqeK495l.7ChpLBo2QOJKSF52GShp..vEi"], ["created_at", "2018-08-07 18:32:25.759521"], ["updated_at", "2018-08-07 18:32:25.759521"], ["confirmation_token", "yyR7ESzn7ss9CQ-syeBB"], ["confirmation_sent_at", "2018-08-07 18:32:25.759634"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.5ms
+Sent mail to user8@test.com (1.6ms)
+Date: Tue, 07 Aug 2018 21:32:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user8@test.com
+Message-ID: <5b69e5b9ba990_cd73ff9910417c4692a1@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user8@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=yyR7ESzn7ss9CQ-syeBB">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "questions" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "MyString"], ["body", "MyText"], ["created_at", "2018-08-07 18:32:25.766262"], ["updated_at", "2018-08-07 18:32:25.766262"], ["user_id", 19]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user9@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user9@test.com"], ["encrypted_password", "$2a$04$/8H4o.fpujVtYCDgGTJaZO3fgEdlxIdEksjOqq2VC7HNJud.QLQqG"], ["created_at", "2018-08-07 18:32:25.771263"], ["updated_at", "2018-08-07 18:32:25.771263"], ["confirmation_token", "WeWY_M58VxPk3snyQSeh"], ["confirmation_sent_at", "2018-08-07 18:32:25.771382"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.4ms
+Sent mail to user9@test.com (1.5ms)
+Date: Tue, 07 Aug 2018 21:32:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user9@test.com
+Message-ID: <5b69e5b9bd564_cd73ff9910417c46939c@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user9@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=WeWY_M58VxPk3snyQSeh">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user10@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user10@test.com"], ["encrypted_password", "$2a$04$KA7ZzrzAV63ZSYXs1s.Fl.Z5yZ1bU/hsOqzOMqC/PSJEeoSTc54NW"], ["created_at", "2018-08-07 18:32:25.782508"], ["updated_at", "2018-08-07 18:32:25.782508"], ["confirmation_token", "dTnuxiDqtiHt5toLDY7J"], ["confirmation_sent_at", "2018-08-07 18:32:25.782618"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.5ms
+Sent mail to user10@test.com (5.6ms)
+Date: Tue, 07 Aug 2018 21:32:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user10@test.com
+Message-ID: <5b69e5b9c10f8_cd73ff9910417c469463@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user10@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=dTnuxiDqtiHt5toLDY7J">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user11@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user11@test.com"], ["encrypted_password", "$2a$04$v.7Mf7zdy5N7vX8djXi16OPDoJJFXtjM.m72OKFETa3b9.xgBL.m."], ["created_at", "2018-08-07 18:32:25.815940"], ["updated_at", "2018-08-07 18:32:25.815940"], ["confirmation_token", "ZiMopcsaK7BWAawdcHbj"], ["confirmation_sent_at", "2018-08-07 18:32:25.816041"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.5ms
+Sent mail to user11@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:32:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user11@test.com
+Message-ID: <5b69e5b9c83f7_cd73ff9910417c469585@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user11@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=ZiMopcsaK7BWAawdcHbj">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user1@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at", "admin") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "user1@test.com"], ["encrypted_password", "$2a$04$AQbzU0zgftokBCTOQryHe.E4iF8OFDvo4h7kUf4fUouAkLr0yCOvq"], ["created_at", "2018-08-07 18:36:44.976412"], ["updated_at", "2018-08-07 18:36:44.976412"], ["confirmation_token", "c48mwbzhBusasA_JFVLF"], ["confirmation_sent_at", "2018-08-07 18:36:44.976686"], ["admin", "t"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.9ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 298.5ms
+Sent mail to user1@test.com (7.2ms)
+Date: Tue, 07 Aug 2018 21:36:45 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user1@test.com
+Message-ID: <5b69e6bd681f2_cf13ff91e83f7dc819e3@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user1@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=c48mwbzhBusasA_JFVLF">Confirm my account</a></p>
+
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user2@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user2@test.com"], ["encrypted_password", "$2a$04$1npcz4CDlmHyFw4yqkrOqecoS.1uxQJT237w5kLuCO8e79KTjI3Eu"], ["created_at", "2018-08-07 18:36:45.435033"], ["updated_at", "2018-08-07 18:36:45.435033"], ["confirmation_token", "KouZkB_hTJuPNL1Dszbj"], ["confirmation_sent_at", "2018-08-07 18:36:45.435141"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.4ms
+Sent mail to user2@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:36:45 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user2@test.com
+Message-ID: <5b69e6bd6b40e_cf13ff91e83f7dc82083@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user2@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=KouZkB_hTJuPNL1Dszbj">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user3@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user3@test.com"], ["encrypted_password", "$2a$04$UTC2uOx6XZUSmnDphdAwgeJNJkcstUFycDOfoEg2uWgLYXoG3x1gy"], ["created_at", "2018-08-07 18:36:45.446254"], ["updated_at", "2018-08-07 18:36:45.446254"], ["confirmation_token", "sxDB2mzRd_Z2av2ffDWv"], ["confirmation_sent_at", "2018-08-07 18:36:45.446358"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.2ms
+Sent mail to user3@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:36:45 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user3@test.com
+Message-ID: <5b69e6bd6dec6_cf13ff91e83f7dc82128@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user3@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=sxDB2mzRd_Z2av2ffDWv">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user4@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user4@test.com"], ["encrypted_password", "$2a$04$8ovV10xfQz6VnbuMFrZ5F.ktJCNumw9FbtbEHf68wX6Xe9fzdgDX6"], ["created_at", "2018-08-07 18:36:45.456846"], ["updated_at", "2018-08-07 18:36:45.456846"], ["confirmation_token", "88sRn8wWJ6KtqLi9gy28"], ["confirmation_sent_at", "2018-08-07 18:36:45.456946"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.4ms
+Sent mail to user4@test.com (1.5ms)
+Date: Tue, 07 Aug 2018 21:36:45 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user4@test.com
+Message-ID: <5b69e6bd708b5_cf13ff91e83f7dc8225c@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user4@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=88sRn8wWJ6KtqLi9gy28">Confirm my account</a></p>
+
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user5@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user5@test.com"], ["encrypted_password", "$2a$04$NUEN4eRB/0FFi7dsDE92U.wgFrCQ2cHhMmXASwiz8VLq1.rVq08zG"], ["created_at", "2018-08-07 18:36:45.467988"], ["updated_at", "2018-08-07 18:36:45.467988"], ["confirmation_token", "NZAVBYcXU6mz_qbdPv1s"], ["confirmation_sent_at", "2018-08-07 18:36:45.468087"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 3.0ms
+Sent mail to user5@test.com (1.5ms)
+Date: Tue, 07 Aug 2018 21:36:45 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user5@test.com
+Message-ID: <5b69e6bd73af6_cf13ff91e83f7dc823a3@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user5@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=NZAVBYcXU6mz_qbdPv1s">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user6@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user6@test.com"], ["encrypted_password", "$2a$04$HDCzq9WIFj4c.mYI6y6zAODgwL7p2RhaN4tqssojlZ7oGbPn99D6K"], ["created_at", "2018-08-07 18:36:45.480310"], ["updated_at", "2018-08-07 18:36:45.480310"], ["confirmation_token", "LRpQEsFs4A_Yv8p8t66h"], ["confirmation_sent_at", "2018-08-07 18:36:45.480425"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user6@test.com (1.4ms)
+Date: Tue, 07 Aug 2018 21:36:45 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user6@test.com
+Message-ID: <5b69e6bd763f9_cf13ff91e83f7dc8247d@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user6@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=LRpQEsFs4A_Yv8p8t66h">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user7@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user7@test.com"], ["encrypted_password", "$2a$04$tUY/aswE6BWdGfH2dLRL1.wF6lFlSRx84UQeR3SNR4qWzyA6zQBl2"], ["created_at", "2018-08-07 18:36:45.490944"], ["updated_at", "2018-08-07 18:36:45.490944"], ["confirmation_token", "x_yL1E2tJbZB2pehHetu"], ["confirmation_sent_at", "2018-08-07 18:36:45.491042"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user7@test.com (1.5ms)
+Date: Tue, 07 Aug 2018 21:36:45 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user7@test.com
+Message-ID: <5b69e6bd78dc5_cf13ff91e83f7dc8255a@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user7@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=x_yL1E2tJbZB2pehHetu">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "questions" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "MyString"], ["body", "MyText"], ["created_at", "2018-08-07 18:36:45.508635"], ["updated_at", "2018-08-07 18:36:45.508635"], ["user_id", 29]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user8@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user8@test.com"], ["encrypted_password", "$2a$04$AJL2aBvR7yA6pJb3qRXZ1uY0Xj6QxOwX4yeJS3xX7ZK/nzwshK73O"], ["created_at", "2018-08-07 18:36:45.517153"], ["updated_at", "2018-08-07 18:36:45.517153"], ["confirmation_token", "98ty75HiuHVzU72mcV9D"], ["confirmation_sent_at", "2018-08-07 18:36:45.517271"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.4ms
+Sent mail to user8@test.com (3.3ms)
+Date: Tue, 07 Aug 2018 21:36:45 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user8@test.com
+Message-ID: <5b69e6bd7fafa_cf13ff91e83f7dc8264b@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user8@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=98ty75HiuHVzU72mcV9D">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("title", "body", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "MyString"], ["body", "MyText"], ["created_at", "2018-08-07 18:36:45.525350"], ["updated_at", "2018-08-07 18:36:45.525350"], ["user_id", 30]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user9@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user9@test.com"], ["encrypted_password", "$2a$04$FAKzpqTjkpR3dg7hu15M2.F96ZvrGwLEfQyp.QkJVI02UDrvrDE4e"], ["created_at", "2018-08-07 18:36:45.530287"], ["updated_at", "2018-08-07 18:36:45.530287"], ["confirmation_token", "qVVB6qCEG59-twxVdMmf"], ["confirmation_sent_at", "2018-08-07 18:36:45.530389"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.3ms
+Sent mail to user9@test.com (2.3ms)
+Date: Tue, 07 Aug 2018 21:36:45 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user9@test.com
+Message-ID: <5b69e6bd8279c_cf13ff91e83f7dc8275@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user9@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=qVVB6qCEG59-twxVdMmf">Confirm my account</a></p>
+
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user10@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user10@test.com"], ["encrypted_password", "$2a$04$dpAfuiTmpObYW9z3OWkPtuqygXjOb.EGLRewPFrzpCBA.iyPkRUjG"], ["created_at", "2018-08-07 18:36:45.542800"], ["updated_at", "2018-08-07 18:36:45.542800"], ["confirmation_token", "FHS1tXFHoysxqLbM9bnK"], ["confirmation_sent_at", "2018-08-07 18:36:45.542905"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.5ms
+Sent mail to user10@test.com (1.9ms)
+Date: Tue, 07 Aug 2018 21:36:45 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user10@test.com
+Message-ID: <5b69e6bd859ce_cf13ff91e83f7dc8285d@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user10@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=FHS1tXFHoysxqLbM9bnK">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user11@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user11@test.com"], ["encrypted_password", "$2a$04$RWuCHg2zB.Z8pvFY2SZDa.2bWJMPsYB14S2vOdlel5gz8UKsydbbi"], ["created_at", "2018-08-07 18:36:45.571049"], ["updated_at", "2018-08-07 18:36:45.571049"], ["confirmation_token", "F-2Zq1UzhQACxxukD_S-"], ["confirmation_sent_at", "2018-08-07 18:36:45.571163"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.5ms
+Sent mail to user11@test.com (1.6ms)
+Date: Tue, 07 Aug 2018 21:36:45 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user11@test.com
+Message-ID: <5b69e6bd8c82a_cf13ff91e83f7dc82918@Air-MacBook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user11@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=F-2Zq1UzhQACxxukD_S-">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
