@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
   before_action :build_answer, only: [:show]
   after_action :publish_question, only: [:create]
   respond_to :js, :json
+  authorize_resource
 
   def index
     @questions = Question.all
