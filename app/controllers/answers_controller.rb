@@ -14,16 +14,6 @@ class AnswersController < ApplicationController
   end
 
   def create
-    # @answer = @question.answers.new(answer_params)
-    # @answer.user_id = current_user.id
-    # respond_to do |format|
-    #   if @answer.save!
-    #     format.js
-    #   else
-    #     format.js { render json: @answer.errors.full_messages, status: :unprocessable_entity }
-    #   end
-    #   gon.watch.answers = @answer.question.answers
-    # end
     respond_with(@answer = @question.answers.create(answer_params.merge({ user: current_user })))
   end
 

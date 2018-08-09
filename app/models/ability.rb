@@ -5,6 +5,8 @@ class Ability
 
   def initialize(user)
 
+    @user = user
+
     if user
       user.admin? ? admin_abilities : user_abilities
     else
@@ -22,7 +24,7 @@ class Ability
 
   def user_abilities
     guest_abilities
-    can :crate, [Question, Answer, Coment]
+    can :create, [Question, Answer, Comment]
     can :update, [Question, Answer], user: user
   end
 end
