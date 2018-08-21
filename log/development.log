@@ -6803,3 +6803,41 @@ FOREIGN KEY ("application_id")
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(8064561033501595560)[0m
   [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/oauth/applications" for 127.0.0.1 at 2018-08-21 11:33:05 +0300
+  [1m[35m (29.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Doorkeeper::ApplicationsController#index as HTML
+  Rendering /home/maksim/.rvm/gems/ruby-2.5.0/gems/doorkeeper-4.2.6/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin
+  [1m[36mDoorkeeper::Application Load (91.7ms)[0m  [1m[34mSELECT "oauth_applications".* FROM "oauth_applications"[0m
+  Rendered /home/maksim/.rvm/gems/ruby-2.5.0/gems/doorkeeper-4.2.6/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin (272.4ms)
+Completed 200 OK in 6615ms (Views: 6496.6ms | ActiveRecord: 99.6ms)
+
+
+Started GET "/oauth/applications/new" for 127.0.0.1 at 2018-08-21 11:33:17 +0300
+Processing by Doorkeeper::ApplicationsController#new as HTML
+  Rendering /home/maksim/.rvm/gems/ruby-2.5.0/gems/doorkeeper-4.2.6/app/views/doorkeeper/applications/new.html.erb within layouts/doorkeeper/admin
+  Rendered /home/maksim/.rvm/gems/ruby-2.5.0/gems/doorkeeper-4.2.6/app/views/doorkeeper/applications/_form.html.erb (131.3ms)
+  Rendered /home/maksim/.rvm/gems/ruby-2.5.0/gems/doorkeeper-4.2.6/app/views/doorkeeper/applications/new.html.erb within layouts/doorkeeper/admin (193.5ms)
+Completed 200 OK in 475ms (Views: 309.3ms | ActiveRecord: 75.5ms)
+
+
+Started POST "/oauth/applications" for 127.0.0.1 at 2018-08-21 11:33:40 +0300
+Processing by Doorkeeper::ApplicationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NlxXiLHB9yuj2U152JXKWUEqP7o8Sa1lWmhfbYEbPh/rKRJCvQ7IbHVejY0s0VK6QFz+CDWHt/NnSUoPdsB4ig==", "doorkeeper_application"=>{"name"=>"test", "redirect_uri"=>"urn:ietf:wg:oauth:2.0:oob", "scopes"=>""}, "commit"=>"Submit"}
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoorkeeper::Application Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "c809a15422b9a4c0063ab2dc0741f7bea13d8878b7bcc48ba4f5aec3ea2ec7e8"], ["LIMIT", 1]]
+  [1m[35mSQL (61.3ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "test"], ["uid", "c809a15422b9a4c0063ab2dc0741f7bea13d8878b7bcc48ba4f5aec3ea2ec7e8"], ["secret", "a3f997bdabdf2af7b94202c67afb2f62456aebcabd15ccfbaeff4b2914169196"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 08:33:40.254215"], ["updated_at", "2018-08-21 08:33:40.254215"]]
+  [1m[35m (49.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/oauth/applications/1
+Completed 302 Found in 195ms (ActiveRecord: 114.5ms)
+
+
+Started GET "/oauth/applications/1" for 127.0.0.1 at 2018-08-21 11:33:40 +0300
+Processing by Doorkeeper::ApplicationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoorkeeper::Application Load (2.5ms)[0m  [1m[34mSELECT  "oauth_applications".* FROM "oauth_applications" WHERE "oauth_applications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/maksim/.rvm/gems/ruby-2.5.0/gems/doorkeeper-4.2.6/app/views/doorkeeper/applications/show.html.erb within layouts/doorkeeper/admin
+  Rendered /home/maksim/.rvm/gems/ruby-2.5.0/gems/doorkeeper-4.2.6/app/views/doorkeeper/applications/_delete_form.html.erb (10.0ms)
+  Rendered /home/maksim/.rvm/gems/ruby-2.5.0/gems/doorkeeper-4.2.6/app/views/doorkeeper/applications/show.html.erb within layouts/doorkeeper/admin (34.3ms)
+Completed 200 OK in 160ms (Views: 110.0ms | ActiveRecord: 3.9ms)
+
+

@@ -5224,3 +5224,1225 @@ Processing by Api::V1::ProfilesController#me as JSON
 Filter chain halted as :doorkeeper_authorize! rendered or redirected
 Completed 401 Unauthorized in 168ms (ActiveRecord: 116.8ms)
   [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.9ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json" for 127.0.0.1 at 2018-08-21 11:42:16 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 115ms (ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 11:42:16 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (6.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 57ms (ActiveRecord: 16.2ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json" for 127.0.0.1 at 2018-08-21 11:43:20 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 133ms (ActiveRecord: 0.0ms)
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 11:43:21 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (3.7ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.2ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 63ms (ActiveRecord: 14.2ms)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (29.7ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (30.8ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 08:43:21.615742"], ["updated_at", "2018-08-21 08:43:21.615742"]]
+  [1m[35m (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (38.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user1@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (16.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user1@test.com"], ["encrypted_password", "$2a$04$qzxULhtH1A.9hbPm2KaAzufTNW4SQlqLQgowij6jgtn5792oh8vja"], ["created_at", "2018-08-21 08:43:22.091030"], ["updated_at", "2018-08-21 08:43:22.091030"], ["confirmation_token", "ecN627eNa4JffB21z3xi"], ["confirmation_sent_at", "2018-08-21 08:43:22.092764"]]
+  [1m[35m (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (32.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1824.5ms
+Sent mail to user1@test.com (72.4ms)
+Date: Tue, 21 Aug 2018 11:43:24 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user1@test.com
+Message-ID: <5b7bd0ac13178_125c47e537a643f0@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user1@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=ecN627eNa4JffB21z3xi">Confirm my account</a></p>
+
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "adea92e5487605df6e8ea1ad1ef9c3d4113c1297e60c11489f6fe11e4ff85a25"], ["LIMIT", 1]]
+  [1m[35mSQL (47.2ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 1], ["application_id", 1], ["token", "adea92e5487605df6e8ea1ad1ef9c3d4113c1297e60c11489f6fe11e4ff85a25"], ["created_at", "2018-08-21 08:43:24.107131"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 11:43:24 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (4.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "adea92e5487605df6e8ea1ad1ef9c3d4113c1297e60c11489f6fe11e4ff85a25"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.7ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for Api::V1::ProfilesController#me, rendering head :no_content
+Completed 204 No Content in 448ms (ActiveRecord: 7.5ms)
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json" for 127.0.0.1 at 2018-08-21 11:54:22 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 97ms (ActiveRecord: 0.0ms)
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 11:54:23 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (2.8ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.2ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 51ms (ActiveRecord: 12.5ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (5.7ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 08:54:23.398008"], ["updated_at", "2018-08-21 08:54:23.398008"]]
+  [1m[35m (2.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (3.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user1@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user1@test.com"], ["encrypted_password", "$2a$04$wWYCH8UIjvBQmmR/liC0l.fK9qYMav.CijDp4BfjD/MoX0MCrkNTG"], ["created_at", "2018-08-21 08:54:23.787410"], ["updated_at", "2018-08-21 08:54:23.787410"], ["confirmation_token", "HkjryBopFYyE7XDvDXxc"], ["confirmation_sent_at", "2018-08-21 08:54:23.788817"]]
+  [1m[35m (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (17.6ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1592.5ms
+Sent mail to user1@test.com (52.8ms)
+Date: Tue, 21 Aug 2018 11:54:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user1@test.com
+Message-ID: <5b7bd34170eb6_14014d0b37c4649@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user1@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=HkjryBopFYyE7XDvDXxc">Confirm my account</a></p>
+
+  [1m[35m (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "bc0b6e6b0e75e9cedfea6314f914df706a631bb2c9c493c686e0db25f8061759"], ["LIMIT", 1]]
+  [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 2], ["application_id", 2], ["token", "bc0b6e6b0e75e9cedfea6314f914df706a631bb2c9c493c686e0db25f8061759"], ["created_at", "2018-08-21 08:54:25.489299"]]
+  [1m[35m (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 11:54:25 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.6ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "bc0b6e6b0e75e9cedfea6314f914df706a631bb2c9c493c686e0db25f8061759"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.7ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for Api::V1::ProfilesController#me, rendering head :no_content
+Completed 204 No Content in 431ms (ActiveRecord: 5.1ms)
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 08:54:26.000803"], ["updated_at", "2018-08-21 08:54:26.000803"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user2@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user2@test.com"], ["encrypted_password", "$2a$04$ey1q7IUi90nPrbUFo4FLz.bPEZ1cVSOZG.aa2V0U2LPxPVmApU7b."], ["created_at", "2018-08-21 08:54:26.034537"], ["updated_at", "2018-08-21 08:54:26.034537"], ["confirmation_token", "hcF5k-zZRfVxxkJZnH4s"], ["confirmation_sent_at", "2018-08-21 08:54:26.035234"]]
+  [1m[35m (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.6ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 10.2ms
+Sent mail to user2@test.com (15.0ms)
+Date: Tue, 21 Aug 2018 11:54:26 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user2@test.com
+Message-ID: <5b7bd34210a57_14014d0b37c46518@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user2@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=hcF5k-zZRfVxxkJZnH4s">Confirm my account</a></p>
+
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "783beced8408b9989f96625b38fbf874f270a1429bd9c7b82fee9e6ef23cb9ae"], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 3], ["application_id", 3], ["token", "783beced8408b9989f96625b38fbf874f270a1429bd9c7b82fee9e6ef23cb9ae"], ["created_at", "2018-08-21 08:54:26.078897"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 11:54:26 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.4ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "783beced8408b9989f96625b38fbf874f270a1429bd9c7b82fee9e6ef23cb9ae"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for Api::V1::ProfilesController#me, rendering head :no_content
+Completed 204 No Content in 18ms (ActiveRecord: 4.3ms)
+  [1m[35m (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user3@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user3@test.com"], ["encrypted_password", "$2a$04$TNAvKGm7GvaDldRC5VCt5uNRZu/mkQEZFCe/CdHBoqWhMyzlt/ykm"], ["created_at", "2018-08-21 08:54:26.153390"], ["updated_at", "2018-08-21 08:54:26.153390"], ["confirmation_token", "5j4dy2BUe1MccBWhavns"], ["confirmation_sent_at", "2018-08-21 08:54:26.154898"]]
+  [1m[35m (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.8ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 12.0ms
+Sent mail to user3@test.com (16.5ms)
+Date: Tue, 21 Aug 2018 11:54:26 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user3@test.com
+Message-ID: <5b7bd3422fdc2_14014d0b37c466fb@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user3@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=5j4dy2BUe1MccBWhavns">Confirm my account</a></p>
+
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 08:54:26.278150"], ["updated_at", "2018-08-21 08:54:26.278150"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user4@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user4@test.com"], ["encrypted_password", "$2a$04$gJYivekj6Adc7JrYiUv1AeMN9N3QhXDNXa.k9y7YbmeesDRI0yjdu"], ["created_at", "2018-08-21 08:54:26.309738"], ["updated_at", "2018-08-21 08:54:26.309738"], ["confirmation_token", "SnFi1J3j2jgdxi_cnvX7"], ["confirmation_sent_at", "2018-08-21 08:54:26.311092"]]
+  [1m[35m (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.0ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 12.9ms
+Sent mail to user4@test.com (17.2ms)
+Date: Tue, 21 Aug 2018 11:54:26 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user4@test.com
+Message-ID: <5b7bd34255ac0_14014d0b37c46766@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user4@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=SnFi1J3j2jgdxi_cnvX7">Confirm my account</a></p>
+
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "3bf0507d3b38f17280dc5825170c3be635ea71e600467c1e068c7d5c43cb9084"], ["LIMIT", 1]]
+  [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 5], ["application_id", 4], ["token", "3bf0507d3b38f17280dc5825170c3be635ea71e600467c1e068c7d5c43cb9084"], ["created_at", "2018-08-21 08:54:26.364037"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 11:54:26 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.7ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "3bf0507d3b38f17280dc5825170c3be635ea71e600467c1e068c7d5c43cb9084"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for Api::V1::ProfilesController#me, rendering head :no_content
+Completed 204 No Content in 23ms (ActiveRecord: 4.6ms)
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user5@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user5@test.com"], ["encrypted_password", "$2a$04$YVeOgr4IZjzYfX6U2I.xouBQjJFxKvwI1sB2QGYGR4Psrb8yGjfBy"], ["created_at", "2018-08-21 08:54:26.446742"], ["updated_at", "2018-08-21 08:54:26.446742"], ["confirmation_token", "Kayp5VfpQAw7ztZ4Btgi"], ["confirmation_sent_at", "2018-08-21 08:54:26.447642"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.6ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 11.1ms
+Sent mail to user5@test.com (14.6ms)
+Date: Tue, 21 Aug 2018 11:54:26 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user5@test.com
+Message-ID: <5b7bd3427568a_14014d0b37c46845@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user5@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=Kayp5VfpQAw7ztZ4Btgi">Confirm my account</a></p>
+
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 08:54:26.518021"], ["updated_at", "2018-08-21 08:54:26.518021"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user6@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user6@test.com"], ["encrypted_password", "$2a$04$SOaTI7D8hEWg7ffIOXcewOVXnKkQDtRq4h50camkCUxM7ovb15sAa"], ["created_at", "2018-08-21 08:54:26.551382"], ["updated_at", "2018-08-21 08:54:26.551382"], ["confirmation_token", "HRd17RYHndzfso3MPHnS"], ["confirmation_sent_at", "2018-08-21 08:54:26.552583"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.0ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 12.8ms
+Sent mail to user6@test.com (17.4ms)
+Date: Tue, 21 Aug 2018 11:54:26 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user6@test.com
+Message-ID: <5b7bd3428fed7_14014d0b37c4692c@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user6@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=HRd17RYHndzfso3MPHnS">Confirm my account</a></p>
+
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "6e18b9f31b9d9296c9f0f49a81f80b3a7551546761e03ad86bdffa91bd76dd7a"], ["LIMIT", 1]]
+  [1m[35mSQL (3.7ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 7], ["application_id", 5], ["token", "6e18b9f31b9d9296c9f0f49a81f80b3a7551546761e03ad86bdffa91bd76dd7a"], ["created_at", "2018-08-21 08:54:26.603441"]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 11:54:26 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.5ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "6e18b9f31b9d9296c9f0f49a81f80b3a7551546761e03ad86bdffa91bd76dd7a"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for Api::V1::ProfilesController#me, rendering head :no_content
+Completed 204 No Content in 18ms (ActiveRecord: 4.0ms)
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 08:54:26.686846"], ["updated_at", "2018-08-21 08:54:26.686846"]]
+  [1m[35m (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user7@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user7@test.com"], ["encrypted_password", "$2a$04$fXvGPURbmxl20E6bl.R2FuMPLi.XIkk91euSf/0v5xR50xwKQjuV2"], ["created_at", "2018-08-21 08:54:26.723852"], ["updated_at", "2018-08-21 08:54:26.723852"], ["confirmation_token", "nkyMNdiAmQBgPthaSDxi"], ["confirmation_sent_at", "2018-08-21 08:54:26.724955"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 9.8ms
+Sent mail to user7@test.com (13.9ms)
+Date: Tue, 21 Aug 2018 11:54:26 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user7@test.com
+Message-ID: <5b7bd342b9051_14014d0b37c47062@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user7@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=nkyMNdiAmQBgPthaSDxi">Confirm my account</a></p>
+
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "463324e244755165ed2cc2482e8c07fb12679bb98b94ab729312faa666d1af40"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 8], ["application_id", 6], ["token", "463324e244755165ed2cc2482e8c07fb12679bb98b94ab729312faa666d1af40"], ["created_at", "2018-08-21 08:54:26.768081"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 11:54:26 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.4ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "463324e244755165ed2cc2482e8c07fb12679bb98b94ab729312faa666d1af40"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+No template found for Api::V1::ProfilesController#me, rendering head :no_content
+Completed 204 No Content in 19ms (ActiveRecord: 4.1ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json" for 127.0.0.1 at 2018-08-21 12:45:08 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 121ms (ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:45:09 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (3.2ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.2ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 49ms (ActiveRecord: 14.8ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (2.8ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:45:09.502364"], ["updated_at", "2018-08-21 09:45:09.502364"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (5.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user1@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user1@test.com"], ["encrypted_password", "$2a$04$lMjMB.IZbHKNXLEh2vTv4eIVhxKyaNqGL2LfXPONLsw8iETl8FQ72"], ["created_at", "2018-08-21 09:45:09.808184"], ["updated_at", "2018-08-21 09:45:09.808184"], ["confirmation_token", "ADjkzkvnR5QwpK_ckiGs"], ["confirmation_sent_at", "2018-08-21 09:45:09.809335"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (16.4ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1593.4ms
+Sent mail to user1@test.com (51.6ms)
+Date: Tue, 21 Aug 2018 12:45:11 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user1@test.com
+Message-ID: <5b7bdf2774caa_171f475d380956a5@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user1@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=ADjkzkvnR5QwpK_ckiGs">Confirm my account</a></p>
+
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "4704ecf3c20a70d9b61fdcec8d39f58d8d3ecbeb2cf6669737906499903d2a37"], ["LIMIT", 1]]
+  [1m[35mSQL (2.8ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 9], ["application_id", 7], ["token", "4704ecf3c20a70d9b61fdcec8d39f58d8d3ecbeb2cf6669737906499903d2a37"], ["created_at", "2018-08-21 09:45:11.503663"]]
+  [1m[35m (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:45:11 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "4704ecf3c20a70d9b61fdcec8d39f58d8d3ecbeb2cf6669737906499903d2a37"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 103ms (Views: 5.6ms | ActiveRecord: 5.5ms)
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:45:11.674782"], ["updated_at", "2018-08-21 09:45:11.674782"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user2@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user2@test.com"], ["encrypted_password", "$2a$04$g0lzAr4CZjGL/HQug9Qi2eXEJObzv40sS7EAevqU2W0UEYtI5Wnq2"], ["created_at", "2018-08-21 09:45:11.705932"], ["updated_at", "2018-08-21 09:45:11.705932"], ["confirmation_token", "W5Ef9KR58Ao5TkTivd1P"], ["confirmation_sent_at", "2018-08-21 09:45:11.706865"]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.4ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 18.6ms
+Sent mail to user2@test.com (16.8ms)
+Date: Tue, 21 Aug 2018 12:45:11 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user2@test.com
+Message-ID: <5b7bdf27b8399_171f475d3809576d@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user2@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=W5Ef9KR58Ao5TkTivd1P">Confirm my account</a></p>
+
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "60b96fc084cdfd4762dedcfc65b2525b1727126e900937fb1bcac70424eb957e"], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 10], ["application_id", 8], ["token", "60b96fc084cdfd4762dedcfc65b2525b1727126e900937fb1bcac70424eb957e"], ["created_at", "2018-08-21 09:45:11.764334"]]
+  [1m[35m (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:45:11 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.2ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "60b96fc084cdfd4762dedcfc65b2525b1727126e900937fb1bcac70424eb957e"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.5ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 4.7ms | ActiveRecord: 6.0ms)
+  [1m[35m (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (3.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user3@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user3@test.com"], ["encrypted_password", "$2a$04$1O5C/uEhIx7Qr/eOVIPKveKNqqBafhJw.FrgemvdeUl8i5Yuzafaa"], ["created_at", "2018-08-21 09:45:11.856700"], ["updated_at", "2018-08-21 09:45:11.856700"], ["confirmation_token", "s3rkZWDgJ3qoMxsu4SQw"], ["confirmation_sent_at", "2018-08-21 09:45:11.857842"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 8.3ms
+Sent mail to user3@test.com (10.9ms)
+Date: Tue, 21 Aug 2018 12:45:11 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user3@test.com
+Message-ID: <5b7bdf27d913c_171f475d38095897@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user3@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=s3rkZWDgJ3qoMxsu4SQw">Confirm my account</a></p>
+
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:45:12.090922"], ["updated_at", "2018-08-21 09:45:12.090922"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user4@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user4@test.com"], ["encrypted_password", "$2a$04$VdqNvneRAW8rViqAiWRQe.9PkZngaSWzko8sqh96tV8QLTGMUmX6."], ["created_at", "2018-08-21 09:45:12.130200"], ["updated_at", "2018-08-21 09:45:12.130200"], ["confirmation_token", "CEjDXp-e3LFGtVzsA6Lr"], ["confirmation_sent_at", "2018-08-21 09:45:12.131421"]]
+  [1m[35m (2.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.6ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 11.1ms
+Sent mail to user4@test.com (19.0ms)
+Date: Tue, 21 Aug 2018 12:45:12 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user4@test.com
+Message-ID: <5b7bdf282b15b_171f475d38095925@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user4@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=CEjDXp-e3LFGtVzsA6Lr">Confirm my account</a></p>
+
+  [1m[35m (8.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "7ee6c3fa031089e87726d30510a657a61fad5ae907abb7ff2ee1cb2e99e698b0"], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 12], ["application_id", 9], ["token", "7ee6c3fa031089e87726d30510a657a61fad5ae907abb7ff2ee1cb2e99e698b0"], ["created_at", "2018-08-21 09:45:12.197418"]]
+  [1m[35m (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:45:12 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.7ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "7ee6c3fa031089e87726d30510a657a61fad5ae907abb7ff2ee1cb2e99e698b0"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (5.2ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+Completed 200 OK in 43ms (Views: 6.0ms | ActiveRecord: 9.9ms)
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user5@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user5@test.com"], ["encrypted_password", "$2a$04$EKDjDrZFUr8ipnFuXT3t4OU2gEmgTpprNCplWZ2vnjRuvJNafithS"], ["created_at", "2018-08-21 09:45:12.298792"], ["updated_at", "2018-08-21 09:45:12.298792"], ["confirmation_token", "-dCpbyF6TwkY-rxSMZw4"], ["confirmation_sent_at", "2018-08-21 09:45:12.299734"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.7ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 11.7ms
+Sent mail to user5@test.com (17.0ms)
+Date: Tue, 21 Aug 2018 12:45:12 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user5@test.com
+Message-ID: <5b7bdf2851df3_171f475d3809605b@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user5@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=-dCpbyF6TwkY-rxSMZw4">Confirm my account</a></p>
+
+  [1m[35m (4.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:45:12.389492"], ["updated_at", "2018-08-21 09:45:12.389492"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user6@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user6@test.com"], ["encrypted_password", "$2a$04$vuPa6QrX5DC3RRFhBVn9yeozzChD.7KEM/B70DSaZarPEkOGvoLrC"], ["created_at", "2018-08-21 09:45:12.421496"], ["updated_at", "2018-08-21 09:45:12.421496"], ["confirmation_token", "tRQQtX6sAbA1xBJkxwWS"], ["confirmation_sent_at", "2018-08-21 09:45:12.422434"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.0ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 10.9ms
+Sent mail to user6@test.com (14.1ms)
+Date: Tue, 21 Aug 2018 12:45:12 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user6@test.com
+Message-ID: <5b7bdf286f1ca_171f475d380961f@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user6@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=tRQQtX6sAbA1xBJkxwWS">Confirm my account</a></p>
+
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "7e96e35623fd696df901c40edc3ce00273345beb8db2669d2f57b05eabf4b49a"], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 14], ["application_id", 10], ["token", "7e96e35623fd696df901c40edc3ce00273345beb8db2669d2f57b05eabf4b49a"], ["created_at", "2018-08-21 09:45:12.466285"]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:45:12 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (2.0ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "7e96e35623fd696df901c40edc3ce00273345beb8db2669d2f57b05eabf4b49a"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 3.5ms | ActiveRecord: 6.2ms)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:45:12.556745"], ["updated_at", "2018-08-21 09:45:12.556745"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user7@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user7@test.com"], ["encrypted_password", "$2a$04$svqlv45jhlxk9ZvIElOnJuXc.ltBtBE2Ay.d/Lov3i774yMos7KB."], ["created_at", "2018-08-21 09:45:12.585204"], ["updated_at", "2018-08-21 09:45:12.585204"], ["confirmation_token", "zXjsNvzhcsQzFzHGiN3C"], ["confirmation_sent_at", "2018-08-21 09:45:12.586038"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.6ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 10.6ms
+Sent mail to user7@test.com (11.9ms)
+Date: Tue, 21 Aug 2018 12:45:12 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user7@test.com
+Message-ID: <5b7bdf2896721_171f475d380962c2@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user7@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=zXjsNvzhcsQzFzHGiN3C">Confirm my account</a></p>
+
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "6802aa846895c51782bb8261b868348c30423d6a59632cfb0b4aa511c8396989"], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 15], ["application_id", 11], ["token", "6802aa846895c51782bb8261b868348c30423d6a59632cfb0b4aa511c8396989"], ["created_at", "2018-08-21 09:45:12.627642"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:45:12 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "6802aa846895c51782bb8261b868348c30423d6a59632cfb0b4aa511c8396989"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.4ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 5.1ms | ActiveRecord: 5.4ms)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json" for 127.0.0.1 at 2018-08-21 12:48:28 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 118ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:48:28 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (2.6ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 50ms (ActiveRecord: 14.3ms)
+  [1m[35m (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user1@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user1@test.com"], ["encrypted_password", "$2a$04$.o/y2tB6DXTXK4LC8JFI5u/I2LPW78/Z51dMbhKoWr4RGlmZ6S37q"], ["created_at", "2018-08-21 09:48:28.940344"], ["updated_at", "2018-08-21 09:48:28.940344"], ["confirmation_token", "NztxL35EqW-kF1jtcxiy"], ["confirmation_sent_at", "2018-08-21 09:48:28.941307"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (19.6ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1644.0ms
+Sent mail to user1@test.com (53.5ms)
+Date: Tue, 21 Aug 2018 12:48:30 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user1@test.com
+Message-ID: <5b7bdfeea24fb_178a4cd53807878e@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user1@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=NztxL35EqW-kF1jtcxiy">Confirm my account</a></p>
+
+  [1m[35m (5.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (3.3ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:48:30.945877"], ["updated_at", "2018-08-21 09:48:30.945877"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "a4fafeac648a35422dbc146e2c74359bf5f0c73ee67ef359b6298d2e9f644e5f"], ["LIMIT", 1]]
+  [1m[35mSQL (4.8ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 16], ["application_id", 12], ["token", "a4fafeac648a35422dbc146e2c74359bf5f0c73ee67ef359b6298d2e9f644e5f"], ["created_at", "2018-08-21 09:48:31.009297"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:48:31 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.7ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "a4fafeac648a35422dbc146e2c74359bf5f0c73ee67ef359b6298d2e9f644e5f"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 7.7ms | ActiveRecord: 7.2ms)
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user2@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user2@test.com"], ["encrypted_password", "$2a$04$aSWoBZ8052pfdJAHz2MMjembI.Bh/5Q7WfIzQzXmI6KjGwLkqlHx."], ["created_at", "2018-08-21 09:48:31.171649"], ["updated_at", "2018-08-21 09:48:31.171649"], ["confirmation_token", "gPjjcsrywAZ7wAqgxTSp"], ["confirmation_sent_at", "2018-08-21 09:48:31.172384"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 16.0ms
+Sent mail to user2@test.com (18.0ms)
+Date: Tue, 21 Aug 2018 12:48:31 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user2@test.com
+Message-ID: <5b7bdfef33edb_178a4cd538078864@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user2@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=gPjjcsrywAZ7wAqgxTSp">Confirm my account</a></p>
+
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:48:31.233154"], ["updated_at", "2018-08-21 09:48:31.233154"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "be487c40bcbc1821f2db6e2ff2ccfa4ffedb1c6883d503868e6a06baed49b73b"], ["LIMIT", 1]]
+  [1m[35mSQL (5.2ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 17], ["application_id", 13], ["token", "be487c40bcbc1821f2db6e2ff2ccfa4ffedb1c6883d503868e6a06baed49b73b"], ["created_at", "2018-08-21 09:48:31.245249"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:48:31 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (7.8ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "be487c40bcbc1821f2db6e2ff2ccfa4ffedb1c6883d503868e6a06baed49b73b"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (4.4ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+Completed 200 OK in 45ms (Views: 6.2ms | ActiveRecord: 16.3ms)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user3@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (6.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user3@test.com"], ["encrypted_password", "$2a$04$VJopHDKBNKabLCMs8lvaiucEXM.AglAxfKZKjDpW/5MVt1gk4sPEe"], ["created_at", "2018-08-21 09:48:31.378582"], ["updated_at", "2018-08-21 09:48:31.378582"], ["confirmation_token", "sQpQJNDkYekRtG1TAYEH"], ["confirmation_sent_at", "2018-08-21 09:48:31.379598"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.1ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 15.9ms
+Sent mail to user3@test.com (14.9ms)
+Date: Tue, 21 Aug 2018 12:48:31 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user3@test.com
+Message-ID: <5b7bdfef67609_178a4cd538078948@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user3@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=sQpQJNDkYekRtG1TAYEH">Confirm my account</a></p>
+
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:48:31.445819"], ["updated_at", "2018-08-21 09:48:31.445819"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "b1badb572ebe11bcdca92f41f35e5d7a49f70340d7872350bceb2a3805d96277"], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 18], ["application_id", 14], ["token", "b1badb572ebe11bcdca92f41f35e5d7a49f70340d7872350bceb2a3805d96277"], ["created_at", "2018-08-21 09:48:31.460147"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:48:31 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.4ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "b1badb572ebe11bcdca92f41f35e5d7a49f70340d7872350bceb2a3805d96277"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.2ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 3.6ms | ActiveRecord: 5.6ms)
+  [1m[35m (8.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user4@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (3.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user4@test.com"], ["encrypted_password", "$2a$04$yDCCv2H8PGYpaRqxIra5vOz6hS/OG7QCtZuRP1EnOyAjGpValMsqu"], ["created_at", "2018-08-21 09:48:31.561972"], ["updated_at", "2018-08-21 09:48:31.561972"], ["confirmation_token", "bNzC79zDdPWjV2GsB1H1"], ["confirmation_sent_at", "2018-08-21 09:48:31.562962"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 10.4ms
+Sent mail to user4@test.com (16.2ms)
+Date: Tue, 21 Aug 2018 12:48:31 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user4@test.com
+Message-ID: <5b7bdfef917bf_178a4cd53807904e@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user4@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=bNzC79zDdPWjV2GsB1H1">Confirm my account</a></p>
+
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:48:31.626068"], ["updated_at", "2018-08-21 09:48:31.626068"]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "2c25b5d9e86f2b218fa24b74ad2a07f7029019532ea5b41f2a366c4322053f79"], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 19], ["application_id", 15], ["token", "2c25b5d9e86f2b218fa24b74ad2a07f7029019532ea5b41f2a366c4322053f79"], ["created_at", "2018-08-21 09:48:31.645208"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:48:31 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.6ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "2c25b5d9e86f2b218fa24b74ad2a07f7029019532ea5b41f2a366c4322053f79"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.4ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 5.4ms | ActiveRecord: 6.1ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user5@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (5.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user5@test.com"], ["encrypted_password", "$2a$04$/pFz7nT9l.slu5itp.skdeb9XDNaj/6KoxxV5B8x91WMBZBoHkHgK"], ["created_at", "2018-08-21 09:48:31.740000"], ["updated_at", "2018-08-21 09:48:31.740000"], ["confirmation_token", "uTQhUg_xyht8ezszksci"], ["confirmation_sent_at", "2018-08-21 09:48:31.740868"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.8ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 14.9ms
+Sent mail to user5@test.com (12.1ms)
+Date: Tue, 21 Aug 2018 12:48:31 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user5@test.com
+Message-ID: <5b7bdfefbe566_178a4cd538079116@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user5@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=uTQhUg_xyht8ezszksci">Confirm my account</a></p>
+
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (2.8ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:48:31.801809"], ["updated_at", "2018-08-21 09:48:31.801809"]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "25f4e78e9462ca33095d498798f82c525378c0b2eacbd0eab8649c547a65d472"], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 20], ["application_id", 16], ["token", "25f4e78e9462ca33095d498798f82c525378c0b2eacbd0eab8649c547a65d472"], ["created_at", "2018-08-21 09:48:31.821716"]]
+  [1m[35m (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:48:31 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.4ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "25f4e78e9462ca33095d498798f82c525378c0b2eacbd0eab8649c547a65d472"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 3.3ms | ActiveRecord: 5.6ms)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json" for 127.0.0.1 at 2018-08-21 12:57:22 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 81ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:57:22 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (2.6ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "1234"], ["LIMIT", 1]]
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 42ms (ActiveRecord: 11.0ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user1@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user1@test.com"], ["encrypted_password", "$2a$04$ilHCqfW2pNE6p3hYfUvRweo8I.9qdkIW4cD4KEQSgBxSlyKGykuNy"], ["created_at", "2018-08-21 09:57:23.226623"], ["updated_at", "2018-08-21 09:57:23.226623"], ["confirmation_token", "K_9EBXYMesRWAQSR8gaB"], ["confirmation_sent_at", "2018-08-21 09:57:23.227643"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (12.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1161.1ms
+Sent mail to user1@test.com (41.0ms)
+Date: Tue, 21 Aug 2018 12:57:24 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user1@test.com
+Message-ID: <5b7be2046e478_189c4df937e4533@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user1@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=K_9EBXYMesRWAQSR8gaB">Confirm my account</a></p>
+
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:57:24.612148"], ["updated_at", "2018-08-21 09:57:24.612148"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "3b1848a82767b96a8c3408c30289e1e7e451a4f66d091a2394ca81a4b34f974d"], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 21], ["application_id", 17], ["token", "3b1848a82767b96a8c3408c30289e1e7e451a4f66d091a2394ca81a4b34f974d"], ["created_at", "2018-08-21 09:57:24.652014"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:57:24 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.2ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "3b1848a82767b96a8c3408c30289e1e7e451a4f66d091a2394ca81a4b34f974d"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.0ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+Completed 200 OK in 56ms (Views: 3.4ms | ActiveRecord: 4.7ms)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user2@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user2@test.com"], ["encrypted_password", "$2a$04$N24LtHIsbEDucp88hTlgF.ZoDJCl33ImS9EOSG99XFPMyZq.gpqDe"], ["created_at", "2018-08-21 09:57:24.757647"], ["updated_at", "2018-08-21 09:57:24.757647"], ["confirmation_token", "vhyEogdfpzjxTsCK3N9P"], ["confirmation_sent_at", "2018-08-21 09:57:24.758234"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.8ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 9.4ms
+Sent mail to user2@test.com (10.5ms)
+Date: Tue, 21 Aug 2018 12:57:24 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user2@test.com
+Message-ID: <5b7be204bf53a_189c4df937e45454@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user2@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=vhyEogdfpzjxTsCK3N9P">Confirm my account</a></p>
+
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:57:24.799266"], ["updated_at", "2018-08-21 09:57:24.799266"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "9f4657a8816fc370e82d068f2c7495e9cb1ac9390018f6e215e6ae630b9e0132"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 22], ["application_id", 18], ["token", "9f4657a8816fc370e82d068f2c7495e9cb1ac9390018f6e215e6ae630b9e0132"], ["created_at", "2018-08-21 09:57:24.809009"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:57:24 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (9.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "9f4657a8816fc370e82d068f2c7495e9cb1ac9390018f6e215e6ae630b9e0132"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.6ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 3.1ms | ActiveRecord: 13.5ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user3@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user3@test.com"], ["encrypted_password", "$2a$04$lkHBA9QaC5yGNztat36dFuOJrzJdWWWPOHq.WTcfPEdNZ8iR.WJl2"], ["created_at", "2018-08-21 09:57:24.901406"], ["updated_at", "2018-08-21 09:57:24.901406"], ["confirmation_token", "WnHxX4zYZrQQiYAS76yX"], ["confirmation_sent_at", "2018-08-21 09:57:24.901986"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.4ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 8.8ms
+Sent mail to user3@test.com (10.7ms)
+Date: Tue, 21 Aug 2018 12:57:24 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user3@test.com
+Message-ID: <5b7be204e251e_189c4df937e455df@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user3@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=WnHxX4zYZrQQiYAS76yX">Confirm my account</a></p>
+
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:57:24.942762"], ["updated_at", "2018-08-21 09:57:24.942762"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "86c03e44908034e39c0b469c3576afe9e70ab648f95399a201d8984a9deccdec"], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 23], ["application_id", 19], ["token", "86c03e44908034e39c0b469c3576afe9e70ab648f95399a201d8984a9deccdec"], ["created_at", "2018-08-21 09:57:24.952531"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:57:24 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (11.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "86c03e44908034e39c0b469c3576afe9e70ab648f95399a201d8984a9deccdec"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+Completed 200 OK in 36ms (Views: 3.1ms | ActiveRecord: 15.6ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user4@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user4@test.com"], ["encrypted_password", "$2a$04$4HzDPiUStkATX7XueSddO.s6tGaOcpdg/hZa.WfRsrfpCVC.8COge"], ["created_at", "2018-08-21 09:57:25.034315"], ["updated_at", "2018-08-21 09:57:25.034315"], ["confirmation_token", "u6JesfhuxztzqEy1xZPp"], ["confirmation_sent_at", "2018-08-21 09:57:25.034898"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.3ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 9.0ms
+Sent mail to user4@test.com (10.8ms)
+Date: Tue, 21 Aug 2018 12:57:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user4@test.com
+Message-ID: <5b7be205e90d_189c4df937e456bb@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user4@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=u6JesfhuxztzqEy1xZPp">Confirm my account</a></p>
+
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:57:25.075586"], ["updated_at", "2018-08-21 09:57:25.075586"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "5a7a2198e4dc1dcb2082569d622e0ec82806a709542c9284eec17bc934fa5a2a"], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 24], ["application_id", 20], ["token", "5a7a2198e4dc1dcb2082569d622e0ec82806a709542c9284eec17bc934fa5a2a"], ["created_at", "2018-08-21 09:57:25.086004"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:57:25 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (3.8ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "5a7a2198e4dc1dcb2082569d622e0ec82806a709542c9284eec17bc934fa5a2a"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (4.9ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 3.5ms | ActiveRecord: 11.8ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user5@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user5@test.com"], ["encrypted_password", "$2a$04$QDN0QzwpXMxac0oh5zsJ0.AD7RRSGgo1ZskfttVnc5YWDBugx7J6a"], ["created_at", "2018-08-21 09:57:25.167629"], ["updated_at", "2018-08-21 09:57:25.167629"], ["confirmation_token", "Kz6AH48VNhyK6Gfkrg_Z"], ["confirmation_sent_at", "2018-08-21 09:57:25.168217"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.7ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 10.2ms
+Sent mail to user5@test.com (11.0ms)
+Date: Tue, 21 Aug 2018 12:57:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user5@test.com
+Message-ID: <5b7be2052faad_189c4df937e457e1@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user5@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=Kz6AH48VNhyK6Gfkrg_Z">Confirm my account</a></p>
+
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:57:25.211162"], ["updated_at", "2018-08-21 09:57:25.211162"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "55b681be4e73ea71dd3e4eca486cb64ffe231942547484df5c8431792a826b46"], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 25], ["application_id", 21], ["token", "55b681be4e73ea71dd3e4eca486cb64ffe231942547484df5c8431792a826b46"], ["created_at", "2018-08-21 09:57:25.221247"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:57:25 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (8.8ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "55b681be4e73ea71dd3e4eca486cb64ffe231942547484df5c8431792a826b46"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.3ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+Completed 200 OK in 35ms (Views: 3.4ms | ActiveRecord: 13.1ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user6@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user6@test.com"], ["encrypted_password", "$2a$04$MZDRiRSvrxYerrzeuUEWi.fjT/ehELIgpz2hp4C6IX5jf.TEBtJRG"], ["created_at", "2018-08-21 09:57:25.307856"], ["updated_at", "2018-08-21 09:57:25.307856"], ["confirmation_token", "Vp9sjDLyu32-A1j6KgfK"], ["confirmation_sent_at", "2018-08-21 09:57:25.308431"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.6ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 9.8ms
+Sent mail to user6@test.com (11.0ms)
+Date: Tue, 21 Aug 2018 12:57:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user6@test.com
+Message-ID: <5b7be20551f4b_189c4df937e45893@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user6@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=Vp9sjDLyu32-A1j6KgfK">Confirm my account</a></p>
+
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:57:25.353057"], ["updated_at", "2018-08-21 09:57:25.353057"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "9f72dfe3468146006e925ce053c4968d3ee5a0544166ef22036f0943d057a08b"], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 26], ["application_id", 22], ["token", "9f72dfe3468146006e925ce053c4968d3ee5a0544166ef22036f0943d057a08b"], ["created_at", "2018-08-21 09:57:25.364544"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:57:25 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.0ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "9f72dfe3468146006e925ce053c4968d3ee5a0544166ef22036f0943d057a08b"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (1.2ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 35ms (Views: 5.1ms | ActiveRecord: 5.5ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user7@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "user7@test.com"], ["encrypted_password", "$2a$04$aqdgNNyaD40QlY6TAKFSCeV2vlUu7QpyZIN.sxpRg6ydV8h2IlJ3G"], ["created_at", "2018-08-21 09:57:25.449972"], ["updated_at", "2018-08-21 09:57:25.449972"], ["confirmation_token", "7Adz73vDsN93x8RqxfPh"], ["confirmation_sent_at", "2018-08-21 09:57:25.450560"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.7ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 10.5ms
+Sent mail to user7@test.com (13.9ms)
+Date: Tue, 21 Aug 2018 12:57:25 +0300
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: user7@test.com
+Message-ID: <5b7be205751a0_189c4df937e45979@maksim-1011CX.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome user7@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=7Adz73vDsN93x8RqxfPh">Confirm my account</a></p>
+
+  [1m[35m (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::Application Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "12345678"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "oauth_applications" ("name", "uid", "secret", "redirect_uri", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Test"], ["uid", "12345678"], ["secret", "87654321"], ["redirect_uri", "urn:ietf:wg:oauth:2.0:oob"], ["created_at", "2018-08-21 09:57:25.505213"], ["updated_at", "2018-08-21 09:57:25.505213"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoorkeeper::AccessToken Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "f2727392023f3f46ce06260378a73af59c7dd14c845cd530a2422ffad6479209"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "created_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["resource_owner_id", 27], ["application_id", 23], ["token", "f2727392023f3f46ce06260378a73af59c7dd14c845cd530a2422ffad6479209"], ["created_at", "2018-08-21 09:57:25.521152"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/profiles/me?format=json&access_token=[FILTERED]" for 127.0.0.1 at 2018-08-21 12:57:25 +0300
+Processing by Api::V1::ProfilesController#me as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.0ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "f2727392023f3f46ce06260378a73af59c7dd14c845cd530a2422ffad6479209"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Load (0.8ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", ""], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 3.9ms | ActiveRecord: 4.0ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
