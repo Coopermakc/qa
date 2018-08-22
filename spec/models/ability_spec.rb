@@ -40,5 +40,9 @@ describe Ability do
     context 'Comment' do
       it { should be_able_to :create, Comment }
     end
+    context 'me' do
+      it { should be_able_to :me, user, user: user }
+      it { should_not be_able_to :me, other, user: user }
+    end
 end
 end
