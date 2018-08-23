@@ -7813,3 +7813,294 @@ Filter chain halted as :doorkeeper_authorize! rendered or redirected
 Completed 401 Unauthorized in 27ms (ActiveRecord: 2.8ms)
 
 
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-23 15:15:07 +0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 315ms (ActiveRecord: 29.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-23 15:15:08 +0300
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (3.9ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (30.2ms)
+  Rendered questions/_question.html.slim (1.2ms)
+  Rendered questions/_question.html.slim (0.9ms)
+  Rendered questions/_question.html.slim (2.1ms)
+  Rendered questions/index.html.slim within layouts/application (280.6ms)
+Completed 200 OK in 3662ms (Views: 3486.6ms | ActiveRecord: 44.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-23 15:15:13 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-23 15:15:13 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-23 15:15:35 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/api/v1/questions.json" for 127.0.0.1 at 2018-08-23 15:15:35 +0300
+Processing by Api::V1::QuestionsController#index as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/profiles.json" for 127.0.0.1 at 2018-08-23 15:15:52 +0300
+Processing by Api::V1::ProfilesController#index as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/profiles.json" for 127.0.0.1 at 2018-08-23 15:15:56 +0300
+Processing by Api::V1::ProfilesController#index as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/questions.json" for 127.0.0.1 at 2018-08-23 15:16:22 +0300
+Processing by Api::V1::QuestionsController#index as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/me.json" for 127.0.0.1 at 2018-08-23 15:16:47 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/me.json"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-08-23 15:17:16 +0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 21ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-23 15:17:17 +0300
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (6.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (25.1ms)
+  Rendered questions/_question.html.slim (0.8ms)
+  Rendered questions/_question.html.slim (1.1ms)
+  Rendered questions/_question.html.slim (1.0ms)
+  Rendered questions/index.html.slim within layouts/application (91.1ms)
+Completed 200 OK in 895ms (Views: 866.1ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-23 15:17:18 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-23 15:17:18 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-23 15:17:22 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/questions/2" for 127.0.0.1 at 2018-08-23 15:17:22 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuestion Load (93.9ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (102.8ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 2], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (218.7ms)
+  [1m[36mAttachment Load (45.5ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 2], ["attachable_type", "Question"]]
+  [1m[36mComment Load (36.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 2], ["commentable_type", "Question"]]
+  Rendered comments/_comment.html.slim (30.2ms)
+  Rendered comments/_comment.html.slim (0.3ms)
+  Rendered comments/_comment.html.slim (0.3ms)
+  Rendered comments/_comment.html.slim (0.3ms)
+  Rendered comments/_comment.html.slim (0.3ms)
+  Rendered comments/_comment.html.slim (0.5ms)
+  Rendered comments/_comment.html.slim (0.5ms)
+  Rendered comments/_comment.html.slim (0.4ms)
+  Rendered comments/_comment.html.slim (0.3ms)
+  Rendered comments/_comment.html.slim (0.4ms)
+  Rendered comments/_comment.html.slim (0.3ms)
+  Rendered comments/_comment.html.slim (0.5ms)
+  [1m[36mAnswer Load (57.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 2]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 13], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (36.7ms)
+  [1m[36mAttachment Load (1.1ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 13], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (9.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 13], ["commentable_type", "Answer"]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 14], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (23.7ms)
+  [1m[36mAttachment Load (6.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 14], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 14], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (343.5ms)
+  Rendered attachments/_attachments_fields.html.slim (47.0ms)
+  Rendered attachments/_attachments_fields.html.slim (34.5ms)
+  Rendered questions/show.html.slim within layouts/application (1566.7ms)
+Completed 200 OK in 2595ms (Views: 1902.8ms | ActiveRecord: 429.3ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-23 15:17:26 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-23 15:17:26 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/questions" for 127.0.0.1 at 2018-08-23 15:17:29 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (1.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (22.5ms)
+  Rendered questions/_question.html.slim (1.0ms)
+  Rendered questions/_question.html.slim (0.7ms)
+  Rendered questions/_question.html.slim (2.1ms)
+  Rendered questions/index.html.slim within layouts/application (69.0ms)
+Completed 200 OK in 598ms (Views: 555.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-08-23 15:17:32 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-23 15:17:32 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-23 15:17:35 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/api/v1/profiles.json" for 127.0.0.1 at 2018-08-23 15:17:38 +0300
+Processing by Api::V1::ProfilesController#index as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/profiles.json" for 127.0.0.1 at 2018-08-23 15:19:22 +0300
+Processing by Api::V1::ProfilesController#index as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/profiles.json" for 127.0.0.1 at 2018-08-23 15:19:59 +0300
+Processing by Api::V1::ProfilesController#index as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-08-23 15:23:41 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/oauth/applications" for 127.0.0.1 at 2018-08-23 15:23:41 +0300
+Processing by Doorkeeper::ApplicationsController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/maksim/.rvm/gems/ruby-2.5.0/gems/doorkeeper-4.2.6/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin
+  [1m[36mDoorkeeper::Application Load (3.5ms)[0m  [1m[34mSELECT "oauth_applications".* FROM "oauth_applications"[0m
+  Rendered /home/maksim/.rvm/gems/ruby-2.5.0/gems/doorkeeper-4.2.6/app/views/doorkeeper/applications/_delete_form.html.erb (6.7ms)
+  Rendered /home/maksim/.rvm/gems/ruby-2.5.0/gems/doorkeeper-4.2.6/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin (116.9ms)
+Completed 200 OK in 221ms (Views: 178.9ms | ActiveRecord: 21.2ms)
+
+
+Started GET "/api/vi/questions.json" for 127.0.0.1 at 2018-08-23 15:24:02 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/vi/questions.json"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/api/v1/questions.json" for 127.0.0.1 at 2018-08-23 15:24:52 +0300
+Processing by Api::V1::QuestionsController#index as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/profiles.json" for 127.0.0.1 at 2018-08-23 15:25:58 +0300
+Processing by Api::V1::ProfilesController#index as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/profiles.json?access_token=[FILTERED]" for 127.0.0.1 at 2018-08-23 15:27:13 +0300
+Processing by Api::V1::ProfilesController#index as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+  [1m[36mDoorkeeper::AccessToken Load (1.5ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "6990a44ca4afebfb27d3a0fae4dac24e6416d6d0a64546b70a8a9cfc21846630"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "6990a44ca4afebfb27d3a0fae4dac24e6416d6d0a64546b70a8a9cfc21846630"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "6990a44ca4afebfb27d3a0fae4dac24e6416d6d0a64546b70a8a9cfc21846630"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::AccessToken Load (0.1ms)[0m  [1m[34mSELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "6990a44ca4afebfb27d3a0fae4dac24e6416d6d0a64546b70a8a9cfc21846630"], ["LIMIT", 1]]
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 29ms (ActiveRecord: 1.8ms)
+
+
