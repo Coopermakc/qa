@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 
 describe 'Questions api' do
   describe 'GET /index' do
@@ -25,7 +26,8 @@ describe 'Questions api' do
         expect(response).to be_success
       end
       it 'returns list of the questions' do
-        expect(response.body).to have_json_size(2)
+        binding.pry
+        expect(response.body).to have_json_size(2).at_path('questions')
       end
       %w(id title body created_at updated_at).each do |attr|
         it 'question object contains #{attr}' do
@@ -48,6 +50,7 @@ describe 'Questions api' do
   describe 'GET /show' do
     let(:user){ create(:user) }
     let!(:question){ create(:question, user: user) }
+    let!(:comments_for_question){ create_list(:comment, 2, commentable: question, user: user) }
 
     context 'unauthorized' do
       it 'return 401 status if there is no access token' do
@@ -65,6 +68,9 @@ describe 'Questions api' do
 
       it 'returns 200 status' do
         expect(response).to be_success
+      end
+      it 'returns list of questions' do
+        expect(response.body).to have_json_size(9).at_path('question')
       end
     end
   end
