@@ -50,7 +50,7 @@ describe 'Questions api' do
     let(:user){ create(:user) }
     let!(:question){ create(:question, user: user) }
     let!(:comments_for_question){ create_list(:comment, 2, commentable: question, user: user) }
-
+    let!(:attachments_for_question){ create_list(:attachment, 2, attachable_type: question) }
     context 'unauthorized' do
       it 'return 401 status if there is no access token' do
         get "/api/v1/questions/#{question.id}", params: { format: :json }
@@ -70,6 +70,13 @@ describe 'Questions api' do
       end
       it 'returns list of questions' do
         expect(response.body).to have_json_size(8).at_path('question')
+      end
+      it 'contains comments' do
+        expect(response.body).to have_json_size(2).at_path('question/comments')
+      end
+      it 'contains attachments' do
+        binding.pry
+        expect(response.body).to have_json_size(2).at_path('question/attachments')
       end
     end
   end
