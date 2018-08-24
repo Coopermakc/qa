@@ -15,7 +15,7 @@ Doorkeeper.configure do
   admin_authenticator do
     current_user.try(:admin?) || redirect_to(new_user_session_path)
   end
-
+  ActiveModelSerializers.config.adapter = :json
   # Authorization Code expiration time (default 10 minutes).
   # authorization_code_expires_in 10.minutes
 
