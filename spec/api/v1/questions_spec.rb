@@ -51,6 +51,8 @@ describe 'Questions api' do
     let!(:question){ create(:question, user: user) }
     let!(:comments_for_question){ create_list(:comment, 2, commentable: question, user: user) }
     let!(:attachments_for_question) { create_list(:attachment, 2, attachable: question) }
+    let!(:comment_for_question){comments_for_question.first}
+    let!(:attachment_for_question) {attachments_for_question.first}
 
     context 'unauthorized' do
       it 'return 401 status if there is no access token' do
@@ -73,12 +75,23 @@ describe 'Questions api' do
       it 'returns list of questions' do
         expect(response.body).to have_json_size(8).at_path('question')
       end
-      it 'contains comments' do
-        expect(response.body).to have_json_size(2).at_path('question/comments')
+      context 'comments' do
+        it 'contains comments' do
+          expect(response.body).to have_json_size(2).at_path('question/comments')
+        end
+        %w(id comment_body user_id created_at updated_at).each do |attr|
+          it 'object contains #{attr}' do
+            expect(response.body).to be_json_eql(comment_for_question.send(attr.to_sym).to_json).at_path("question/comments/1/#{attr}")
+          end
+        end
       end
-      it 'contains attachments' do
-
-        expect(response.body).to have_json_size(2).at_path('question/attachments')
+      context 'attachments' do
+        it 'contains attachments' do
+          expect(response.body).to have_json_size(2).at_path('question/attachments')
+        end
+        it 'contains url' do
+          expect(response.body).to be_json_eql(attachment_for_question.file.url.to_json).at_path('question/attachments/1/url')
+        end
       end
     end
   end
