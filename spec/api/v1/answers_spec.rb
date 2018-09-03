@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 
 describe 'Answers api' do
   describe 'GET /index' do
@@ -63,6 +64,10 @@ describe 'Answers api' do
         before { get "/api/v1/questions/#{question.id}/answers/#{answer.id}", params: { format: :json, access_token: access_token.token } }
         it 'return status 200' do
           expect(response).to be_success
+        end
+        it 'contain comments' do
+          #binding.pry
+          expect(response.body).to have_json_size(2).at_path("#{answer.id}/comments")
         end
       end
     end
