@@ -65,9 +65,25 @@ describe 'Answers api' do
         it 'return status 200' do
           expect(response).to be_success
         end
-        it 'contain comments' do
-          #binding.pry
-          expect(response.body).to have_json_size(2).at_path("#{answer.id}/comments")
+        context 'comments' do
+          it 'contain comments' do
+            #binding.pry
+            expect(response.body).to have_json_size(2).at_path("answer/comments")
+          end
+          %w(id comment_body user_id created_at updated_at).each do |attr|
+            it 'object contains #{attr}' do
+              expect(response.body).to be_json_eql(comment.send(attr.to_sym).to_json).at_path("answer/comments/1/#{attr}")
+            end
+          end
+        end
+        context 'attachments' do
+           it 'contain comments' do
+            #binding.pry
+            expect(response.body).to have_json_size(2).at_path("answer/attachments")
+          end
+          it 'contains url' do
+            expect(response.body).to be_json_eql(attachment.file.url.to_json).at_path('answer/attachments/1/url')
+          end
         end
       end
     end
