@@ -111,7 +111,6 @@ describe 'Questions api' do
       let(:access_token){ create(:access_token, resource_owner_id: user.id) }
       context 'with valid attributes' do
         it 'returns 201 status code' do
-          binding.pry
           post '/api/v1/questions/', params: { question: attributes_for(:question), format: :json, access_token: access_token.token }
           expect(response).to be_success
         end
