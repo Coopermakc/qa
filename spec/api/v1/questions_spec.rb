@@ -114,6 +114,18 @@ describe 'Questions api' do
           post '/api/v1/questions/', params: { question: attributes_for(:question), format: :json, access_token: access_token.token }
           expect(response).to be_success
         end
+        it 'saves a new question in db' do
+          expect { (post '/api/v1/questions/', params: { question: attributes_for(:question), format: :json, access_token: access_token.token }) }.to change(user.questions, :count).by(1)
+        end
+      end
+      context 'with invalid attributes' do
+        it 'returns 422 status code' do
+          post '/api/v1/questions/', params: { question: attributes_for(:invalid_question), format: :json, access_token: access_token.token }
+          expect(response.status).to eq 422
+        end
+        it 'does not save a invalid question in db' do
+          expect { (post '/api/v1/questions/', params: { question: attributes_for(:invalid_question), format: :json, access_token: access_token.token }) }.to_not change(Question, :count)
+        end
       end
     end
   end
