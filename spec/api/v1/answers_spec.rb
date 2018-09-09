@@ -6,13 +6,10 @@ describe 'Answers api' do
     context 'unauthorized' do
       let(:user){ create(:user) }
       let(:question){ create(:question, user: user) }
-      it 'return 401 status if there is no access token' do
-        get "/api/v1/questions/#{question.id}/answers", params: { format: :json }
-        expect(response.status).to eq 401
-      end
-      it 'return 401 status if access token is invalid' do
-        get "/api/v1/questions/#{question.id}/answers", params: { format: :json, access_token: '1234' }
-        expect(response.status).to eq 401
+
+      it_behaves_like "API Authenticable"
+      def do_request(options = {})
+        get "/api/v1/questions/#{question.id}/answers", params: { format: :json }.merge(options)
       end
     end
     context 'authorized' do
@@ -41,13 +38,10 @@ describe 'Answers api' do
         let(:user){ create(:user) }
         let(:question){ create(:question, user: user) }
         let(:answer){ create(:answer, question: question, user: user) }
-        it 'return 401 status if there is no access token' do
-          get "/api/v1/questions/#{question.id}/answers/#{answer.id}", params: { format: :json }
-          expect(response.status).to eq 401
-        end
-        it 'return 401 status if access token is invalid' do
-          get "/api/v1/questions/#{question.id}/answers/#{answer.id}", params: { format: :json, access_token: '1234' }
-          expect(response.status).to eq 401
+
+        it_behaves_like "API Authenticable"
+        def do_request(options = {})
+          get "/api/v1/questions/#{question.id}/answers/#{answer.id}", params: { format: :json }.merge(options)
         end
       end
       context 'authrized' do
@@ -93,13 +87,10 @@ describe 'Answers api' do
     let(:question){ create(:question, user: user) }
 
     context 'unauthorized' do
-      it 'return 401 status if there is no access token' do
-        post "/api/v1/questions/#{question.id}/answers", params: { format: :json }
-        expect(response.status).to eq 401
-      end
-      it 'return 401 status if access token is invalid' do
-        post "/api/v1/questions/#{question.id}/answers", params: { format: :json, access_token: '1234' }
-        expect(response.status).to eq 401
+    
+      it_behaves_like "API Authenticable"
+      def do_request(options = {})
+        post "/api/v1/questions/#{question.id}/answers", params: { format: :json }.merge(options)
       end
     end
 

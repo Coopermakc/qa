@@ -1,11 +1,11 @@
 require 'rails_helper'
+require 'pry'
 
 RSpec.describe QuestionsController, type: :controller do
-    sign_in_user
-   let(:question) { create(:question, user: @user) }
+  sign_in_user
+  let!(:question) { create(:question, user: @user) }
 
   describe 'GET #show' do
-
 
     before { get :show, params: { id: question } }
 
@@ -23,10 +23,9 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe 'GET #new' do
-    sign_in_user
-
     before { get :new }
     it 'assign a new Question to @question' do
+      binding.pry
       expect(assigns(:question)).to be_a_new(Question)
     end
     it 'render new view' do
