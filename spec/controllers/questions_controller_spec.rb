@@ -3,7 +3,7 @@ require 'pry'
 
 RSpec.describe QuestionsController, type: :controller do
   sign_in_user
-  let!(:question) { create(:question, user: @user) }
+  let(:question) { create(:question, user: @user) }
 
   describe 'GET #show' do
 
@@ -25,15 +25,10 @@ RSpec.describe QuestionsController, type: :controller do
   describe 'GET #new' do
     before { get :new }
     it 'assign a new Question to @question' do
-      binding.pry
       expect(assigns(:question)).to be_a_new(Question)
     end
     it 'render new view' do
       expect(response).to render_template :new
-    end
-
-    it 'build new attachment for question' do
-      expect(assigns(:question).attachments.first).to be_a_new(Attachment)
     end
   end
 
