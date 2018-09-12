@@ -1,16 +1,16 @@
 = form_for @question do  |f|
 
- p
   = f.label :title, 'Title'
+  br
   = f.text_field :title
-
- p
+  br
   = f.label :body, 'Text'
+  br
   = f.text_area :body
-
- p Attachments:
-
- = f.fields_for :attachments, @question.attachments.build do |a|
+  br
+  p Attachments:
+  p
+    = f.fields_for :attachments, @question.attachments.build do |a|
       = render 'attachments/attachments_fields', f: a
       = link_to_add_association 'Add', f, :attachments, partial: 'attachments/attachments_fields'
- p= f.submit 'Create'
+  = f.submit 'Create'
