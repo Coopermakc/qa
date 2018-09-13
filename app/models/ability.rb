@@ -28,5 +28,8 @@ class Ability
     can :update, [Question, Answer], user: user
     can :destroy, [Question, Answer], user: user
     can :me, User, id: user.id
+    can :manage, Attachment do |attachment|
+      attachment.attachable.user_id == user.id
+    end
   end
 end
