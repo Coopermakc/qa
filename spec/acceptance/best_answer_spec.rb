@@ -10,16 +10,17 @@ feature 'Athor of the question choose best answer', %q{
     given!(:question) {create(:question, user: user)}
     given!(:other_user) { create(:user) }
     given!(:answer) {create(:answer, question: question, user: other_user)}
+    background do
+      user.confirm
+      sign_in user
+    end
 
   scenario 'Author of the question see the link best' do
-    sign_in user
-
     visit question_path(question)
     expect(page).to have_link 'Best'
   end
 
   scenario 'Author choose the best answer', js: true do
-    sign_in user
     visit question_path(question)
     expect(page).to have_link 'Best'
     click_on 'Best'
