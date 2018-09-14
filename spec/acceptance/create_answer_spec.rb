@@ -8,15 +8,16 @@ feature 'User create answer on the question', %q{
 
   given(:user) { create(:user) }
   given(:question) { create(:question, user: user) }
+  background do
+    user.confirm
+    sign_in(user)
+    visit question_path(question)
+  end
 
 
   scenario 'User create answer the question', js: true do
-    sign_in(user)
-    visit question_path(question)
-
     fill_in 'Your answer', with: 'Text of the answer'
     click_on 'Create'
-
     expect(page).to have_content 'Your answer successfully create.'
     within '.answers' do
       expect(page).to have_content 'Text of the answer'
@@ -24,9 +25,6 @@ feature 'User create answer on the question', %q{
   end
 
   scenario 'User try create invalid answer', js: true do
-    sign_in(user)
-    visit question_path(question)
-
     click_on 'Create'
     expect(page).to have_content "Body can't be blank"
   end

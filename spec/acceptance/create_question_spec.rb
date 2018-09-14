@@ -9,7 +9,7 @@ feature 'User can ask a question', %q{
 
 
   scenario 'Authenticated user create a question' do
-
+    user.confirm
    sign_in(user)
 
     visit questions_path
@@ -17,7 +17,6 @@ feature 'User can ask a question', %q{
     fill_in 'Title', with: 'Title of the question'
     fill_in 'Text', with: 'Body of the question'
     click_on 'Create'
-
     expect(page).to have_content 'Question was successfully created.'
   end
 
