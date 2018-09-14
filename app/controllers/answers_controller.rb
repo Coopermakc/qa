@@ -31,12 +31,9 @@ class AnswersController < ApplicationController
   end
 
   def best
-    if current_user.author_of?(@answer.question)
-      # @answer.best
-      # flash[:notice] = 'Choose the best answer'
-      # @question = @answer.question
-    end
-     respond_with(@answer.best)
+    #respond_with(@answer.best)
+    @answer.best #if current_user.author_of?(@question)
+    @answers = @answer.question.answers
   end
 
   private

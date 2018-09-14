@@ -1,3 +1,4 @@
+
 class Answer < ApplicationRecord
 
   include Attachable

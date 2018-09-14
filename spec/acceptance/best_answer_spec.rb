@@ -12,6 +12,7 @@ feature 'Athor of the question choose best answer', %q{
     given!(:answer) {create(:answer, question: question, user: other_user)}
     background do
       user.confirm
+      other_user.confirm
       sign_in user
     end
 
@@ -24,7 +25,6 @@ feature 'Athor of the question choose best answer', %q{
     visit question_path(question)
     expect(page).to have_link 'Best'
     click_on 'Best'
-
     expect(page).to have_content 'The best answer'
   end
 end
