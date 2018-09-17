@@ -17,6 +17,7 @@ feature 'Edit answer', %q{
       end
       describe 'Authenticated user' do
         before do
+          user.confirm
           sign_in(user)
           visit question_path(question)
         end

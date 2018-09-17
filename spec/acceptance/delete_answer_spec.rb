@@ -15,6 +15,7 @@ feature 'User can destroy only his answer', %q{
   end
 
   scenario 'Authenticated user the author of the question', js: true do
+    user.confirm
     sign_in(user)
     visit question_path(question)
     expect(page).to have_content my_answer.body

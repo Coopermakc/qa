@@ -10,6 +10,7 @@ feature 'User delete question which he has created', %q{
   let(:alien_question) { create(:question) }
 
   scenario 'Author of the problem delete his question' do
+    current_user.confirm
     sign_in(current_user)
     visit question_path(my_question)
     expect(page).to have_content my_question.body

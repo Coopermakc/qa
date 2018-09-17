@@ -9,6 +9,7 @@ feature 'User sign out', %q{
 let(:user) { create(:user) }
 
   scenario 'Registered user try to sign out' do
+    user.confirm
     sign_in(user)
     click_on 'Выйти'
 

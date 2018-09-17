@@ -12,6 +12,7 @@ feature 'Votes for answer', %q{
   describe 'Authencticated user' do
 
     before do
+      user.confirm
       sign_in user
       visit question_path(question)
     end
