@@ -8,7 +8,7 @@ feature 'User sign in', %q{
 
   given(:user) { create(:user) }
   scenario 'Registered user try to sign in' do
-
+    user.confirm
     sign_in(user)
 
     expect(page).to have_content 'Signed in successfully.'

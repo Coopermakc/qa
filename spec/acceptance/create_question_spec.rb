@@ -10,7 +10,7 @@ feature 'User can ask a question', %q{
 
   scenario 'Authenticated user create a question' do
     user.confirm
-   sign_in(user)
+    sign_in(user)
 
     visit questions_path
     click_on 'Ask question'
