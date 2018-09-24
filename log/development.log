@@ -11549,3 +11549,1096 @@ QuestionsChannel is streaming from questions
 AnswersChannel is streaming from answers
 QuestionsChannel is streaming from questions
 QuestionsChannel is streaming from questions
+Started GET "/" for 127.0.0.1 at 2018-09-24 21:26:21 +0300
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (4.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (4.7ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.3ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/index.html.slim within layouts/application (69.1ms)
+Completed 200 OK in 8824ms (Views: 8776.3ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:26:30 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:26:30 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-24 21:26:32 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (67.4ms)
+Completed 200 OK in 239ms (Views: 186.1ms | ActiveRecord: 20.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:26:32 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:26:33 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:26:33 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-09-24 21:26:47 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H5y7xudE+8JySAJJMXFgJnzGglGTWUqgynfGbF/Sfp1L1WjUBnHLvV8HfwvDIuRsHAMrYNxSaRXdv/0O/0jwYw==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-09-24 18:26:47.237011"], ["last_sign_in_at", "2018-09-14 04:30:32.888365"], ["sign_in_count", 29], ["updated_at", "2018-09-24 18:26:47.238639"], ["id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 234ms (ActiveRecord: 29.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-24 21:26:47 +0300
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (4.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.5ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/index.html.slim within layouts/application (35.0ms)
+Completed 200 OK in 168ms (Views: 139.6ms | ActiveRecord: 4.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:26:47 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:26:47 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:26:47 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started GET "/questions/72" for 127.0.0.1 at 2018-09-24 21:28:02 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (19.0ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 72], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (33.3ms)
+  [1m[36mAttachment Load (2.9ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 72], ["attachable_type", "Question"]]
+  [1m[36mComment Load (14.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 72], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (14.0ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  Rendered answers/_answers.html.slim (28.1ms)
+  Rendered attachments/_attachments_fields.html.slim (6.6ms)
+  Rendered attachments/_attachments_fields.html.slim (3.8ms)
+  Rendered questions/show.html.slim within layouts/application (170.4ms)
+Completed 200 OK in 292ms (Views: 191.8ms | ActiveRecord: 62.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:28:02 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:28:02 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:28:02 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started POST "/questions/72/answers" for 127.0.0.1 at 2018-09-24 21:28:12 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"My answer"}, "commit"=>"Create", "question_id"=>"72"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.8ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "My answer"], ["question_id", 72], ["created_at", "2018-09-24 18:28:12.767239"], ["updated_at", "2018-09-24 18:28:12.767239"], ["user_id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 56], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (6.1ms)
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 56], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 56], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (22.8ms)
+  Rendered answers/create.js.erb (26.3ms)
+Completed 200 OK in 72ms (Views: 53.6ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/questions/72" for 127.0.0.1 at 2018-09-24 21:28:16 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 72], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (5.3ms)
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 72], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 72], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 56], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.0ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 56], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 56], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (17.0ms)
+  Rendered attachments/_attachments_fields.html.slim (2.8ms)
+  Rendered attachments/_attachments_fields.html.slim (3.3ms)
+  Rendered questions/show.html.slim within layouts/application (49.9ms)
+Completed 200 OK in 130ms (Views: 121.9ms | ActiveRecord: 3.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:28:16 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:28:16 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:28:16 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started PATCH "/answers/56" for 127.0.0.1 at 2018-09-24 21:28:32 +0300
+Processing by AnswersController#update as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"My answer123"}, "commit"=>"Save", "id"=>"56"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Answer Load (0.0ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "answers" SET "body" = $1, "updated_at" = $2 WHERE "answers"."id" = $3[0m  [["body", "My answer123"], ["updated_at", "2018-09-24 18:28:32.220642"], ["id", 56]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/update.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 56], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (4.8ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 56], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 56], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (37.4ms)
+  Rendered answers/update.js.erb (58.9ms)
+Completed 200 OK in 138ms (Views: 98.3ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/questions/72/answers" for 127.0.0.1 at 2018-09-24 21:29:10 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"trees"}, "commit"=>"Create", "question_id"=>"72"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "trees"], ["question_id", 72], ["created_at", "2018-09-24 18:29:10.298179"], ["updated_at", "2018-09-24 18:29:10.298179"], ["user_id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 56], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (5.3ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 56], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 56], ["commentable_type", "Answer"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 57], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.8ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 57], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 57], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (30.0ms)
+  Rendered answers/create.js.erb (34.6ms)
+Completed 200 OK in 86ms (Views: 70.6ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/questions/72" for 127.0.0.1 at 2018-09-24 21:29:13 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 72], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (5.2ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 72], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 72], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 56], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.0ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 56], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 56], ["commentable_type", "Answer"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 57], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.3ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 57], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 57], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (25.7ms)
+  Rendered attachments/_attachments_fields.html.slim (2.8ms)
+  Rendered attachments/_attachments_fields.html.slim (3.3ms)
+  Rendered questions/show.html.slim within layouts/application (59.5ms)
+Completed 200 OK in 147ms (Views: 139.0ms | ActiveRecord: 3.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:29:13 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:29:13 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:29:13 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started PATCH "/answers/57" for 127.0.0.1 at 2018-09-24 21:29:21 +0300
+Processing by AnswersController#update as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"trees6543"}, "commit"=>"Save", "id"=>"57"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Answer Load (0.0ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "answers" SET "body" = $1, "updated_at" = $2 WHERE "answers"."id" = $3[0m  [["body", "trees6543"], ["updated_at", "2018-09-24 18:29:21.558551"], ["id", 57]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/update.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 56], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (4.6ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 56], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 56], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 57], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.5ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 57], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 57], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (56.5ms)
+  Rendered answers/update.js.erb (75.2ms)
+Completed 200 OK in 147ms (Views: 113.3ms | ActiveRecord: 5.6ms)
+
+
+Started DELETE "/answers/57" for 127.0.0.1 at 2018-09-24 21:29:25 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"57"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 57], ["commentable_type", "Answer"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 57]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/destroy.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 56], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (4.6ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 56], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 56], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (18.1ms)
+  Rendered answers/destroy.js.erb (21.2ms)
+Completed 200 OK in 59ms (Views: 45.7ms | ActiveRecord: 4.9ms)
+
+
+Started DELETE "/answers/56" for 127.0.0.1 at 2018-09-24 21:29:27 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"56"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 56], ["commentable_type", "Answer"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 56]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/destroy.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  Rendered answers/_answers.html.slim (7.1ms)
+  Rendered answers/destroy.js.erb (10.0ms)
+Completed 200 OK in 47ms (Views: 34.9ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/questions/72/answers" for 127.0.0.1 at 2018-09-24 21:32:19 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"tree"}, "commit"=>"Create", "question_id"=>"72"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "tree"], ["question_id", 72], ["created_at", "2018-09-24 18:32:19.421363"], ["updated_at", "2018-09-24 18:32:19.421363"], ["user_id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (4.9ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (18.6ms)
+  Rendered answers/create.js.erb (21.6ms)
+Completed 200 OK in 60ms (Views: 47.4ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/questions/72" for 127.0.0.1 at 2018-09-24 21:35:08 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 72], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (5.3ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 72], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 72], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.3ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (16.1ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered attachments/_attachments_fields.html.slim (2.7ms)
+  Rendered questions/show.html.slim within layouts/application (48.3ms)
+Completed 200 OK in 145ms (Views: 136.3ms | ActiveRecord: 3.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:35:08 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:35:08 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:35:08 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started PATCH "/answers/58" for 127.0.0.1 at 2018-09-24 21:35:21 +0300
+Processing by AnswersController#update as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"tree"}, "commit"=>"Save", "id"=>"58"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Answer Load (0.0ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/update.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (4.8ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (45.9ms)
+  Rendered answers/update.js.erb (65.0ms)
+Completed 200 OK in 140ms (Views: 105.3ms | ActiveRecord: 3.1ms)
+
+
+Started PATCH "/answers/58" for 127.0.0.1 at 2018-09-24 21:35:30 +0300
+Processing by AnswersController#update as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"tree"}, "commit"=>"Save", "id"=>"58"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Answer Load (0.0ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/update.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (4.8ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (34.2ms)
+  Rendered answers/update.js.erb (55.2ms)
+Completed 200 OK in 136ms (Views: 101.9ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/questions/72/answers" for 127.0.0.1 at 2018-09-24 21:35:38 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"tyuj"}, "commit"=>"Create", "question_id"=>"72"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "tyuj"], ["question_id", 72], ["created_at", "2018-09-24 18:35:38.092530"], ["updated_at", "2018-09-24 18:35:38.092530"], ["user_id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (4.8ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.9ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (28.0ms)
+  Rendered answers/create.js.erb (31.1ms)
+Completed 200 OK in 70ms (Views: 57.2ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/questions/72" for 127.0.0.1 at 2018-09-24 21:47:14 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 72], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (5.2ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 72], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 72], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.1ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.0ms)
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (23.6ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered questions/show.html.slim within layouts/application (54.8ms)
+Completed 200 OK in 4112ms (Views: 4104.1ms | ActiveRecord: 3.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:47:18 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:47:18 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:47:18 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started POST "/questions/72/answers" for 127.0.0.1 at 2018-09-24 21:47:23 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"3edc"}, "commit"=>"Create", "question_id"=>"72"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "3edc"], ["question_id", 72], ["created_at", "2018-09-24 18:47:23.097951"], ["updated_at", "2018-09-24 18:47:23.097951"], ["user_id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (7.1ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.0ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 60], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.5ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 60], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 60], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (54.7ms)
+  Rendered answers/create.js.erb (58.2ms)
+Completed 200 OK in 100ms (Views: 82.1ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/questions/72" for 127.0.0.1 at 2018-09-24 21:47:26 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 72], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (5.8ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 72], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 72], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.3ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.8ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 60], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.1ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 60], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 60], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (35.4ms)
+  Rendered attachments/_attachments_fields.html.slim (2.8ms)
+  Rendered attachments/_attachments_fields.html.slim (2.5ms)
+  Rendered questions/show.html.slim within layouts/application (69.6ms)
+Completed 200 OK in 155ms (Views: 146.1ms | ActiveRecord: 4.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:47:26 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:47:26 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:47:26 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started PATCH "/answers/60" for 127.0.0.1 at 2018-09-24 21:47:36 +0300
+Processing by AnswersController#update as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"3edceee"}, "commit"=>"Save", "id"=>"60"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Answer Load (0.0ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "answers" SET "body" = $1, "updated_at" = $2 WHERE "answers"."id" = $3[0m  [["body", "3edceee"], ["updated_at", "2018-09-24 18:47:36.912725"], ["id", 60]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/update.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (4.7ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.6ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 60], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.5ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 60], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 60], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (83.5ms)
+  Rendered answers/update.js.erb (102.6ms)
+Completed 200 OK in 178ms (Views: 141.0ms | ActiveRecord: 6.1ms)
+
+
+Started PATCH "/answers/60" for 127.0.0.1 at 2018-09-24 21:47:43 +0300
+Processing by AnswersController#update as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"3edceeee"}, "commit"=>"Save", "id"=>"60"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Answer Load (0.0ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "answers" SET "body" = $1, "updated_at" = $2 WHERE "answers"."id" = $3[0m  [["body", "3edceeee"], ["updated_at", "2018-09-24 18:47:43.919099"], ["id", 60]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/update.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (5.1ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.7ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 60], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.6ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 60], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 60], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (84.8ms)
+  Rendered answers/update.js.erb (103.5ms)
+Completed 200 OK in 179ms (Views: 142.1ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/questions/72/answers" for 127.0.0.1 at 2018-09-24 21:47:50 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"123qweasd"}, "commit"=>"Create", "question_id"=>"72"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "123qweasd"], ["question_id", 72], ["created_at", "2018-09-24 18:47:50.680696"], ["updated_at", "2018-09-24 18:47:50.680696"], ["user_id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (5.1ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.6ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 60], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.7ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 60], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 60], ["commentable_type", "Answer"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 61], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.7ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 61], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 61], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (48.4ms)
+  Rendered answers/create.js.erb (51.8ms)
+Completed 200 OK in 91ms (Views: 76.0ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/questions/72" for 127.0.0.1 at 2018-09-24 21:47:55 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 72], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (6.0ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 72], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 72], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.2ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.0ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 60], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.0ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 60], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 60], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 61], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.9ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 61], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 61], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (40.4ms)
+  Rendered attachments/_attachments_fields.html.slim (2.7ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered questions/show.html.slim within layouts/application (73.7ms)
+Completed 200 OK in 167ms (Views: 157.0ms | ActiveRecord: 5.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:47:56 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:47:56 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:47:56 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started PATCH "/answers/61" for 127.0.0.1 at 2018-09-24 21:48:05 +0300
+Processing by AnswersController#update as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"123qweasd"}, "commit"=>"Save", "id"=>"61"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Answer Load (0.0ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/update.js.erb
+  [1m[36mAnswer Load (0.6ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (5.8ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.8ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 60], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.7ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 60], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 60], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 61], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.7ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 61], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 61], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (109.0ms)
+  Rendered answers/update.js.erb (129.0ms)
+Completed 200 OK in 202ms (Views: 166.6ms | ActiveRecord: 5.6ms)
+
+
+Started DELETE "/answers/61" for 127.0.0.1 at 2018-09-24 21:48:17 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"61"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 61], ["commentable_type", "Answer"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 61]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/destroy.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 58], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (5.1ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 58], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.5ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 60], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.9ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 60], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 60], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (34.9ms)
+  Rendered answers/destroy.js.erb (38.1ms)
+Completed 200 OK in 80ms (Views: 64.1ms | ActiveRecord: 6.1ms)
+
+
+Started DELETE "/answers/58" for 127.0.0.1 at 2018-09-24 21:48:21 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"58"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 58], ["commentable_type", "Answer"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 58]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/destroy.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (4.9ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 60], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.5ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 60], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 60], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (26.2ms)
+  Rendered answers/destroy.js.erb (29.3ms)
+Completed 200 OK in 69ms (Views: 55.2ms | ActiveRecord: 5.3ms)
+
+
+Started DELETE "/answers/60" for 127.0.0.1 at 2018-09-24 21:48:23 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"60"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 60], ["commentable_type", "Answer"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 60]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/destroy.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (4.6ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (18.1ms)
+  Rendered answers/destroy.js.erb (21.2ms)
+Completed 200 OK in 61ms (Views: 45.9ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/questions/72" for 127.0.0.1 at 2018-09-24 21:48:28 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 72], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (6.4ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 72], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 72], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 59], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.4ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 59], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (15.5ms)
+  Rendered attachments/_attachments_fields.html.slim (2.8ms)
+  Rendered attachments/_attachments_fields.html.slim (3.1ms)
+  Rendered questions/show.html.slim within layouts/application (49.7ms)
+Completed 200 OK in 503ms (Views: 494.9ms | ActiveRecord: 3.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:48:28 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:48:28 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:48:28 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started DELETE "/answers/59" for 127.0.0.1 at 2018-09-24 21:48:36 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"59"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 59], ["commentable_type", "Answer"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 59]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/destroy.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  Rendered answers/_answers.html.slim (8.9ms)
+  Rendered answers/destroy.js.erb (12.1ms)
+Completed 200 OK in 54ms (Views: 39.0ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/questions/72/answers" for 127.0.0.1 at 2018-09-24 21:48:43 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"1qasw2"}, "commit"=>"Create", "question_id"=>"72"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "1qasw2"], ["question_id", 72], ["created_at", "2018-09-24 18:48:43.188081"], ["updated_at", "2018-09-24 18:48:43.188081"], ["user_id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 62], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (4.9ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 62], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 62], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (21.9ms)
+  Rendered answers/create.js.erb (25.1ms)
+Completed 200 OK in 65ms (Views: 52.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/questions/72" for 127.0.0.1 at 2018-09-24 21:48:50 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 72], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (5.6ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 72], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 72], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 62], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.4ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 62], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 62], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (16.8ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered attachments/_attachments_fields.html.slim (3.1ms)
+  Rendered questions/show.html.slim within layouts/application (51.6ms)
+Completed 200 OK in 137ms (Views: 129.0ms | ActiveRecord: 2.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:48:50 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:48:50 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:48:50 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started PATCH "/answers/62" for 127.0.0.1 at 2018-09-24 21:49:26 +0300
+Processing by AnswersController#update as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"1qasw2"}, "commit"=>"Save", "id"=>"62"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Answer Load (0.0ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Question Load (0.0ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/update.js.erb
+  [1m[36mAnswer Load (0.9ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 62], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (5.1ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 62], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 62], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (36.3ms)
+  Rendered answers/update.js.erb (55.3ms)
+Completed 200 OK in 130ms (Views: 96.7ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/questions/72/answers" for 127.0.0.1 at 2018-09-24 21:49:30 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"rev"}, "commit"=>"Create", "question_id"=>"72"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "rev"], ["question_id", 72], ["created_at", "2018-09-24 18:49:30.763439"], ["updated_at", "2018-09-24 18:49:30.763439"], ["user_id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 62], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (5.3ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 62], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 62], ["commentable_type", "Answer"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 63], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (1.5ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 63], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 63], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (29.4ms)
+  Rendered answers/create.js.erb (32.8ms)
+Completed 200 OK in 72ms (Views: 59.0ms | ActiveRecord: 5.3ms)
+
+
+Started DELETE "/answers/63" for 127.0.0.1 at 2018-09-24 21:51:14 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"63"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 63], ["commentable_type", "Answer"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 63]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/destroy.js.erb
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 62], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (5.2ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 62], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 62], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (20.2ms)
+  Rendered answers/destroy.js.erb (23.4ms)
+Completed 200 OK in 63ms (Views: 49.0ms | ActiveRecord: 4.5ms)
+
+
+Started DELETE "/answers/62" for 127.0.0.1 at 2018-09-24 21:51:19 +0300
+Processing by AnswersController#destroy as JS
+  Parameters: {"id"=>"62"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 62], ["commentable_type", "Answer"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "answers" WHERE "answers"."id" = $1[0m  [["id", 62]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/destroy.js.erb
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  Rendered answers/_answers.html.slim (16.3ms)
+  Rendered answers/destroy.js.erb (19.7ms)
+Completed 200 OK in 59ms (Views: 47.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/questions/72" for 127.0.0.1 at 2018-09-24 21:51:29 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 72], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (6.1ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 72], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 72], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.6ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  Rendered answers/_answers.html.slim (8.1ms)
+  Rendered attachments/_attachments_fields.html.slim (2.7ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered questions/show.html.slim within layouts/application (40.2ms)
+Completed 200 OK in 461ms (Views: 454.0ms | ActiveRecord: 2.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:51:30 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-09-24 21:51:30 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:51:30 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+Started POST "/questions/72/answers" for 127.0.0.1 at 2018-09-24 21:51:36 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"q1w2"}, "commit"=>"Create", "question_id"=>"72"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "q1w2"], ["question_id", 72], ["created_at", "2018-09-24 18:51:36.472684"], ["updated_at", "2018-09-24 18:51:36.472684"], ["user_id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 72]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 64], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (5.4ms)
+  [1m[36mAttachment Load (0.2ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 64], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 64], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (21.0ms)
+  Rendered answers/create.js.erb (24.3ms)
+Completed 200 OK in 65ms (Views: 50.5ms | ActiveRecord: 4.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-09-24 21:52:11 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
