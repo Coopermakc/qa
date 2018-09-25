@@ -2,9 +2,8 @@ require 'rails_helper'
 
 RSpec.describe AnswersController, type: :controller do
       sign_in_user
-      let!(:user) {create(:user)}
-      let!(:question) { create(:question, user: user) }
-      let!(:answer) { create(:answer, question: question, user: user) }
+      let!(:question) { create(:question, user: @user) }
+      let!(:answer) { create(:answer, question: question, user: @user) }
 
   describe 'GET #new' do
     sign_in_user
@@ -69,7 +68,6 @@ RSpec.describe AnswersController, type: :controller do
   describe 'PATCH #update' do
 
     context 'Authenticated user' do
-      sign_in_user
       it 'assigns requested question to @question' do
         patch(:update, params: {id: answer, question_id: question.id, answer: attributes_for(:answer) }, format: :js)
         expect(assigns(:question)).to eq question
@@ -89,6 +87,4 @@ RSpec.describe AnswersController, type: :controller do
       end
     end
   end
-
-
 end
