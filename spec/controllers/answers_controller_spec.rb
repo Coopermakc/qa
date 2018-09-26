@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe AnswersController, type: :controller do
       sign_in_user
-      let!(:user) { create(:user) }
       let!(:question) { create(:question, user: @user) }
       let!(:answer) { create(:answer, question: question, user: @user) }
 
@@ -46,7 +45,6 @@ RSpec.describe AnswersController, type: :controller do
   describe 'DELETE #destroy' do
 
     context 'Authenticated user' do
-
       let!(:answer) { create(:answer, question: question, user: @user) }
       it 'del own answer' do
         expect{ delete(:destroy, params: { id: answer, user: @user }, format: :js) }.to change(@user.answers, :count).by(-1)
@@ -60,6 +58,7 @@ RSpec.describe AnswersController, type: :controller do
       end
     end
     context 'Non-authenticated user' do
+      let!(:other_user){ create(:user) }
       it 'can`t delete answer' do
         expect{ delete(:destroy, params: { id: answer, question_id: question.id }, format: :js) }.to_not change(Answer, :count)
       end
