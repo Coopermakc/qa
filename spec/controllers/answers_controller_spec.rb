@@ -4,6 +4,8 @@ RSpec.describe AnswersController, type: :controller do
       sign_in_user
       let!(:question) { create(:question, user: @user) }
       let!(:answer) { create(:answer, question: question, user: @user) }
+      let!(:other_user){ create(:user) }
+      let!(:other_answer){ create(:answer, question: question, user: other_user) }
 
   describe 'GET #new' do
     sign_in_user
@@ -45,7 +47,6 @@ RSpec.describe AnswersController, type: :controller do
   describe 'DELETE #destroy' do
 
     context 'Authenticated user' do
-      let!(:answer) { create(:answer, question: question, user: @user) }
       it 'del own answer' do
         expect{ delete(:destroy, params: { id: answer, user: @user }, format: :js) }.to change(@user.answers, :count).by(-1)
       end
@@ -58,9 +59,8 @@ RSpec.describe AnswersController, type: :controller do
       end
     end
     context 'Non-authenticated user' do
-      let!(:other_user){ create(:user) }
       it 'can`t delete answer' do
-        expect{ delete(:destroy, params: { id: answer, question_id: question.id }, format: :js) }.to_not change(Answer, :count)
+        expect{ delete(:destroy, params: { id: other_answer.id, question_id: question.id }, format: :js) }.to_not change(Answer, :count)
       end
     end
   end
