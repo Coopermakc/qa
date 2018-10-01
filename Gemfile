@@ -44,6 +44,8 @@ gem 'doorkeeper', '4.2.6'
 gem 'active_model_serializers'
 gem 'oj'
 gem 'oj_mimic_json'
+gem 'sidekiq'
+gem 'whenever'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
