@@ -1,4 +1,4 @@
-
+require 'pry'
 class Answer < ApplicationRecord
 
   include Attachable
@@ -10,6 +10,8 @@ class Answer < ApplicationRecord
 
   validates :body, :user_id, presence: true
 
+  after_create :send_new_answer
+
   def best
     ActiveRecord::Base.transaction do
       best_answer = question.best_answer
@@ -18,6 +20,10 @@ class Answer < ApplicationRecord
         self.update!(best: true)
       end
     end
+  end
+
+  def send_new_answer
+    AnswerMailer.delay.new_answer(self.question.user)
   end
 
 end
