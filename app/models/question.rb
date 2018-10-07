@@ -5,6 +5,7 @@ class Question < ApplicationRecord
   include Commentable
 
   has_many :answers, dependent: :destroy
+  has_many :subscriptions
   belongs_to :user
 
   has_many :attachments, as: :attachable

@@ -9,7 +9,7 @@ RSpec.describe Answer, type: :model do
   describe '.new_answer send' do
     let(:user) { create(:user) }
     let(:question){ create(:question, user: user) }
-    let(:answer){ create(:answer, question: question, user: user) }
+    let!(:answer){ create(:answer, question: question, user: user) }
     it 'should send new_answer after creating answer' do
       expect(AnswerMailer).to receive(:new_answer).with(user).and_call_original
       answer.send_new_answer

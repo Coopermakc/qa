@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
       patch :best, on: :member
     end
+    resources :subscriptions, only: [:create, :destroy], shallow: true
   end
 
   namespace :api do
