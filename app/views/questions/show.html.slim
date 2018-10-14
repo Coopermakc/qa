@@ -16,9 +16,9 @@
     p
 .subscriptions
     - if can?(:destroy, @subscription)
-      = link_to 'Unsubscribe', subscription_path(@subscription.id), method: :delete, remote: true
+      = link_to 'Unsubscribe', subscription_path(@subscription.id), class: 'unsubscribe-question-link', method: :delete, remote: true
     - else
-      = link_to 'Subscribe', question_subscriptions_path(@question), method: :post, remote: true
+      = link_to 'Subscribe', question_subscriptions_path(@question), class: 'subscribe-question-link', method: :post, remote: true
 .edit_question
       = form_for @question, remote: true do |f|
         = f.label :title

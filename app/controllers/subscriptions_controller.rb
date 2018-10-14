@@ -6,8 +6,9 @@ class SubscriptionsController < ApplicationController
   respond_to :js
 
   def create
+    binding.pry
     @question = Question.find(params[:question_id])
-    respond_with @subscription = current_user.subscriptions.create(question: @question)
+    respond_with @subscription = current_user.subscriptions.create!(question: @question)
   end
   def destroy
     @subscription = current_user.subscriptions.find(params[:id])
