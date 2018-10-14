@@ -26,11 +26,11 @@ Rails.application.routes.draw do
 
   resources :questions, concerns: :votable do
     resources :comments, only: [:create]
+    resources :subscriptions, only: [:create, :destroy], shallow: true
     resources :answers, concerns: :votable, shallow: true do
       resources :comments, only: [:create]
       patch :best, on: :member
     end
-    resources :subscriptions, only: [:create, :destroy], shallow: true
   end
 
   namespace :api do

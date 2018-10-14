@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :load_question, only: [:show, :update, :edit, :destroy]
   before_action :build_answer, only: [:show]
+  before_action :set_subscription, only: [:show]
   after_action :publish_question, only: [:create]
   respond_to :js, :json
 
@@ -13,6 +14,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    
     respond_with @question
   end
 
@@ -54,5 +56,7 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:id,:title, :body, attachments_attributes: [:file, :id, :_delete])
   end
-
+  def set_subscription
+    @subscription = @question.subscriptions.find_by(user: current_user)
+  end
 end

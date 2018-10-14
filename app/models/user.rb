@@ -1,3 +1,4 @@
+require 'pry'
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -16,6 +17,11 @@ class User < ApplicationRecord
 
   def non_author_of?(unit)
     !author_of?(unit)
+  end
+
+  def subscription?(question)
+    subscription = question.subscriptions.find_by(user: current_user)
+    self.id == subscription.user_id
   end
 
   def self.from_omniauth(auth)

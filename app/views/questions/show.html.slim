@@ -14,6 +14,11 @@
     p = link_to 'Remove', question_path, method: :delete
     p = link_to 'Edit question', '', class: 'edit-question-link'
     p
+.subscriptions
+    - if can?(:destroy, @subscription)
+      = link_to 'Unsubscribe', subscription_path(@subscription.id), method: :delete, remote: true
+    - else
+      = link_to 'Subscribe', question_subscriptions_path(@question), method: :post, remote: true
 .edit_question
       = form_for @question, remote: true do |f|
         = f.label :title
