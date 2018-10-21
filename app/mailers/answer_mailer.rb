@@ -7,7 +7,7 @@ class AnswerMailer < ApplicationMailer
   #
   def new_answer(user)
     @greeting = "Hi"
-    
+
     mail to: user.email
   end
 end

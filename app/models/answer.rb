@@ -26,4 +26,8 @@ class Answer < ApplicationRecord
     AnswerMailer.delay.new_answer(self.question.user)
   end
 
+  def subscribers_informer
+    SubscribersSenderJob.perform_later(self)
+  end
+
 end
