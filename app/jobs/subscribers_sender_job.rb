@@ -3,7 +3,7 @@ class SubscribersSenderJob < ApplicationJob
 
   def perform(answer)
     answer.question.subscriptions.find_each do |subscription|
-      SubscribersMailer.delay.mailer(subscription.user, answer)
+      SubscribersMailer.mailer(subscription.user, answer).deliver_later
     end
   end
 end

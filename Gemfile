@@ -48,6 +48,8 @@ gem 'sidekiq'
 gem 'whenever'
 gem 'sinatra', require: false
 gem 'sidetiq'
+gem 'mysql2'
+gem 'thinking-sphinx'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

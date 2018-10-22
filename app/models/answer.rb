@@ -11,6 +11,7 @@ class Answer < ApplicationRecord
   validates :body, :user_id, presence: true
 
   after_create :send_new_answer
+  after_create :subscribers_informer
 
   def best
     ActiveRecord::Base.transaction do
