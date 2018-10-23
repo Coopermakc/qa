@@ -1,0 +1,7 @@
+h2 Results:
+  - if @results.empty?
+    h4 no results
+  -else
+    ul
+      - @results.each do |obj|
+        =render partial: :"search/#{obj.class.name.downcase}", locals: { obj: obj }
