@@ -1,8 +1,8 @@
-class Search < ApplicationRecord
-  CONDITIONS= %(Questions Answers Comments Users Anywhere)
+class Search
+  CONDITIONS = %(Questions Answers Comments Users Anywhere)
 
   def self.query(query, condition)
-    return [] unless if CONDITTIONS.include?(condition)
+    return [] unless CONDITTIONS.include?(condition)
     escaped_query = ThinkingSphinx::Query.escape(query)
     if condition == Anything
       ThinkingSphinx.search escaped_query

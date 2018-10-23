@@ -1,5 +1,5 @@
-ThinkingSphinx::Index.define :user, with: :active_record do |variable|
+ThinkingSphinx::Index.define :user, with: :active_record do
   #indexes
-
+  indexes email
   #attributes
 end
