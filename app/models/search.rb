@@ -1,10 +1,12 @@
+require 'pry'
+
 class Search
-  CONDITIONS = %(Questions Answers Comments Users Anywhere)
+  CONDITIONS = ["Questions", "Answers", "Comments", "Users", "Anywhere"]
 
   def self.query(query, condition)
-    return [] unless CONDITTIONS.include?(condition)
+    return [] unless CONDITIONS.include?(condition)
     escaped_query = ThinkingSphinx::Query.escape(query)
-    if condition == Anything
+    if condition == "Anywhere"
       ThinkingSphinx.search escaped_query
     else
       ThinkingSphinx.search escaped_query, classes: [condition.singularize.classify.constantize]
