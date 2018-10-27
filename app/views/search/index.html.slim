@@ -1,7 +1,18 @@
-h2 Results:
-  - if @results.empty?
-    h4 no results
-  -else
-    ul
-      - @results.each do |obj|
-        =render partial: :"search/#{obj.class.name.downcase}", locals: { obj: obj }
+- if @searching.present?
+  .search_resulting
+    p
+      | Были найдены следующие результаты
+      - @searching.results.each do |result|
+        .search_result
+          h3= result[:hint][:title]
+          p= result[:hint][:preview]
+          br
+          small= result[:hint][:type]
+          br
+          = link_to 'Подробнее', search_result_link(result)
+
+  .search_paging
+    = will_paginate @searching.raw_data
+
+- unless @searching.present?
+  p К сожалению, ничего не найдено

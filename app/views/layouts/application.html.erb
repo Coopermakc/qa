@@ -11,7 +11,7 @@
     <%= javascript_include_tag "application" %>
     <%= action_cable_meta_tag%>
     <%= include_gon(watch: true) %>
-    
+
   <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   </head>-->
@@ -32,10 +32,9 @@
                 <%= link_to "Войти", new_user_session_path  %>
             <% end %>
             <%= link_to "Questions", questions_path %>
-            <%= form_with(url: "/search", method: "get") do %>
+            <%= form_tag '/search', method: 'GET' do %>
               <%= label_tag(:query, "Search for:") %>
               <%= text_field_tag(:query, params[:query]) %>
-              <%= select_tag(:condition, options_for_select(Search::CONDITIONS, params[:condition])) %>
               <%= submit_tag("Search") %>
             <% end %>
         </div>
@@ -48,7 +47,7 @@
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-                  
+
 
       </div><!--/row-->
 
