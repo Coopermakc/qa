@@ -17,12 +17,14 @@ class Answer < ApplicationRecord
   after_create :send_new_answer
   after_create :subscribers_informer
 
+  update_index('store#answer') { self }
+
   settings ES_SETTING do
-  mappings dynamic: 'true' do
-    indexes :body, type: 'text', analyzer: 'my_analyzer'
-    indexes :searching, type: 'boolean'
+    mappings dynamic: 'true' do
+      indexes :body, type: 'text', analyzer: 'my_analyzer'
+      indexes :searching, type: 'boolean'
+    end
   end
-end
 
   def best
     ActiveRecord::Base.transaction do

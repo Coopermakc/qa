@@ -52,6 +52,7 @@ gem 'chewy'
 gem 'will_paginate'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem "celluloid", git: "https://github.com/celluloid/celluloid", submodules: true
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

@@ -17,6 +17,7 @@ class Question < ApplicationRecord
   validates :body, :title, presence: true
 
   after_create :author_subscribe
+  update_index('store#question') { self }
 
   accepts_nested_attributes_for :attachments, reject_if: :all_blank
 

@@ -1,17 +1,7 @@
 require 'pry'
 
 class Search
-  # CONDITIONS = ["Questions", "Answers", "Comments", "Users", "Anywhere"]
-  #
-  # def self.query(query, condition)
-  #   return [] unless CONDITIONS.include?(condition)
-  #   escaped_query = ThinkingSphinx::Query.escape(query)
-  #   if condition == "Anywhere"
-  #     ThinkingSphinx.search escaped_query
-  #   else
-  #     ThinkingSphinx.search escaped_query, classes: [condition.singularize.classify.constantize]
-  #   end
-  # end
+
   MODELS_TO_SEARCH = [Question, Answer].freeze
 
   def initialize
@@ -70,7 +60,7 @@ class Search
           },
           filter: [
             {
-              term: { searching: true }
+              term: { searching: false }
             }
           ]
         }
@@ -81,7 +71,7 @@ class Search
   def build_hint(record)
     {
       title: record.title,
-      preview: record.preview,
+      #preview: record.preview,
       type: hint_type(record)
     }
   end
