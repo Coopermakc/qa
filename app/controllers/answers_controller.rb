@@ -2,7 +2,7 @@ require 'pry'
 class AnswersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :load_question, only: [:create]
-  before_action :set_answer, only: [:destroy, :update, :best]
+  before_action :set_answer, only: [:destroy, :update, :best, :show]
   #after_action :publish_answer, only: [:create]
   respond_to :js, :json
   authorize_resource
@@ -21,7 +21,6 @@ class AnswersController < ApplicationController
      @answer = Answer.find(params[:id])
      @answer.update(answer_params)
      @question = @answer.question
-
   end
 
   def destroy

@@ -4,12 +4,15 @@
       | Были найдены следующие результаты
       - @searching.results.each do |result|
         .search_result
-          h3= result[:hint][:title]
+          h3= result[:hint][:body]
           p= result[:hint][:preview]
           br
           small= result[:hint][:type]
           br
-          = link_to 'Подробнее', search_result_link(result)
+          - if result[:record_type] == "Question"
+            = link_to 'Подробнее', search_result_link(result)
+          - else
+            = link_to 'Подробнее', question_path(Answer.find(result[:record_id]).question)
 
   .search_paging
     = will_paginate @searching.raw_data

@@ -24,6 +24,10 @@ class Search
     @results
   end
 
+  def get_question_for_answer_show(result)
+    @question = Answer.find(result[:record_id]).question
+  end
+
   private
 
   def run_elastic(search_word, page, per_page)
@@ -70,8 +74,8 @@ class Search
 
   def build_hint(record)
     {
-      title: record.title,
-      #preview: record.preview,
+      body: record.body,
+      preview: record.preview,
       type: hint_type(record)
     }
   end

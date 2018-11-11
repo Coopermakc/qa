@@ -1,4 +1,4 @@
-require 'pry'
+
 class Answer < ApplicationRecord
 
   include Elasticsearch::Model
@@ -17,7 +17,7 @@ class Answer < ApplicationRecord
   after_create :send_new_answer
   after_create :subscribers_informer
 
-  update_index('store#answer') { self }
+  
 
   settings ES_SETTING do
     mappings dynamic: 'true' do

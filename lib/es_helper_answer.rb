@@ -6,11 +6,11 @@ module EsHelperAnswer
     }
   end
 
-  # def preview
-  #   if description.size > 25
-  #     description[0, 25] + '...'
-  #   else
-  #     description
-  #   end
-  # end
+  def preview
+    if body.size > 25
+      body[0, 25] + '...'
+    else
+      body
+    end
+  end
 end
