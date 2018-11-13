@@ -1,4 +1,5 @@
 require_relative 'boot'
+require 'parser/current'
 
 require 'rails/all'
 

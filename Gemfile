@@ -34,6 +34,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-vkontakte'
 gem 'letter_opener'
+gem 'rubocop-rspec'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -53,6 +54,8 @@ gem 'will_paginate'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem "celluloid", git: "https://github.com/celluloid/celluloid", submodules: true
+gem 'dotenv'
+gem 'dotenv-deployment', require: 'dotenv/deployment'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -72,6 +75,10 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rvm', require: false
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -85,6 +92,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'launchy'
   gem 'json_spec'
+  gem 'parser'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

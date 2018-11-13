@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :answer do
-    body "MyAnswer"
+    body { "MyAnswer" }
   end
 
   factory :invalid_answer, class: "Answer" do
-    body nil
+    body { nil }
   end
 end
