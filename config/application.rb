@@ -1,10 +1,10 @@
 require_relative 'boot'
-require 'parser/current'
 
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
+require 'parser/current'
 Bundler.require(*Rails.groups)
 
 module Qa

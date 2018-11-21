@@ -62788,3 +62788,1231 @@ AnswersChannel#follow
 QuestionsChannel is streaming from questions
 QuestionsChannel is streaming from questions
 AnswersChannel is streaming from answers
+Started GET "/" for 127.0.0.1 at 2018-11-17 18:08:58 +0300
+Chewy request strategy is `atomic`
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (15.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (8.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.5ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/index.html.slim within layouts/application (80.7ms)
+Completed 200 OK in 950ms (Views: 838.4ms | ActiveRecord: 54.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:08:59 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:08:59 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-11-17 18:10:22 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (94.4ms)
+Completed 200 OK in 202ms (Views: 176.9ms | ActiveRecord: 3.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:10:22 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:10:22 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:10:22 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-11-17 18:10:46 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c4+ml03pJQFptGhA1IvV9bOAh+ePRt8Tv33+Pxxo3eKBVKURpmfItQq4n3XrFJsJJagzkgX7zrRKokW0s46U9Q==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (30.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-11-17 15:10:46.446340"], ["last_sign_in_at", "2018-11-10 10:58:55.733104"], ["sign_in_count", 43], ["updated_at", "2018-11-17 15:10:46.447587"], ["id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 271ms (ActiveRecord: 34.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-17 18:10:46 +0300
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (3.4ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/index.html.slim within layouts/application (14.6ms)
+Completed 200 OK in 94ms (Views: 89.5ms | ActiveRecord: 0.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:10:46 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:10:46 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:10:46 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-11-17 18:10:50 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CpkUG9NxCBB55kLcCTzzq7u1SgFxy9Z8oPWJ1CxdSeh1fpt790/r8d3gw17DDQyeTXhOYntbHgBr/ggch3uhhg=="}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-17 18:10:50 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (2.5ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/index.html.slim within layouts/application (15.3ms)
+Completed 200 OK in 93ms (Views: 89.3ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:10:51 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:10:51 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:10:51 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/questions" for 127.0.0.1 at 2018-11-17 18:10:53 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (3.0ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/index.html.slim within layouts/application (15.0ms)
+Completed 200 OK in 117ms (Views: 114.0ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:10:53 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:10:53 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:10:53 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/questions" for 127.0.0.1 at 2018-11-17 18:10:58 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (3.0ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/index.html.slim within layouts/application (14.7ms)
+Completed 200 OK in 90ms (Views: 87.3ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:10:58 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:10:58 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:10:58 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:01 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:11:01 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:01 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/questions" for 127.0.0.1 at 2018-11-17 18:11:03 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (3.0ms)
+  Rendered questions/_question.html.slim (0.3ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.3ms)
+  Rendered questions/index.html.slim within layouts/application (15.6ms)
+Completed 200 OK in 105ms (Views: 101.5ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:04 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:11:04 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:04 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-11-17 18:11:05 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 102ms (Views: 101.0ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:05 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:11:05 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:05 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-11-17 18:11:17 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 123ms (Views: 122.3ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:17 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:11:17 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:17 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:24 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:11:30 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:30 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-11-17 18:11:42 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E6HByBzL4cvUUPTsCxXx1LpPRAG4ldFhHdXadsQUFEawy+z0za0rKcqa25PszcYtST+kG2q2tELeo0KLAkiC9g==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-11-17 15:11:42.952144"], ["last_sign_in_at", "2018-11-17 15:10:46.446340"], ["sign_in_count", 44], ["updated_at", "2018-11-17 15:11:42.953034"], ["id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 177ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-17 18:11:42 +0300
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (2.6ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/index.html.slim within layouts/application (14.4ms)
+Completed 200 OK in 89ms (Views: 83.5ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:43 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:11:43 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:43 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/questions/101" for 127.0.0.1 at 2018-11-17 18:11:51 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"101"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 101], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubscription Load (17.4ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."question_id" = $1 AND "subscriptions"."user_id" = 1 LIMIT $2[0m  [["question_id", 101], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (24.9ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 101], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (38.9ms)
+  [1m[36mAttachment Load (14.7ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 101], ["attachable_type", "Question"]]
+  [1m[36mComment Load (15.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 101], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (14.6ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 101]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 70], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (5.8ms)
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 70], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 70], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (42.5ms)
+  Rendered attachments/_attachments_fields.html.slim (5.4ms)
+  Rendered attachments/_attachments_fields.html.slim (3.1ms)
+  Rendered questions/show.html.slim within layouts/application (213.4ms)
+Completed 200 OK in 395ms (Views: 206.0ms | ActiveRecord: 107.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:51 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:11:51 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:11:51 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started POST "/questions/101/votes/up_rating" for 127.0.0.1 at 2018-11-17 18:11:56 +0300
+Processing by VotesController#up_rating as JS
+  Parameters: {"question_id"=>"101"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 101], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "votes" ("created_at", "updated_at", "rating", "user_id", "votable_id", "votable_type") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-11-17 15:11:56.418598"], ["updated_at", "2018-11-17 15:11:56.418598"], ["rating", 1], ["user_id", 1], ["votable_id", 101], ["votable_type", "Question"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 101], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 101], ["votable_type", "Question"]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 43ms (Views: 11.1ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/questions/101/votes/unvote" for 127.0.0.1 at 2018-11-17 18:11:58 +0300
+Processing by VotesController#unvote as JS
+  Parameters: {"question_id"=>"101"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 101], ["LIMIT", 1]]
+  [1m[36mVote Load (0.5ms)[0m  [1m[34mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = $1 AND "votes"."votable_type" = 'Question' AND "votes"."votable_id" = 101 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 20]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 101], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 101], ["votable_type", "Question"]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/answers/70/votes/up_rating" for 127.0.0.1 at 2018-11-17 18:13:04 +0300
+Processing by VotesController#up_rating as JS
+  Parameters: {"answer_id"=>"70"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "votes" ("created_at", "updated_at", "rating", "user_id", "votable_id", "votable_type") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-11-17 15:13:04.380772"], ["updated_at", "2018-11-17 15:13:04.380772"], ["rating", 1], ["user_id", 1], ["votable_id", 70], ["votable_type", "Answer"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 70], ["votable_type", "Answer"]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/answers/70/votes/unvote" for 127.0.0.1 at 2018-11-17 18:13:05 +0300
+Processing by VotesController#unvote as JS
+  Parameters: {"answer_id"=>"70"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  [1m[36mVote Load (0.4ms)[0m  [1m[34mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = $1 AND "votes"."votable_type" = 'Answer' AND "votes"."votable_id" = 70 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "votes" WHERE "votes"."id" = $1[0m  [["id", 21]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 70], ["votable_type", "Answer"]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 3.6ms)
+
+
+Started PATCH "/questions/101" for 127.0.0.1 at 2018-11-17 18:13:20 +0300
+Processing by QuestionsController#update as JS
+  Parameters: {"utf8"=>"✓", "question"=>{"title"=>"subscriptionn2", "body"=>"subscrinxrnxrx"}, "commit"=>"Save", "id"=>"101"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 101], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "questions" SET "title" = $1, "updated_at" = $2 WHERE "questions"."id" = $3[0m  [["title", "subscriptionn2"], ["updated_at", "2018-11-17 15:13:20.939215"], ["id", 101]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering questions/update.js.erb
+  Rendered questions/_question.html.slim (541.1ms)
+  Rendered questions/update.js.erb (544.3ms)
+Completed 500 Internal Server Error in 1046ms (ActiveRecord: 3.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `q' for #<#<Class:0x007fa1332f69e0>:0x007fa13d3cbcf8>):
+    1: .questions-list
+    2:   = q.title
+    3:   p= link_to 'Show', question_path(q)
+  
+app/views/questions/_question.html.slim:2:in `_app_views_questions__question_html_slim__2280248786985585716_70165253990480'
+app/views/questions/update.js.erb:7:in `_app_views_questions_update_js_erb__3564047571374684437_70165246923780'
+app/controllers/questions_controller.rb:31:in `update'
+Started GET "/questions/101" for 127.0.0.1 at 2018-11-17 18:13:29 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"101"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 101], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."question_id" = $1 AND "subscriptions"."user_id" = 1 LIMIT $2[0m  [["question_id", 101], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 101], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (6.1ms)
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 101], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 101], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 101]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 70], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.2ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 70], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 70], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (15.9ms)
+  Rendered attachments/_attachments_fields.html.slim (2.8ms)
+  Rendered attachments/_attachments_fields.html.slim (2.5ms)
+  Rendered questions/show.html.slim within layouts/application (48.3ms)
+Completed 200 OK in 148ms (Views: 138.4ms | ActiveRecord: 3.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:13:29 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:13:29 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:13:29 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started POST "/questions/101/answers" for 127.0.0.1 at 2018-11-17 18:13:42 +0300
+Processing by AnswersController#create as JS
+  Parameters: {"utf8"=>"✓", "answer"=>{"body"=>"uyruyfjc"}, "commit"=>"Create", "question_id"=>"101"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 101], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (15.1ms)[0m  [1m[32mINSERT INTO "answers" ("body", "question_id", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "uyruyfjc"], ["question_id", 101], ["created_at", "2018-11-17 15:13:42.075041"], ["updated_at", "2018-11-17 15:13:42.075041"], ["user_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] Enqueued SubscribersSenderJob (Job ID: b1599680-9298-4355-b507-22fd764910a2) to Sidekiq(default) with arguments: #<GlobalID:0x007fa13b1c0d20 @uri=#<URI::GID gid://qa/Answer/72>>
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering answers/create.js.erb
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 101]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 70], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (6.3ms)
+  [1m[36mAttachment Load (0.5ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 70], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 70], ["commentable_type", "Answer"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 72], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.4ms)
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 72], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 72], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (41.4ms)
+  Rendered answers/create.js.erb (45.4ms)
+Completed 200 OK in 617ms (Views: 69.8ms | ActiveRecord: 25.3ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2018-11-17 18:13:57 +0300
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (8.0ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.4ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/index.html.slim within layouts/application (22.8ms)
+Completed 200 OK in 121ms (Views: 115.5ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:13:57 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:13:57 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:13:57 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started GET "/search?utf8=%E2%9C%93&query=third&commit=Search" for 127.0.0.1 at 2018-11-17 18:14:04 +0300
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"third", "commit"=>"Search"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = 103[0m
+  Rendering search/index.html.slim within layouts/application
+  Rendered search/index.html.slim within layouts/application (7.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 326ms (Views: 131.8ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:14:04 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:14:04 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:14:04 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/questions/103" for 127.0.0.1 at 2018-11-17 18:14:10 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"103"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."question_id" = $1 AND "subscriptions"."user_id" = 1 LIMIT $2[0m  [["question_id", 103], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 103], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (5.6ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 103], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 103], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 103]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 71], ["votable_type", "Answer"]]
+  Rendered votes/_vote.html.slim (2.3ms)
+  [1m[36mAttachment Load (0.3ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 71], ["attachable_type", "Answer"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 71], ["commentable_type", "Answer"]]
+  Rendered answers/_answers.html.slim (18.0ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered questions/show.html.slim within layouts/application (52.4ms)
+Completed 200 OK in 132ms (Views: 123.4ms | ActiveRecord: 3.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:14:10 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:14:10 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:14:10 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:14:17 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-11-17 18:14:25 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PbM5V+aPqZo+sJBHm98+1ztndI6pRIflUmyqxeKDCXUthNZACyG7gUZajmhqaKLQBvdNiLbNOQqAgPKlYThVfw=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-17 18:14:25 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (2.6ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/index.html.slim within layouts/application (15.9ms)
+Completed 200 OK in 94ms (Views: 91.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:14:25 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:14:25 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:14:28 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:14:30 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:14:30 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/questions" for 127.0.0.1 at 2018-11-17 18:15:19 +0300
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (3.4ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/index.html.slim within layouts/application (15.2ms)
+Completed 200 OK in 97ms (Views: 94.0ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:15:20 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-17 18:15:20 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:15:20 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-17 18:15:33 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+  [1m[36mAnswer Load (17.8ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  Rendering answer_mailer/new_answer.html.slim within layouts/mailer
+  Rendered answer_mailer/new_answer.html.slim within layouts/mailer (18.0ms)
+  Rendering answer_mailer/new_answer.text.slim within layouts/mailer
+  Rendered answer_mailer/new_answer.text.slim within layouts/mailer (2.5ms)
+AnswerMailer#new_answer: processed outbound mail in 500.3ms
+Sent mail to test@test.com (43.2ms)
+Date: Sun, 18 Nov 2018 21:43:34 +0300
+From: from@example.com
+To: test@test.com
+Message-ID: <5bf1b2d64e208_b55a3fdfaba019bc75424@Air-MacBook.mail>
+Subject: New answer
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bf1b2d64a28f_b55a3fdfaba019bc753a1";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bf1b2d64a28f_b55a3fdfaba019bc753a1
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Answer#new_answer 
+
+Hi, find me in app/views/answer_mailer/new_answer.text.slim 
+
+----==_mimepart_5bf1b2d64a28f_b55a3fdfaba019bc753a1
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Answer#new_answer</h1><p>Hi, find me in app/views/answer_mailer/new_answer.html.slim</p>
+  </body>
+</html>
+
+----==_mimepart_5bf1b2d64a28f_b55a3fdfaba019bc753a1--
+
+  [1m[36mAnswer Load (1.1ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  [1m[36mAnswer Load (1.7ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  [1m[36mAnswer Load (1.9ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  Rendering answer_mailer/new_answer.html.slim within layouts/mailer
+  Rendered answer_mailer/new_answer.html.slim within layouts/mailer (3.0ms)
+  Rendering answer_mailer/new_answer.text.slim within layouts/mailer
+  Rendered answer_mailer/new_answer.text.slim within layouts/mailer (2.3ms)
+AnswerMailer#new_answer: processed outbound mail in 35.1ms
+Sent mail to test@test.com (14.2ms)
+Date: Sun, 18 Nov 2018 21:46:37 +0300
+From: from@example.com
+To: test@test.com
+Message-ID: <5bf1b38df0335_b55a3fdfaba00ff8756a5@Air-MacBook.mail>
+Subject: New answer
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bf1b38defa94_b55a3fdfaba00ff87552";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bf1b38defa94_b55a3fdfaba00ff87552
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Answer#new_answer 
+
+Hi, find me in app/views/answer_mailer/new_answer.text.slim 
+
+----==_mimepart_5bf1b38defa94_b55a3fdfaba00ff87552
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Answer#new_answer</h1><p>Hi, find me in app/views/answer_mailer/new_answer.html.slim</p>
+  </body>
+</html>
+
+----==_mimepart_5bf1b38defa94_b55a3fdfaba00ff87552--
+
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  [1m[36mAnswer Load (1.1ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  [1m[36mAnswer Load (0.7ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-11-18 21:47:15 +0300
+Chewy request strategy is `atomic`
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (3.7ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/index.html.slim within layouts/application (43.3ms)
+Completed 200 OK in 9941ms (Views: 9897.5ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-11-18 21:47:25 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:47:26 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-11-18 21:47:28 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (96.4ms)
+Completed 200 OK in 244ms (Views: 215.8ms | ActiveRecord: 3.1ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:47:28 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-18 21:47:28 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:47:28 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-11-18 21:47:36 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dpQuKs8W8E/CZYpw5pdcMVh9Mnjp4FP+pPOaC6Nqyk9Mlg3vG1wXOcnEI6j4r6yuQQjPQGHWXcOqRGsK9HjFYQ==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (8.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-11-18 18:47:37.141398"], ["last_sign_in_at", "2018-11-17 15:11:42.952144"], ["sign_in_count", 45], ["updated_at", "2018-11-18 18:47:37.142751"], ["id", 1]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 239ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-18 21:47:37 +0300
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (2.7ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.1ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/index.html.slim within layouts/application (14.8ms)
+Completed 200 OK in 98ms (Views: 92.4ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:47:37 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-18 21:47:37 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:47:37 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started GET "/questions/102" for 127.0.0.1 at 2018-11-18 21:47:40 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"102"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubscription Load (0.7ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."question_id" = $1 AND "subscriptions"."user_id" = 1 LIMIT $2[0m  [["question_id", 102], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 102], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (13.7ms)
+  [1m[36mAttachment Load (0.5ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 102], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 102], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.8ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 102]]
+  Rendered answers/_answers.html.slim (13.1ms)
+  Rendered attachments/_attachments_fields.html.slim (5.3ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered questions/show.html.slim within layouts/application (114.8ms)
+Completed 200 OK in 294ms (Views: 193.9ms | ActiveRecord: 18.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:47:40 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-18 21:47:41 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:47:41 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started PATCH "/questions/102" for 127.0.0.1 at 2018-11-18 21:47:55 +0300
+Processing by QuestionsController#update as JS
+  Parameters: {"utf8"=>"✓", "question"=>{"title"=>"for search test", "body"=>"question test search"}, "commit"=>"Save", "id"=>"102"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "questions" SET "title" = $1, "updated_at" = $2 WHERE "questions"."id" = $3[0m  [["title", "for search test"], ["updated_at", "2018-11-18 18:47:55.755628"], ["id", 102]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering questions/update.js.erb
+  Rendered questions/_question.html.slim (544.4ms)
+  Rendered questions/update.js.erb (548.9ms)
+Completed 500 Internal Server Error in 664ms (ActiveRecord: 2.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `q' for #<#<Class:0x00007fcf392c1b58>:0x00007fcf42710548>):
+    1: .questions-list
+    2:   = q.title
+    3:   p= link_to 'Show', question_path(q)
+  
+app/views/questions/_question.html.slim:2:in `_app_views_questions__question_html_slim___2937043047274602796_70264074604700'
+app/views/questions/update.js.erb:7:in `_app_views_questions_update_js_erb__4332248492629513268_70264074815760'
+app/controllers/questions_controller.rb:31:in `update'
+  [1m[36mAnswer Load (1.2ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+Started GET "/questions/102" for 127.0.0.1 at 2018-11-18 21:51:30 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"102"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."question_id" = $1 AND "subscriptions"."user_id" = 1 LIMIT $2[0m  [["question_id", 102], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 102], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (11.7ms)
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 102], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 102], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 102]]
+  Rendered answers/_answers.html.slim (17.3ms)
+  Rendered attachments/_attachments_fields.html.slim (4.7ms)
+  Rendered attachments/_attachments_fields.html.slim (4.8ms)
+  Rendered questions/show.html.slim within layouts/application (77.6ms)
+Completed 200 OK in 235ms (Views: 223.9ms | ActiveRecord: 2.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:51:30 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-18 21:51:30 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:51:30 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Started PATCH "/questions/102" for 127.0.0.1 at 2018-11-18 21:51:41 +0300
+Processing by QuestionsController#update as JS
+  Parameters: {"utf8"=>"✓", "question"=>{"title"=>"for search", "body"=>"question test search"}, "commit"=>"Save", "id"=>"102"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "questions" SET "title" = $1, "updated_at" = $2 WHERE "questions"."id" = $3[0m  [["title", "for search"], ["updated_at", "2018-11-18 18:51:41.038593"], ["id", 102]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering questions/update.js.erb
+  Rendered questions/_question.html.slim (485.8ms)
+  Rendered questions/update.js.erb (489.7ms)
+Completed 500 Internal Server Error in 623ms (ActiveRecord: 3.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `q' for #<#<Class:0x00007fcf392c1b58>:0x00007fcf43692188>):
+    1: .questions-list
+    2:   = q.title
+    3:   p= link_to 'Show', question_path(q)
+  
+app/views/questions/_question.html.slim:2:in `_app_views_questions__question_html_slim___2937043047274602796_70264014035420'
+app/views/questions/update.js.erb:7:in `_app_views_questions_update_js_erb__4332248492629513268_70264082957800'
+app/controllers/questions_controller.rb:31:in `update'
+  [1m[36mAnswer Load (1.5ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+Started GET "/questions/102" for 127.0.0.1 at 2018-11-18 21:56:36 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"102"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."question_id" = $1 AND "subscriptions"."user_id" = 1 LIMIT $2[0m  [["question_id", 102], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 102], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (8.4ms)
+  [1m[36mAttachment Load (0.5ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 102], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 102], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.7ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 102]]
+  Rendered answers/_answers.html.slim (8.5ms)
+  Rendered attachments/_attachments_fields.html.slim (2.8ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered questions/show.html.slim within layouts/application (52.2ms)
+Completed 200 OK in 147ms (Views: 137.7ms | ActiveRecord: 3.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:56:36 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-18 21:56:36 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:56:36 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started PATCH "/questions/102" for 127.0.0.1 at 2018-11-18 21:56:42 +0300
+Processing by QuestionsController#update as JS
+  Parameters: {"utf8"=>"✓", "question"=>{"title"=>"for search test", "body"=>"question test search"}, "commit"=>"Save", "id"=>"102"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "questions" SET "title" = $1, "updated_at" = $2 WHERE "questions"."id" = $3[0m  [["title", "for search test"], ["updated_at", "2018-11-18 18:56:42.667058"], ["id", 102]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering questions/update.js.erb
+  Rendered questions/_question.html.slim (485.6ms)
+  Rendered questions/update.js.erb (488.9ms)
+Completed 500 Internal Server Error in 556ms (ActiveRecord: 3.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `q' for #<#<Class:0x00007fcf392c1b58>:0x00007fcf438c9b40>):
+    1: .questions-list
+    2:   = q.title
+    3:   p= link_to 'Show', question_path(q)
+  
+app/views/questions/_question.html.slim:2:in `_app_views_questions__question_html_slim___2937043047274602796_70264083274660'
+app/views/questions/update.js.erb:7:in `_app_views_questions_update_js_erb__4332248492629513268_70264084120420'
+app/controllers/questions_controller.rb:31:in `update'
+  [1m[36mAnswer Load (1.6ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+Started GET "/questions/102" for 127.0.0.1 at 2018-11-18 21:59:24 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"102"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."question_id" = $1 AND "subscriptions"."user_id" = 1 LIMIT $2[0m  [["question_id", 102], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 102], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (10.2ms)
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 102], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 102], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 102]]
+  Rendered answers/_answers.html.slim (32.0ms)
+  Rendered attachments/_attachments_fields.html.slim (4.8ms)
+  Rendered attachments/_attachments_fields.html.slim (2.4ms)
+  Rendered questions/show.html.slim within layouts/application (88.9ms)
+Completed 200 OK in 177ms (Views: 167.7ms | ActiveRecord: 2.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:59:24 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+Started GET "/cable" for 127.0.0.1 at 2018-11-18 21:59:24 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 21:59:24 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+Started PATCH "/questions/102" for 127.0.0.1 at 2018-11-18 21:59:31 +0300
+Processing by QuestionsController#update as JS
+  Parameters: {"utf8"=>"✓", "question"=>{"title"=>"for search", "body"=>"question test search"}, "commit"=>"Save", "id"=>"102"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "questions" SET "title" = $1, "updated_at" = $2 WHERE "questions"."id" = $3[0m  [["title", "for search"], ["updated_at", "2018-11-18 18:59:31.452995"], ["id", 102]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering questions/update.js.erb
+  Rendered questions/update.js.erb (14.8ms)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/_show with {:locale=>[:en], :formats=>[:js, :html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :slim, :coffee, :jbuilder]}. Searched in:
+  * "/Users/macbook/qa/app/views"
+  * "/Users/macbook/.rvm/gems/ruby-2.4.5/gems/doorkeeper-4.2.6/app/views"
+  * "/Users/macbook/.rvm/gems/ruby-2.4.5/gems/twitter-bootstrap-rails-4.0.0/app/views"
+  * "/Users/macbook/.rvm/gems/ruby-2.4.5/gems/devise-4.5.0/app/views"
+):
+    4:         $('.question-errors').html('<%= j message %>');
+    5:     <% end %>
+    6: <% else %>
+    7:     $('.question').html('<%= j render 'questions/show' %>');
+    8:     $('.edit-question-link').click(function(e) {
+    9:         e.preventDefault();
+   10:     	  $('.question').hide();
+  
+app/views/questions/update.js.erb:7:in `_app_views_questions_update_js_erb__4332248492629513268_70264081305640'
+app/controllers/questions_controller.rb:31:in `update'
+Started GET "/questions/102" for 127.0.0.1 at 2018-11-18 22:00:13 +0300
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"102"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSubscription Load (0.4ms)[0m  [1m[34mSELECT  "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."question_id" = $1 AND "subscriptions"."user_id" = 1 LIMIT $2[0m  [["question_id", 102], ["LIMIT", 1]]
+  Rendering questions/show.html.slim within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("votes"."rating") FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2[0m  [["votable_id", 102], ["votable_type", "Question"]]
+  Rendered votes/_vote.html.slim (6.1ms)
+  [1m[36mAttachment Load (0.4ms)[0m  [1m[34mSELECT "attachments".* FROM "attachments" WHERE "attachments"."attachable_id" = $1 AND "attachments"."attachable_type" = $2[0m  [["attachable_id", 102], ["attachable_type", "Question"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 102], ["commentable_type", "Question"]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1 ORDER BY "answers"."best" DESC[0m  [["question_id", 102]]
+  Rendered answers/_answers.html.slim (9.9ms)
+  Rendered attachments/_attachments_fields.html.slim (2.5ms)
+  Rendered attachments/_attachments_fields.html.slim (2.6ms)
+  Rendered questions/show.html.slim within layouts/application (50.3ms)
+Completed 200 OK in 160ms (Views: 151.1ms | ActiveRecord: 2.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 22:00:14 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
+Started GET "/cable" for 127.0.0.1 at 2018-11-18 22:00:14 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 22:00:14 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel#follow
+QuestionsChannel is streaming from questions
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+Started PATCH "/questions/102" for 127.0.0.1 at 2018-11-18 22:00:19 +0300
+Processing by QuestionsController#update as JS
+  Parameters: {"utf8"=>"✓", "question"=>{"title"=>"for search test", "body"=>"question test search"}, "commit"=>"Save", "id"=>"102"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "questions" SET "title" = $1, "updated_at" = $2 WHERE "questions"."id" = $3[0m  [["title", "for search test"], ["updated_at", "2018-11-18 19:00:19.609351"], ["id", 102]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering questions/update.js.erb
+  Rendered questions/update.js.erb (14.9ms)
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 3.3ms)
+
+
+  
+ActionView::Template::Error (Missing partial questions/_102 with {:locale=>[:en], :formats=>[:js, :html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :slim, :coffee, :jbuilder]}. Searched in:
+  * "/Users/macbook/qa/app/views"
+  * "/Users/macbook/.rvm/gems/ruby-2.4.5/gems/doorkeeper-4.2.6/app/views"
+  * "/Users/macbook/.rvm/gems/ruby-2.4.5/gems/twitter-bootstrap-rails-4.0.0/app/views"
+  * "/Users/macbook/.rvm/gems/ruby-2.4.5/gems/devise-4.5.0/app/views"
+):
+    4:         $('.question-errors').html('<%= j message %>');
+    5:     <% end %>
+    6: <% else %>
+    7:     $('.question').html('<%= j render question_path(@question) %>');
+    8:     $('.edit-question-link').click(function(e) {
+    9:         e.preventDefault();
+   10:     	  $('.question').hide();
+  
+app/views/questions/update.js.erb:7:in `_app_views_questions_update_js_erb__4332248492629513268_70264036412380'
+app/controllers/questions_controller.rb:31:in `update'
+Started PATCH "/questions/102" for 127.0.0.1 at 2018-11-18 22:00:59 +0300
+Processing by QuestionsController#update as JS
+  Parameters: {"utf8"=>"✓", "question"=>{"title"=>"for search test", "body"=>"question test search"}, "commit"=>"Save", "id"=>"102"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering questions/update.js.erb
+  Rendered questions/_question.html.slim (552.4ms)
+  Rendered questions/update.js.erb (555.6ms)
+Completed 500 Internal Server Error in 605ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `q' for #<#<Class:0x00007fcf392c1b58>:0x00007fcf4251afb8>):
+    1: .questions-list
+    2:   = q.title
+    3:   p= link_to 'Show', question_path(q)
+  
+app/views/questions/_question.html.slim:2:in `_app_views_questions__question_html_slim___2937043047274602796_70264073586880'
+app/views/questions/update.js.erb:7:in `_app_views_questions_update_js_erb__4332248492629513268_70264073788300'
+app/controllers/questions_controller.rb:31:in `update'
+Started PATCH "/questions/102" for 127.0.0.1 at 2018-11-18 22:01:30 +0300
+Processing by QuestionsController#update as JS
+  Parameters: {"utf8"=>"✓", "question"=>{"title"=>"for search test", "body"=>"question test search"}, "commit"=>"Save", "id"=>"102"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering questions/update.js.erb
+  Rendered questions/update.js.erb (516.2ms)
+Completed 500 Internal Server Error in 569ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `show' for #<#<Class:0x00007fcf392c1b58>:0x00007fcf430e3e08>):
+    4:         $('.question-errors').html('<%= j message %>');
+    5:     <% end %>
+    6: <% else %>
+    7:     $('.question').html('<%= j render show %>');
+    8:     $('.edit-question-link').click(function(e) {
+    9:         e.preventDefault();
+   10:     	  $('.question').hide();
+  
+app/views/questions/update.js.erb:7:in `_app_views_questions_update_js_erb__4332248492629513268_70264079975200'
+app/controllers/questions_controller.rb:31:in `update'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 22:03:24 +0300
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
+AnswersChannel stopped streaming from answers
