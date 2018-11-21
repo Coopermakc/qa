@@ -55,6 +55,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 #gem "celluloid", git: "https://github.com/celluloid/celluloid", submodules: true
 gem 'dotenv'
+gem 'dotenv-rails'
 gem 'dotenv-deployment', require: 'dotenv/deployment'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
