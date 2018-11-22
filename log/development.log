@@ -64016,3 +64016,32 @@ Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-18 22:03:24 +0300
 QuestionsChannel stopped streaming from questions
 QuestionsChannel stopped streaming from questions
 AnswersChannel stopped streaming from answers
+Started GET "/" for 127.0.0.1 at 2018-11-22 13:03:16 +0300
+Chewy request strategy is `atomic`
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuestionsController#index as HTML
+  Rendering questions/index.html.slim within layouts/application
+  [1m[36mQuestion Load (10.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/_question.html.slim (3.5ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/_question.html.slim (0.2ms)
+  Rendered questions/index.html.slim within layouts/application (73.0ms)
+Completed 200 OK in 906ms (Views: 803.9ms | ActiveRecord: 44.3ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-11-22 13:03:17 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-22 13:03:17 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+AnswersChannel is transmitting the subscription confirmation
+QuestionsChannel is transmitting the subscription confirmation
+AnswersChannel#follow
+QuestionsChannel#follow
+QuestionsChannel#follow
+AnswersChannel is streaming from answers
+QuestionsChannel is streaming from questions
+QuestionsChannel is streaming from questions
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-11-22 13:03:27 +0300
+AnswersChannel stopped streaming from answers
+QuestionsChannel stopped streaming from questions
+QuestionsChannel stopped streaming from questions
